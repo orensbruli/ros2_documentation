@@ -27,7 +27,7 @@ ROS 2 RMW only allows for the configuration of certain middleware QoS
 However, ``rmw_fastrtps`` offers extended configuration capabilities to take full advantage of the features in *Fast DDS*.
 This tutorial will guide you through a series of examples explaining how to use XML files to unlock this extended configuration.
 
-In order to get more information about using *Fast DDS* on ROS 2, please check the `following documentation <https://fast-dds.docs.eprosima.com/en/latest/fastdds/ros2/ros2.html>`__.
+In order to get more information about using *Fast DDS* on ROS 2, please check the `following documentation <https://fast-dds.docs.eprosima.com/es/latest/fastdds/ros2/ros2.html>`__.
 
 
 Prerequisites
@@ -492,7 +492,7 @@ Although we have created a node with two publishers with different configuration
 Now that the basics of XML profiles have been covered, let us use them to configure something which has some visual effect on the nodes.
 Specifically, a maximum number of matching subscribers on one of the publishers and a partition definition on the other will be set.
 Note that these are only very simple examples among all the configuration attributes that can be tuned on ``rmw_fastrtps`` through XML files.
-Please refer to `*Fast DDS* documentation <https://fast-dds.docs.eprosima.com/en/latest/fastdds/xml_configuration/xml_configuration.html#xml-profiles>`__ to  see the whole list of attributes that can be configured through XML files.
+Please refer to `*Fast DDS* documentation <https://fast-dds.docs.eprosima.com/es/latest/fastdds/xml_configuration/xml_configuration.html#xml-profiles>`__ to  see the whole list of attributes that can be configured through XML files.
 
 Limiting the number of matching subscribers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

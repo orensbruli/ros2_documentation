@@ -19,7 +19,7 @@ Prerequisites
 
 - :doc:`Install ROS <../../Installation>`
 
-- `Install colcon <https://colcon.readthedocs.io/en/released/user/installation.html>`__
+- `Install colcon <https://colcon.readthedocs.io/es/released/user/installation.html>`__
 
 - Setup your workspace by sourcing your ROS 2 installation.
 

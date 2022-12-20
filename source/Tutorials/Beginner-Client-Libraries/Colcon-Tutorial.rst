@@ -326,13 +326,13 @@ As an example ``colcon_cd some_ros_package`` would quickly bring you to the dire
 
       Not yet available
 
-Depending to the way you installed ``colcon_cd`` and where your workspace is, the instructions above may vary, please refer to `the documentation <https://colcon.readthedocs.io/en/released/user/installation.html#quick-directory-changes>`__ for more details.
+Depending to the way you installed ``colcon_cd`` and where your workspace is, the instructions above may vary, please refer to `the documentation <https://colcon.readthedocs.io/es/released/user/installation.html#quick-directory-changes>`__ for more details.
 To undo this in Linux and macOS, locate your system’s shell startup script and remove the appended source and export commands.
 
 Setup ``colcon`` tab completion
 -------------------------------
 
-The command ``colcon`` `supports command completion <https://colcon.readthedocs.io/en/released/user/installation.html#enable-completion>`__ for bash and bash-like shells if the ``colcon-argcomplete`` package is installed.
+The command ``colcon`` `supports command completion <https://colcon.readthedocs.io/es/released/user/installation.html#enable-completion>`__ for bash and bash-like shells if the ``colcon-argcomplete`` package is installed.
 
 .. tabs::
 
@@ -352,7 +352,7 @@ The command ``colcon`` `supports command completion <https://colcon.readthedocs.
 
       Not yet available
 
-Depending to the way you installed ``colcon`` and where your workspace is, the instructions above may vary, please refer to `the documentation <https://colcon.readthedocs.io/en/released/user/installation.html>`__ for more details.
+Depending to the way you installed ``colcon`` and where your workspace is, the instructions above may vary, please refer to `the documentation <https://colcon.readthedocs.io/es/released/user/installation.html>`__ for more details.
 To undo this in Linux and macOS, locate your system’s shell startup script and remove the appended source command.
 
 Tips

@@ -59,7 +59,7 @@ One of the maintainers of the package must manually request that a CI build is d
 By default, running a job in this way will build and run tests for all packages (> 300 currently) on all platforms (Linux, macOS, and Windows).
 As a full run can take many hours and tie up the CI machines, it is recommended that all runs here restrict the number of packages that are built and tested.
 This can be accomplished by using the colcon arguments ``--packages-up-to``, ``--packages-select``, ``--packages-above-and-dependencies``, ``--packages-above``, amongst others.
-See the `colcon documentation <https://colcon.readthedocs.io/en/released/user/how-to.html#build-only-a-single-package-or-selected-packages>`__ for more examples on the flags that can be used.
+See the `colcon documentation <https://colcon.readthedocs.io/es/released/user/how-to.html#build-only-a-single-package-or-selected-packages>`__ for more examples on the flags that can be used.
 Further documentation on how to use the CI machinery is available at https://github.com/ros2/ci/blob/master/CI_BUILDERS.md.
 
 Merging Pull Requests

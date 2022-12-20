@@ -381,7 +381,7 @@ The following rules to format text is intended to increase readability as well a
 
   * Rationale: It expedites to get an overview about the structure when screening the document.
 
-* *[.rst only]* In reStructured Text the headings should follow the hierarchy described in the `Sphinx style guide <https://documentation-style-guide-sphinx.readthedocs.io/en/latest/style-guide.html#headings>`__:
+* *[.rst only]* In reStructured Text the headings should follow the hierarchy described in the `Sphinx style guide <https://documentation-style-guide-sphinx.readthedocs.io/es/latest/style-guide.html#headings>`__:
 
   * ``#`` with overline (only once, used for the document title)
   * ``*`` with overline

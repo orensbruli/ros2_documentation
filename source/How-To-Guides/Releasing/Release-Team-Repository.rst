@@ -20,7 +20,7 @@ It is recommended that you request to join a release team and set up a release r
 What is a release team?
 -----------------------
 
-A release team is a `GitHub team <https://docs.github.com/en/organizations/organizing-members-into-teams/about-teams>`_ that consists of a group of people who are responsible for the release process of one or more repositories.
+A release team is a `GitHub team <https://docs.github.com/es/organizations/organizing-members-into-teams/about-teams>`_ that consists of a group of people who are responsible for the release process of one or more repositories.
 Release teams are often made up of an organization, a working group, or even an individual, and are named after the team or group that they represent.
 The list of release teams and their associated release repositories are maintained at `ros2-gbp-github-org <https://github.com/ros2-gbp/ros2-gbp-github-org>`_.
 

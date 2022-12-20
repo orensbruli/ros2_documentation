@@ -200,7 +200,7 @@ Examples:
 
   * This one gives an example of docs which describe the public API
 
-* catkin_tools: https://catkin-tools.readthedocs.org/en/latest/development/extending_the_catkin_command.html
+* catkin_tools: https://catkin-tools.readthedocs.org/es/latest/development/extending_the_catkin_command.html
 
   * This is an example of describing an extension point for a package
 
@@ -610,7 +610,7 @@ Before starting, go through the `Pull requests`_ section for best practices.
 * For each repo to be modified:
 
   * Modify the code, go to the next step if finished or at regular intervals to backup your work.
-  * `Self-review <https://git-scm.com/book/en/v2/Git-Tools-Interactive-Staging>`__ your changes using ``git add -i``.
+  * `Self-review <https://git-scm.com/book/es/v2/Git-Tools-Interactive-Staging>`__ your changes using ``git add -i``.
   * Create a new signed commit using ``git commit -s``.
 
     * A pull request should contain minimal semantically meaningful commits (for instance, a large number of 1-line commits is not acceptable).
