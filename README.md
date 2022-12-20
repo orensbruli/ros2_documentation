@@ -1,3 +1,6 @@
+[![Sync Rolling](https://github.com/ROS-Spanish-Users-Group/ros2_documentation/actions/workflows/sync_rolling.yml/badge.svg)](https://github.com/ROS-Spanish-Users-Group/ros2_documentation/actions/workflows/sync_rolling.yml)
+[![Sync Humble](https://github.com/ROS-Spanish-Users-Group/ros2_documentation/actions/workflows/sync_humble.yml/badge.svg)](https://github.com/ROS-Spanish-Users-Group/ros2_documentation/actions/workflows/sync_humble.yml)
+
 # Documnetación de ROS 2
 
 Este repositorio contiene las fuentes de la documentación de ROS 2 que está alojada en [https://docs.ros.org/es](https://docs.ros.org/es).
