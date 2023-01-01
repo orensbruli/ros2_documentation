@@ -40,7 +40,7 @@ default_role = 'any'
 suppress_warnings = ['image.nonlocal_uri']
 
 # General information about the project.
-project = 'ROS 2 documentation'
+project = 'Documentación de ROS 2'
 author = 'Open Robotics'
 copyright = '{}, {}'.format(time.strftime('%Y'), author)
 
