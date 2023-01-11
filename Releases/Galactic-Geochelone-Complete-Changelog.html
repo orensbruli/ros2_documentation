@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="canonical" href="https://ros-spanish-users-group.github.io/ros2_documentation/Releases/Galactic-Geochelone-Complete-Changelog.html" />
+    <link rel="canonical" href="https://docs.ros.org/es/Releases/Galactic-Geochelone-Complete-Changelog.html" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -318,8 +318,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Related-Projects.html">Related Projects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Related-Projects/Intel-ROS2-Projects.html">Proyectos ROS 2 de Intel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Related-Projects/Nvidia-ROS2-Projects.html">Proyectos NVIDIA ROS 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Related-Projects/Intel-ROS2-Projects.html">Intel ROS 2 Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Related-Projects/Nvidia-ROS2-Projects.html">NVIDIA ROS 2 Projects</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Glossary.html">Glossary</a></li>
@@ -1099,7 +1099,7 @@
 <li><p>Support Python 3.8-provided importlib.metadata (<a class="reference external" href="https://github.com/ament/ament_lint/issues/290">#290</a>) The importlib_metadata package is a backport of the importlib.metadata module from Python 3.8. Fedora (and possibly others) no longer package importlib_metadata because they ship Python versions which have the functionality built-in.</p></li>
 <li><p>Update maintainer (<a class="reference external" href="https://github.com/ament/ament_lint/issues/274">#274</a>) * update maintainer * add authors</p></li>
 <li><p>added bsd 2 clause simplified license to ament_copyright (<a class="reference external" href="https://github.com/ament/ament_lint/issues/267">#267</a>) * added bsd 2 clause simplified license to ament_copyright</p></li>
-<li><p>Remove use of pkg_resources from ament_lint. (<a class="reference external" href="https://github.com/ament/ament_lint/issues/260">#260</a>) Replace it with the use of the more modern importlib_metadata library.  There are a couple of reasons to do this: 1.  pkg_resources is quite slow to import; on my machine, just firing up the python interpreter takes ~35ms, while firing up the python interpreter and importing pkg_resources takes ~175ms.  Firing up the python interpreter and importing importlib_metadata takes ~70ms.  Removing 100ms per invocation of the command-line both makes it speedier for users, and will speed up our tests (which call out to the command-line quite a lot). 2.  pkg_resources is somewhat deprecated and being replaced by importlib.  <a class="reference external" href="https://importlib-metadata.readthedocs.io/en/latest/using.html">https://importlib-metadata.readthedocs.io/en/latest/using.html</a> describes some of it Note: By itself, this change is not enough to completely remove our dependence on pkg_resources.  We’ll also have to do something about the console_scripts that setup.py generates.  That will be a separate effort.</p></li>
+<li><p>Remove use of pkg_resources from ament_lint. (<a class="reference external" href="https://github.com/ament/ament_lint/issues/260">#260</a>) Replace it with the use of the more modern importlib_metadata library.  There are a couple of reasons to do this: 1.  pkg_resources is quite slow to import; on my machine, just firing up the python interpreter takes ~35ms, while firing up the python interpreter and importing pkg_resources takes ~175ms.  Firing up the python interpreter and importing importlib_metadata takes ~70ms.  Removing 100ms per invocation of the command-line both makes it speedier for users, and will speed up our tests (which call out to the command-line quite a lot). 2.  pkg_resources is somewhat deprecated and being replaced by importlib.  <a class="reference external" href="https://importlib-metadata.readthedocs.io/es/latest/using.html">https://importlib-metadata.readthedocs.io/es/latest/using.html</a> describes some of it Note: By itself, this change is not enough to completely remove our dependence on pkg_resources.  We’ll also have to do something about the console_scripts that setup.py generates.  That will be a separate effort.</p></li>
 <li><p>Add pytest.ini so local tests don’t display warning. (<a class="reference external" href="https://github.com/ament/ament_lint/issues/259">#259</a>)</p></li>
 <li><p>Contributors: Alfi Maulana, Audrow Nash, Chris Lalancette, Christophe Bedard, Claire Wang, Evan Flynn, M. Mei, Scott K Logan</p></li>
 </ul>

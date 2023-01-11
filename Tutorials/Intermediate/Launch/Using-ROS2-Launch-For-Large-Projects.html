@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-    <link rel="canonical" href="https://ros-spanish-users-group.github.io/ros2_documentation/Tutorials/Intermediate/Launch/Using-ROS2-Launch-For-Large-Projects.html" />
+    <link rel="canonical" href="https://docs.ros.org/es/Tutorials/Intermediate/Launch/Using-ROS2-Launch-For-Large-Projects.html" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -318,8 +318,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Related-Projects.html">Related Projects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../Related-Projects/Intel-ROS2-Projects.html">Proyectos ROS 2 de Intel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../Related-Projects/Nvidia-ROS2-Projects.html">Proyectos NVIDIA ROS 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Related-Projects/Intel-ROS2-Projects.html">Intel ROS 2 Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Related-Projects/Nvidia-ROS2-Projects.html">NVIDIA ROS 2 Projects</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Glossary.html">Glossary</a></li>
@@ -628,12 +628,12 @@ Unique namespaces allow the system to start two similar nodes without node name 
 </pre></div>
 </div>
 <p>However, if the launch file contains a large number of nodes, defining namespaces for each of them can become tedious.
-To solve that issue, the <code class="docutils literal notranslate"><span class="pre">PushROSNamespace</span></code> action can be used to define the global namespace for each launch file description.
+To solve that issue, the <code class="docutils literal notranslate"><span class="pre">PushRosNamespace</span></code> action can be used to define the global namespace for each launch file description.
 Every nested node will inherit that namespace automatically.</p>
 <p>To do that, firstly, we need to remove the <code class="docutils literal notranslate"><span class="pre">namespace='turtlesim2'</span></code> line from the <code class="docutils literal notranslate"><span class="pre">turtlesim_world_2.launch.py</span></code> file.
 Afterwards, we need to update the <code class="docutils literal notranslate"><span class="pre">launch_turtlesim.launch.py</span></code> to include the following lines:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">launch.actions</span> <span class="kn">import</span> <span class="n">GroupAction</span>
-<span class="kn">from</span> <span class="nn">launch_ros.actions</span> <span class="kn">import</span> <span class="n">PushROSNamespace</span>
+<span class="kn">from</span> <span class="nn">launch_ros.actions</span> <span class="kn">import</span> <span class="n">PushRosNamespace</span>
 
    <span class="o">...</span>
    <span class="n">turtlesim_world_2</span> <span class="o">=</span> <span class="n">IncludeLaunchDescription</span><span class="p">(</span>
@@ -643,7 +643,7 @@ Afterwards, we need to update the <code class="docutils literal notranslate"><sp
       <span class="p">)</span>
    <span class="n">turtlesim_world_2_with_namespace</span> <span class="o">=</span> <span class="n">GroupAction</span><span class="p">(</span>
      <span class="n">actions</span><span class="o">=</span><span class="p">[</span>
-         <span class="n">PushROSNamespace</span><span class="p">(</span><span class="s1">&#39;turtlesim2&#39;</span><span class="p">),</span>
+         <span class="n">PushRosNamespace</span><span class="p">(</span><span class="s1">&#39;turtlesim2&#39;</span><span class="p">),</span>
          <span class="n">turtlesim_world_2</span><span class="p">,</span>
       <span class="p">]</span>
    <span class="p">)</span>

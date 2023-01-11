@@ -1,8 +1,3 @@
-.. redirect-from::
-
-  Installation/Rolling/OSX-Development-Setup
-  Installation/macOS-Development-Setup
-
 .. _macOS-latest:
 
 macOS (fuentes)
@@ -16,8 +11,6 @@ Requisitos del sistema
 ----------------------
 
 Actualmente damos soporte a macOS Mojave (10.14).
-La distribución de Rolling Ridley cambiará las plataformas de destino de vez en cuando a medida que haya nuevas plataformas disponibles.
-La mayoría de la gente querrá usar una distribución ROS estable.
 
 Instalar requisitos previos
 ---------------------------

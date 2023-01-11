@@ -10,9 +10,6 @@ Ubuntu (Debian)
    :local:
 
 Los paquetes de Debian para ROS 2 {DISTRO_TITLE_FULL} están actualmente disponibles para Ubuntu Jammy.
-La distribución de Rolling Ridley cambiará las plataformas de destino de vez en cuando a medida que se seleccionen nuevas plataformas para el desarrollo.
-Las plataformas de destino se definen en `REP 2000 <https://github.com/ros-infrastructure/rep/blob/master/rep-2000.rst>`__
-La mayoría de la gente querrá usar una distribución ROS estable.
 
 Recursos
 --------

@@ -28,7 +28,8 @@ Descargar ROS 2
 No se proporcionan versiones binarias de {DISTRO_TITLE_FULL}.
 En su lugar, puede descargar versiones diarias de :ref:`prerelease binarios <Prerelease_binaries>`.
 
-* Descarga el paquete más reciente para Windows, por ejemplo, ``ros2-package-windows-AMD64.zip``.
+* Ve a la página de releases: https://github.com/ros2/ros2/releases
+* Descarga el paquete más reciente para Windows, por ejemplo, ``ros2-{DISTRO}-*-windows-release-amd64.zip``.
 
 .. note::
 

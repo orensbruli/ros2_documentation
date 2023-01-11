@@ -47,5 +47,5 @@ Se requieren las siguientes dependencias del sistema para compilar ROS 2 en Fedo
      wget
 
 
-Una vez hecho esto, puedes seguir el resto de las :ref:`instrucciones <Rolling_rhel-dev-get-ros2-code>` para obtener y compilar ROS 2.
+Una vez hecho esto, puedes seguir el resto de las :ref:`instrucciones <rhel-dev-get-ros2-code>` para obtener y compilar ROS 2.
 

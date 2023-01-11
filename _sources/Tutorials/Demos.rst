@@ -21,7 +21,7 @@ External resources
 * `Using Turtlebot 2 <https://github.com/ros2/turtlebot2_demo>`__
 * Using Turtlebot 3 (community-contributed)
 
-    - `Getting started <https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/>`__
+    - `Getting started <https://emanual.robotis.com/docs/es/platform/turtlebot3/quick-start/>`__
     - `Simulating <https://ubuntu.com/blog/simulate-the-turtlebot3>`__
     - `Navigating in simulation <https://github.com/cyberbotics/webots_ros2/wiki/Navigate-TurtleBot3>`__
     - `Learning SLAM in simulation <https://github.com/cyberbotics/webots_ros2/wiki/SLAM-with-TurtleBot3>`__

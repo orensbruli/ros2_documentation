@@ -77,7 +77,7 @@ Instalar herramientas de desarrollo y herramientas ROS
      flake8-quotes \
      mypy==0.931
 
-.. _Rolling_rhel-dev-get-ros2-code:
+.. _rhel-dev-get-ros2-code:
 
 Obtener el código ROS 2
 -----------------------

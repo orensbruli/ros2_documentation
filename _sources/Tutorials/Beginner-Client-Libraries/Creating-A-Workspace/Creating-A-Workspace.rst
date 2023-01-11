@@ -35,7 +35,7 @@ Prerequisites
 
 * :doc:`ROS 2 installation <../../../Installation>`
 * :doc:`colcon installation <../Colcon-Tutorial>`
-* `git installation <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>`__
+* `git installation <https://git-scm.com/book/es/v2/Getting-Started-Installing-Git>`__
 * :doc:`turtlesim installation <../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>`
 * Have :doc:`rosdep installed <../../Intermediate/Rosdep>`
 * Understanding of basic terminal commands (`here’s a guide for Linux <http://www.ee.surrey.ac.uk/Teaching/Unix/>`__)

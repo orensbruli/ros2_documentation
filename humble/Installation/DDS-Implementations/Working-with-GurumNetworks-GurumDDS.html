@@ -46,26 +46,26 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../Installation.html">Installation</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../Installation.html">Instalación</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Ubuntu-Install-Debians.html">Ubuntu (Debian)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Windows-Install-Binary.html">Windows (binary)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Windows-Install-Binary.html">Ubuntu (binarios)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RHEL-Install-RPMs.html">RHEL (RPM)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Alternatives.html">Alternatives</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../Alternatives/Ubuntu-Development-Setup.html">Ubuntu (source)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Alternatives/Ubuntu-Install-Binary.html">Ubuntu (binary)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Alternatives/Windows-Development-Setup.html">Windows (source)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Alternatives/RHEL-Development-Setup.html">RHEL (source)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Alternatives/RHEL-Install-Binary.html">RHEL (binary)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Alternatives/macOS-Development-Setup.html">macOS (source)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Alternatives/Fedora-Development-Setup.html">Fedora (source)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Alternatives/Latest-Development-Setup.html">Latest development (source)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Alternatives.html">Alternativas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Alternatives/Ubuntu-Development-Setup.html">Ubuntu (fuentes)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Alternatives/Ubuntu-Install-Binary.html">Ubuntu (binarios)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Alternatives/Windows-Development-Setup.html">Windows (fuentes)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Alternatives/RHEL-Development-Setup.html">RHEL (fuentes)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Alternatives/RHEL-Install-Binary.html">RHEL (binarios)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Alternatives/macOS-Development-Setup.html">macOS (fuentes)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Alternatives/Fedora-Development-Setup.html">Fedora (fuentes)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Alternatives/Latest-Development-Setup.html">Últimos desarrollos (fuentes)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../Maintaining-a-Source-Checkout.html">Maintain source checkout</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Testing.html">Testing with pre-release binaries</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../DDS-Implementations.html">DDS implementations</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="Install-Connext-Security-Plugins.html">Connext security plugins</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Install-Connext-University-Eval.html">RTI Connext DDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Maintaining-a-Source-Checkout.html">Mantener los fuentes obtenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Testing.html">Pruebas con archivos binarios pre-relase</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../DDS-Implementations.html">implementaciones de DDS</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Install-Connext-Security-Plugins.html">Complementos de seguridad de Connext</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Install-Connext-University-Eval.html">RTI Connex DDS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Working-with-Eclipse-CycloneDDS.html">Eclipse Cyclone DDS</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">GurumNetworks GurumDDS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Working-with-eProsima-Fast-DDS.html">eProsima Fast DDS</a></li>
@@ -341,8 +341,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="../../Installation.html">Installation</a></li>
-          <li class="breadcrumb-item"><a href="../DDS-Implementations.html">DDS implementations</a></li>
+          <li class="breadcrumb-item"><a href="../../Installation.html">Instalación</a></li>
+          <li class="breadcrumb-item"><a href="../DDS-Implementations.html">implementaciones de DDS</a></li>
       <li class="breadcrumb-item active">GurumNetworks GurumDDS</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/ros2/ros2_documentation/blob/humble/source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst" class="fa fa-github"> Editar en GitHub</a>
@@ -357,18 +357,24 @@
 
   <div class="section" id="gurumnetworks-gurumdds">
 <h1>GurumNetworks GurumDDS<a class="headerlink" href="#gurumnetworks-gurumdds" title="Enlazar permanentemente con este título"></a></h1>
-<p>rmw_gurumdds is a implementation of the ROS middleware interface using GurumNetworks GurumDDS.
-More information about GurumDDS is available on our website: <a class="reference external" href="https://gurum.cc/index_eng">https://gurum.cc/index_eng</a></p>
+<p>rmw_gurumdds es una implementación de la interfaz de middleware de ROS que utiliza GurumNetworks GurumDDS.
+Más información sobre GurumDDS está disponible en nuestro sitio web: <a class="reference external" href="https://gurum.cc/index_eng">https://gurum.cc/index_eng</a></p>
+<div class="section" id="prerequisitos">
+<h2>Prerequisitos<a class="headerlink" href="#prerequisitos" title="Enlazar permanentemente con este título"></a></h2>
+<p>La siguiente descripción asume que ha completado el proceso de “Configuración del entorno”
+desde <a class="reference internal" href="../Ubuntu-Install-Debians.html"><span class="doc">Instalación de ROS 2 a través de paquetes Debian</span></a> o
+del <a class="reference internal" href="../Alternatives/Ubuntu-Development-Setup.html"><span class="doc">Building ROS 2 on Ubuntu Linux</span></a>.</p>
+</div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Enlazar permanentemente con este título"></a></h2>
 <p>The following description assumes that you have completed the “Environment setup” process
 from the <a class="reference internal" href="../Ubuntu-Install-Debians.html"><span class="doc">Installing ROS 2 via Debian Packages</span></a> or
-from the <a class="reference internal" href="../Alternatives/Ubuntu-Development-Setup.html"><span class="doc">Building ROS 2 on Ubuntu Linux</span></a>.</p>
-<p>rmw_gurumdds requires version of GurumDDS-2.7.x.
-Debian packages of GurumDDS is provided in the ROS 2 apt repositories on linux.
-Windows binary installer of GurumDDS will be supported soon.</p>
-<p>GurumDDS requires a license. See the next page: <a class="reference external" href="https://gurum.cc/free_trial_eng.html">https://gurum.cc/free_trial_eng.html</a>
-After getting a license, move it to the following location.</p>
+from the <a class="reference internal" href="../Alternatives/Ubuntu-Development-Setup.html"><span class="doc">Compilando ROS 2 en Ubuntu Linux</span></a>.</p>
+<p>rmw_gurumdds requiere la versión de GurumDDS-2.7.x.
+Los paquetes Debian de GurumDDS se proporcionan en los repositorios apt de ROS 2 en Linux.
+El instalador binario de Windows de GurumDDS estára compatible pronto.</p>
+<p>GurumDDS requiere una licencia. Consulte la página siguiente: <a class="reference external" href="https://gurum.cc/free_trial_eng.html">https://gurum.cc/free_trial_eng.html</a>
+Después de obtener una licencia, muévala a la siguiente ubicación.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 45%" />
@@ -389,45 +395,44 @@ After getting a license, move it to the following location.</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="install-packages">
-<h2>Install packages<a class="headerlink" href="#install-packages" title="Enlazar permanentemente con este título"></a></h2>
-<p>The easiest way is to install from ROS 2 apt repository.
-When ros-humble-rmw-gurumdds-cpp is installed, gurumdds-2.7 is also installed.</p>
+<div class="section" id="instalar-paquetes">
+<h2>Instalar paquetes<a class="headerlink" href="#instalar-paquetes" title="Enlazar permanentemente con este título"></a></h2>
+<p>La forma más fácil es instalar desde el repositorio apt de ROS 2.
+Cuando se instala ros-humble-rmw-gurumdds-cpp, también se instala gutumdds-2.7.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-humble-rmw-gurumdds-cpp
 </pre></div>
 </div>
 </div>
-<div class="section" id="build-from-source-code">
-<h2>Build from source code<a class="headerlink" href="#build-from-source-code" title="Enlazar permanentemente con este título"></a></h2>
-<p>Building from source code is also another way to install.</p>
-<p>First, clone rosidl_typesupport_gurumdds and rmw_gurumdds in the ROS 2 workspace source directory.</p>
+<div class="section" id="compilar-a-partir-del-codigo-fuente">
+<h2>Compilar a partir del código fuente<a class="headerlink" href="#compilar-a-partir-del-codigo-fuente" title="Enlazar permanentemente con este título"></a></h2>
+<p>Compilar a partir del código fuente también es otra forma de instalar.</p>
+<p>Primero, clona rosidl_typesupport_gurumdds y rmw_gurumdds en el directorio src del espacio de trabajo de ROS 2.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ros2_ws/src
 git clone https://github.com/ros2/rmw_gurumdds ros2/rmw_gurumdds
 git clone https://github.com/ros2/rosidl_typesupport_gurumdds ros2/rosidl_typesupport_gurumdds
 </pre></div>
 </div>
-<p>Then, install necessary packages for GurumDDS.</p>
+<p>Luego, instale los paquetes necesarios para GurumDDS.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ..
 rosdep install --from src -i --rosdistro humble
 </pre></div>
 </div>
-<p>Finally, run colcon build.</p>
+<p>Finalmente, ejecuta colcon build.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon build --symlink-install
 </pre></div>
 </div>
 </div>
-<div class="section" id="switch-to-rmw-gurumdds">
-<h2>Switch to rmw_gurumdds<a class="headerlink" href="#switch-to-rmw-gurumdds" title="Enlazar permanentemente con este título"></a></h2>
-<p>Switch from other rmw to rmw_gurumdds by specifying the environment variable.</p>
+<div class="section" id="cambiar-a-rmw-gurumdds">
+<h2>Cambiar a rmw_gurumdds<a class="headerlink" href="#cambiar-a-rmw-gurumdds" title="Enlazar permanentemente con este título"></a></h2>
+<p>Cambie de otro rmw a rmw_gurumdds especificando la variable de entorno.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">RMW_IMPLEMENTATION</span><span class="o">=</span>rmw_gurumdds_cpp
 </pre></div>
 </div>
-<p>See also: <a class="reference internal" href="../../How-To-Guides/Working-with-multiple-RMW-implementations.html"><span class="doc">Working with multiple RMW implementations</span></a></p>
+<p>Consulta también: <a class="reference internal" href="../../How-To-Guides/Working-with-multiple-RMW-implementations.html"><span class="doc">Trabajar con varias implementaciones de RMW</span></a></p>
 </div>
-<div class="section" id="run-the-talker-and-listener">
-<h2>Run the talker and listener<a class="headerlink" href="#run-the-talker-and-listener" title="Enlazar permanentemente con este título"></a></h2>
-<p>Now run <code class="docutils literal notranslate"><span class="pre">talker</span></code> and <code class="docutils literal notranslate"><span class="pre">listener</span></code> to test GurumDDS.
-Don’t forget to set up environment by setup script.</p>
+<div class="section" id="ejecuta-el-talker-y-el-listener">
+<h2>Ejecuta el talker y el listener<a class="headerlink" href="#ejecuta-el-talker-y-el-listener" title="Enlazar permanentemente con este título"></a></h2>
+<p>Ahora ejecuta <code class="docutils literal notranslate"><span class="pre">talker</span></code> y <code class="docutils literal notranslate"><span class="pre">listener</span></code> para probar GurumDDS.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2 run demo_nodes_cpp talker
 </pre></div>
 </div>

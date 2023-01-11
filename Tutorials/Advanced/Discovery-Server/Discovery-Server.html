@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-    <link rel="canonical" href="https://ros-spanish-users-group.github.io/ros2_documentation/Tutorials/Advanced/Discovery-Server/Discovery-Server.html" />
+    <link rel="canonical" href="https://docs.ros.org/es/Tutorials/Advanced/Discovery-Server/Discovery-Server.html" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -318,8 +318,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Related-Projects.html">Related Projects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../Related-Projects/Intel-ROS2-Projects.html">Proyectos ROS 2 de Intel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../Related-Projects/Nvidia-ROS2-Projects.html">Proyectos NVIDIA ROS 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Related-Projects/Intel-ROS2-Projects.html">Intel ROS 2 Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Related-Projects/Nvidia-ROS2-Projects.html">NVIDIA ROS 2 Projects</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Glossary.html">Glossary</a></li>
@@ -388,8 +388,8 @@
 <h2><a class="toc-backref" href="#id1">Background</a><a class="headerlink" href="#background" title="Enlazar permanentemente con este título"></a></h2>
 <p>Starting from ROS 2 Eloquent Elusor, the <strong>Fast DDS Discovery Server</strong> protocol is a feature that offers a centralized dynamic discovery mechanism, as opposed to the distributed mechanism used in DDS by default.
 This tutorial explains how to run some ROS 2 examples using the Fast DDS Discovery Server feature as discovery communication.</p>
-<p>In order to get more information about the available discovery configuration, please check the <a class="reference external" href="https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery.html">following documentation</a> or read the <a class="reference external" href="https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server">Fast DDS Discovery Server specific documentation</a>.</p>
-<p>The <a class="reference external" href="https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/simple.html">Simple Discovery Protocol</a> is the standard protocol defined in the <a class="reference external" href="https://www.omg.org/omg-dds-portal/">DDS standard</a>.
+<p>In order to get more information about the available discovery configuration, please check the <a class="reference external" href="https://fast-dds.docs.eprosima.com/es/v2.1.0/fastdds/discovery/discovery.html">following documentation</a> or read the <a class="reference external" href="https://fast-dds.docs.eprosima.com/es/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server">Fast DDS Discovery Server specific documentation</a>.</p>
+<p>The <a class="reference external" href="https://fast-dds.docs.eprosima.com/es/v2.1.0/fastdds/discovery/simple.html">Simple Discovery Protocol</a> is the standard protocol defined in the <a class="reference external" href="https://www.omg.org/omg-dds-portal/">DDS standard</a>.
 However, it has known disadvantages in some scenarios.</p>
 <ul class="simple">
 <li><p>It does not <strong>Scale</strong> efficiently, as the number of exchanged packets increases significantly as new nodes are added.</p></li>
@@ -408,21 +408,21 @@ This version uses the topic of the different nodes to decide if two nodes wish t
 The following figure shows the decrease in discovery messages:</p>
 <img alt="../../../_images/ds1vs2.svg" class="align-center" src="../../../_images/ds1vs2.svg" /><p>This architecture reduces the number of messages sent between the server and clients dramatically.
 In the following graph, the reduction in network traffic over the discovery phase for the <a class="reference external" href="https://github.com/osrf/rmf_demos">RMF Clinic demonstration</a> is shown:</p>
-<img alt="../../../_images/discovery_server_v2_performance.svg" class="align-center" src="../../../_images/discovery_server_v2_performance.svg" /><p>In order to use this functionality, the discovery server can be configured using the <a class="reference external" href="https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server">XML configuration for Participants</a>.
-It is also possible to configure the discovery server using the <code class="docutils literal notranslate"><span class="pre">fastdds</span></code> <a class="reference external" href="https://fast-dds.docs.eprosima.com/en/v2.1.0/fastddscli/cli/cli.html#discovery">tool</a> and an <a class="reference external" href="https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/env_vars/env_vars.html">environment variable</a>, which is the approach used in this tutorial.
-For a more detailed explanation about the configuration of the discovery server, visit <a class="reference external" href="https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server">the Fast DDS Discovery Server documentation</a>.</p>
+<img alt="../../../_images/discovery_server_v2_performance.svg" class="align-center" src="../../../_images/discovery_server_v2_performance.svg" /><p>In order to use this functionality, the discovery server can be configured using the <a class="reference external" href="https://fast-dds.docs.eprosima.com/es/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server">XML configuration for Participants</a>.
+It is also possible to configure the discovery server using the <code class="docutils literal notranslate"><span class="pre">fastdds</span></code> <a class="reference external" href="https://fast-dds.docs.eprosima.com/es/v2.1.0/fastddscli/cli/cli.html#discovery">tool</a> and an <a class="reference external" href="https://fast-dds.docs.eprosima.com/es/v2.1.0/fastdds/env_vars/env_vars.html">environment variable</a>, which is the approach used in this tutorial.
+For a more detailed explanation about the configuration of the discovery server, visit <a class="reference external" href="https://fast-dds.docs.eprosima.com/es/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server">the Fast DDS Discovery Server documentation</a>.</p>
 </div>
 <div class="section" id="prerequisites">
 <h2><a class="toc-backref" href="#id3">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Enlazar permanentemente con este título"></a></h2>
 <p>This tutorial assumes you have a ROS 2 Foxy (or newer) <a class="reference internal" href="../../../Installation.html"><span class="doc">installation</span></a>.
 If your installation is using a ROS 2 version lower than Foxy, you cannot use the <code class="docutils literal notranslate"><span class="pre">fastdds</span></code> tool.
-Thus, in order to use the Discovery Server, you can update your repository to use a different Fast DDS version, or configure the discovery server using the <a class="reference external" href="https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server">Fast DDS XML QoS configuration</a>.</p>
+Thus, in order to use the Discovery Server, you can update your repository to use a different Fast DDS version, or configure the discovery server using the <a class="reference external" href="https://fast-dds.docs.eprosima.com/es/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server">Fast DDS XML QoS configuration</a>.</p>
 </div>
 <div class="section" id="run-this-tutorial">
 <h2><a class="toc-backref" href="#id4">Run this tutorial</a><a class="headerlink" href="#run-this-tutorial" title="Enlazar permanentemente con este título"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">talker-listener</span></code> ROS 2 demo creates a <code class="docutils literal notranslate"><span class="pre">talker</span></code> node that publishes a «hello world» message every second, and a <code class="docutils literal notranslate"><span class="pre">listener</span></code> node that listens to these messages.</p>
 <p>By <a class="reference internal" href="../../Beginner-CLI-Tools/Configuring-ROS2-Environment.html"><span class="doc">sourcing ROS 2</span></a> you will get access to the CLI tool <code class="docutils literal notranslate"><span class="pre">fastdds</span></code>.
-This tool gives access to the <a class="reference external" href="https://fast-dds.docs.eprosima.com/en/v2.1.0/fastddscli/cli/cli.html#discovery">discovery tool</a>, which can be used to launch a discovery server. This server will manage the discovery process for the nodes that connect to it.</p>
+This tool gives access to the <a class="reference external" href="https://fast-dds.docs.eprosima.com/es/v2.1.0/fastddscli/cli/cli.html#discovery">discovery tool</a>, which can be used to launch a discovery server. This server will manage the discovery process for the nodes that connect to it.</p>
 <div class="admonition important">
 <p class="admonition-title">Importante</p>
 <p>Do not forget to <a class="reference internal" href="../../Beginner-CLI-Tools/Configuring-ROS2-Environment.html"><span class="doc">source ROS 2</span></a> in every new terminal opened.</p>
@@ -542,7 +542,7 @@ But <code class="docutils literal notranslate"><span class="pre">Listener</span>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">fastdds discovery --server-id 1 --ip-address 127.0.0.1 --port 11888</span>
 </pre></div>
 </div>
-<p>Now, run each node in a different terminal. Use <code class="docutils literal notranslate"><span class="pre">ROS_DISCOVERY_SERVER</span></code> environment variable to decide which server they are connected to. Be aware that the <a class="reference external" href="https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/env_vars/env_vars.html">ids must match</a>.</p>
+<p>Now, run each node in a different terminal. Use <code class="docutils literal notranslate"><span class="pre">ROS_DISCOVERY_SERVER</span></code> environment variable to decide which server they are connected to. Be aware that the <a class="reference external" href="https://fast-dds.docs.eprosima.com/es/v2.1.0/fastdds/env_vars/env_vars.html">ids must match</a>.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export ROS_DISCOVERY_SERVER=&quot;127.0.0.1:11811;127.0.0.1:11888&quot;</span>
 <span class="go">ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker_1</span>
 </pre></div>

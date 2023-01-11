@@ -22,9 +22,9 @@ Background
 Starting from ROS 2 Eloquent Elusor, the **Fast DDS Discovery Server** protocol is a feature that offers a centralized dynamic discovery mechanism, as opposed to the distributed mechanism used in DDS by default.
 This tutorial explains how to run some ROS 2 examples using the Fast DDS Discovery Server feature as discovery communication.
 
-In order to get more information about the available discovery configuration, please check the `following documentation <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery.html>`_ or read the `Fast DDS Discovery Server specific documentation <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server>`__.
+In order to get more information about the available discovery configuration, please check the `following documentation <https://fast-dds.docs.eprosima.com/es/v2.1.0/fastdds/discovery/discovery.html>`_ or read the `Fast DDS Discovery Server specific documentation <https://fast-dds.docs.eprosima.com/es/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server>`__.
 
-The `Simple Discovery Protocol <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/simple.html>`__ is the standard protocol defined in the `DDS standard <https://www.omg.org/omg-dds-portal/>`__.
+The `Simple Discovery Protocol <https://fast-dds.docs.eprosima.com/es/v2.1.0/fastdds/discovery/simple.html>`__ is the standard protocol defined in the `DDS standard <https://www.omg.org/omg-dds-portal/>`__.
 However, it has known disadvantages in some scenarios.
 
 * It does not **Scale** efficiently, as the number of exchanged packets increases significantly as new nodes are added.
@@ -57,9 +57,9 @@ In the following graph, the reduction in network traffic over the discovery phas
     :align: center
 
 
-In order to use this functionality, the discovery server can be configured using the `XML configuration for Participants <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server>`__.
-It is also possible to configure the discovery server using the ``fastdds`` `tool <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastddscli/cli/cli.html#discovery>`__ and an `environment variable <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/env_vars/env_vars.html>`__, which is the approach used in this tutorial.
-For a more detailed explanation about the configuration of the discovery server, visit `the Fast DDS Discovery Server documentation <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server>`__.
+In order to use this functionality, the discovery server can be configured using the `XML configuration for Participants <https://fast-dds.docs.eprosima.com/es/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server>`__.
+It is also possible to configure the discovery server using the ``fastdds`` `tool <https://fast-dds.docs.eprosima.com/es/v2.1.0/fastddscli/cli/cli.html#discovery>`__ and an `environment variable <https://fast-dds.docs.eprosima.com/es/v2.1.0/fastdds/env_vars/env_vars.html>`__, which is the approach used in this tutorial.
+For a more detailed explanation about the configuration of the discovery server, visit `the Fast DDS Discovery Server documentation <https://fast-dds.docs.eprosima.com/es/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server>`__.
 
 
 Prerequisites
@@ -67,7 +67,7 @@ Prerequisites
 
 This tutorial assumes you have a ROS 2 Foxy (or newer) :doc:`installation <../../../Installation>`.
 If your installation is using a ROS 2 version lower than Foxy, you cannot use the ``fastdds`` tool.
-Thus, in order to use the Discovery Server, you can update your repository to use a different Fast DDS version, or configure the discovery server using the `Fast DDS XML QoS configuration <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server>`__.
+Thus, in order to use the Discovery Server, you can update your repository to use a different Fast DDS version, or configure the discovery server using the `Fast DDS XML QoS configuration <https://fast-dds.docs.eprosima.com/es/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server>`__.
 
 
 Run this tutorial
@@ -76,7 +76,7 @@ Run this tutorial
 The ``talker-listener`` ROS 2 demo creates a ``talker`` node that publishes a "hello world" message every second, and a ``listener`` node that listens to these messages.
 
 By :doc:`sourcing ROS 2 <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>` you will get access to the CLI tool ``fastdds``.
-This tool gives access to the `discovery tool <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastddscli/cli/cli.html#discovery>`__, which can be used to launch a discovery server. This server will manage the discovery process for the nodes that connect to it.
+This tool gives access to the `discovery tool <https://fast-dds.docs.eprosima.com/es/v2.1.0/fastddscli/cli/cli.html#discovery>`__, which can be used to launch a discovery server. This server will manage the discovery process for the nodes that connect to it.
 
 .. important::
 
@@ -255,7 +255,7 @@ In another terminal run the second server listening on localhost using another p
 
     fastdds discovery --server-id 1 --ip-address 127.0.0.1 --port 11888
 
-Now, run each node in a different terminal. Use ``ROS_DISCOVERY_SERVER`` environment variable to decide which server they are connected to. Be aware that the `ids must match <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/env_vars/env_vars.html>`__.
+Now, run each node in a different terminal. Use ``ROS_DISCOVERY_SERVER`` environment variable to decide which server they are connected to. Be aware that the `ids must match <https://fast-dds.docs.eprosima.com/es/v2.1.0/fastdds/env_vars/env_vars.html>`__.
 
 .. code-block:: console
 

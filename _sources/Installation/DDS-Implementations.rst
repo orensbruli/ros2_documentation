@@ -6,7 +6,7 @@ Es compatible con varios proveedores de DDS o RTPS (el protocolo de conexión DD
 Actualmente hay soporte para Fast DDS de eProsima, Connext DDS de RTI, Eclipse Cyclone DDS y GurumNetworks GurumDDS.
 Consulta https://ros.org/reps/rep-2000.html para conocer los proveedores de DDS soportados por distribución.
 
-En Rolling, el proveedor de DDS predeterminado es Fast DDS de eProsima.
+En Humble, el proveedor de DDS predeterminado es Fast DDS de eProsima.
 
 * :doc:`Trabajando con Eclipse Cyclone DDS <DDS-Implementations/Working-with-Eclipse-CycloneDDS>` explica cómo utilizar Cyclone DDS.
 * :doc:`Trabajando con eProsima Fast DDS <DDS-Implementations/Working-with-eProsima-Fast-DDS>` explica cómo utilizar Fast DDS.

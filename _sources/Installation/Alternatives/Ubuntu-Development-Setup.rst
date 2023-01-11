@@ -90,7 +90,7 @@ Instala paquetes según tu versión de Ubuntu.
             pytest-rerunfailures
 
 
-.. _Rolling_linux-dev-get-ros2-code:
+.. _linux-dev-get-ros2-code:
 
 Obtener el código ROS 2
 -----------------------
