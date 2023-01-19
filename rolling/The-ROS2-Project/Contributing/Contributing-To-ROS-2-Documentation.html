@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contributing to ROS 2 Documentation &mdash; documentación de ROS 2 Documentation: Rolling - </title>
+  <title>Contribuir a la Documentación de ROS 2 &mdash; documentación de ROS 2 Documentation: Rolling - </title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
@@ -27,7 +27,7 @@
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
     <link rel="next" title="Features Status" href="../Features.html" />
-    <link rel="prev" title="Windows Tips and Tricks" href="Windows-Tips-and-Tricks.html" /> 
+    <link rel="prev" title="Consejos y trucos de Windows" href="Windows-Tips-and-Tricks.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -142,7 +142,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../Tutorials/Intermediate/Composition.html">Composing multiple nodes in a single process</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Tutorials/Intermediate/Monitoring-For-Parameter-Changes-CPP.html">Monitoring for parameter changes (C++)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Tutorials/Intermediate/Launch/Launch-Main.html">Launch</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../Tutorials/Intermediate/Launch/Creating-Launch-Files.html">Creating a launch file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../Tutorials/Intermediate/Launch/Creating-Launch-Files.html">Crear un fichero de launch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../Tutorials/Intermediate/Launch/Launch-system.html">Integrating launch files into ROS 2 packages</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../Tutorials/Intermediate/Launch/Using-Substitutions.html">Using substitutions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../Tutorials/Intermediate/Launch/Using-Event-Handlers.html">Using event handlers</a></li>
@@ -295,15 +295,15 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../The-ROS2-Project.html">The ROS 2 Project</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../Contributing.html">Contributing</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="Developer-Guide.html">ROS 2 developer guide</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Code-Style-Language-Versions.html">Code style and language versions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Code-Style-Language-Versions.html">Estilo de código y versiones de lenguaje</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Quality-Guide.html">Quality guide: ensuring code quality</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Migration-Guide.html">Migration guide from ROS 1</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="Migration-Guide-Python.html">Python migration guide from ROS 1</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="Build-Farms.html">ROS Build Farms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Windows-Tips-and-Tricks.html">Windows Tips and Tricks</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Contributing to ROS 2 Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Windows-Tips-and-Tricks.html">Consejos y trucos de Windows</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Contribuir a la Documentación de  ROS 2</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Features.html">Features Status</a></li>
@@ -344,7 +344,7 @@
       <li><a href="../../index.html" class="icon icon-home"></a></li>
           <li class="breadcrumb-item"><a href="../../The-ROS2-Project.html">The ROS 2 Project</a></li>
           <li class="breadcrumb-item"><a href="../Contributing.html">Contributing</a></li>
-      <li class="breadcrumb-item active">Contributing to ROS 2 Documentation</li>
+      <li class="breadcrumb-item active">Contribuir a la Documentación de  ROS 2</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/ros2/ros2_documentation/blob/rolling/source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst" class="fa fa-github"> Editar en GitHub</a>
       </li>
@@ -365,54 +365,56 @@
 </p>
 
 
-  <div class="section" id="contributing-to-ros-2-documentation">
-<h1>Contributing to ROS 2 Documentation<a class="headerlink" href="#contributing-to-ros-2-documentation" title="Enlazar permanentemente con este título"></a></h1>
-<div class="contents local topic" id="table-of-contents">
-<p class="topic-title">Table of Contents</p>
+  <div class="section" id="contribuir-a-la-documentacion-de-ros-2">
+<h1>Contribuir a la Documentación de  ROS 2<a class="headerlink" href="#contribuir-a-la-documentacion-de-ros-2" title="Enlazar permanentemente con este título"></a></h1>
+<div class="contents local topic" id="tabla-de-contenido">
+<p class="topic-title">Tabla de Contenido</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#branch-structure" id="id2">Branch structure</a></p></li>
-<li><p><a class="reference internal" href="#source-structure" id="id3">Source structure</a></p></li>
-<li><p><a class="reference internal" href="#building-the-site-locally" id="id4">Building the site locally</a></p>
+<li><p><a class="reference internal" href="#estructura-de-la-rama" id="id4">Estructura de la rama</a></p></li>
+<li><p><a class="reference internal" href="#estructura-del-codigo-fuente" id="id5">Estructura del código fuente</a></p></li>
+<li><p><a class="reference internal" href="#construir-el-sitio-localmente" id="id6">Construir el sitio localmente</a></p>
 <ul>
-<li><p><a class="reference internal" href="#building-the-site-for-one-branch" id="id5">Building the site for one branch</a></p></li>
-<li><p><a class="reference internal" href="#building-the-site-for-all-branches" id="id6">Building the site for all branches</a></p></li>
-<li><p><a class="reference internal" href="#checking-for-broken-links" id="id7">Checking for broken links</a></p></li>
+<li><p><a class="reference internal" href="#construir-el-sitio-para-una-rama" id="id7">Construir el sitio para una rama</a></p></li>
+<li><p><a class="reference internal" href="#construir-el-sitio-para-todas-las-ramas" id="id8">Construir el sitio para todas las ramas.</a></p></li>
+<li><p><a class="reference internal" href="#comprobacion-de-enlaces-rotos" id="id9">Comprobación de enlaces rotos</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#writing-pages" id="id8">Writing pages</a></p>
+<li><p><a class="reference internal" href="#escribir-paginas" id="id10">Escribir paginas</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id1" id="id9">Table of Contents</a></p></li>
-<li><p><a class="reference internal" href="#headings" id="id10">Headings</a></p></li>
-<li><p><a class="reference internal" href="#lists" id="id11">Lists</a></p></li>
-<li><p><a class="reference internal" href="#code-formatting" id="id12">Code Formatting</a></p></li>
-<li><p><a class="reference internal" href="#images" id="id13">Images</a></p></li>
-<li><p><a class="reference internal" href="#references-and-links" id="id14">References and Links</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id11">Tabla de Contenido</a></p></li>
+<li><p><a class="reference internal" href="#encabezados" id="id12">Encabezados</a></p></li>
+<li><p><a class="reference internal" href="#listas" id="id13">Listas</a></p></li>
+<li><p><a class="reference internal" href="#formato-de-codigo" id="id14">Formato de código</a></p></li>
+<li><p><a class="reference internal" href="#imagenes" id="id15">Imágenes</a></p></li>
+<li><p><a class="reference internal" href="#referencias-y-enlaces" id="id16">Referencias y enlaces</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
-<p>Contributions to this site are most welcome.
-This page explains how to contribute to ROS 2 Documentation.
-Please be sure to read the below sections carefully before contributing.</p>
-<p>The site is built using <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a>, and more particularly using <a class="reference external" href="https://holzhaus.github.io/sphinx-multiversion/master/index.html">Sphinx multiversion</a>.</p>
-<div class="section" id="branch-structure">
-<h2><a class="toc-backref" href="#id2">Branch structure</a><a class="headerlink" href="#branch-structure" title="Enlazar permanentemente con este título"></a></h2>
-<p>The source code of documentation is located in the <a class="reference external" href="https://github.com/ros2/ros2_documentation">ROS 2 Documentation GitHub repository</a>.
-This repository is set up with one branch per ROS 2 distribution to handle differences between the distributions.
-If a change is common to all ROS 2 distributions, it should be made to the <code class="docutils literal notranslate"><span class="pre">rolling</span></code> branch (and then will be backported as appropriate).
-If a change is specific to a particular ROS 2 distribution, it should be made to the respective branch.</p>
+<p>Las contribuciones a este sitio son bienvenidas.
+Esta página explica cómo contribuir a la documentación de ROS 2.
+Asegúrate de leer detenidamente las siguientes secciones antes de contribuir.</p>
+<p>El sitio está construido usando  <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a>, especificamente <a class="reference external" href="https://holzhaus.github.io/sphinx-multiversion/master/index.html">Sphinx multiversion</a>.</p>
+<div class="section" id="estructura-de-la-rama">
+<h2><a class="toc-backref" href="#id4">Estructura de la rama</a><a class="headerlink" href="#estructura-de-la-rama" title="Enlazar permanentemente con este título"></a></h2>
+<p>El código fuente de la documentación se encuentra en <a class="reference external" href="https://github.com/ros2/ros2_documentation">el repositorio de Github de ROS 2 Documentation</a>.
+Este repositorio está configurado asignando una rama a cada distribución de ROS 2 para manejar las diferencias entre las distribuciones.
+Si un cambio es común a todas las distribuciones de ROS 2, debe realizarse en la rama <code class="docutils literal notranslate"><span class="pre">rolling</span></code> (y luego se actualizará según corresponda).
+Si un cambio es específico a una distribución particular de ROS 2, debe realizarse en la respectiva rama.</p>
 </div>
-<div class="section" id="source-structure">
-<h2><a class="toc-backref" href="#id3">Source structure</a><a class="headerlink" href="#source-structure" title="Enlazar permanentemente con este título"></a></h2>
-<p>The source files for the site are all located under the <code class="docutils literal notranslate"><span class="pre">source</span></code> subdirectory.
-Templates for various sphinx plugins are located under <code class="docutils literal notranslate"><span class="pre">source/_templates</span></code>.
-The root directory contains configuration and files required to locally build the site for testing.</p>
+<div class="section" id="estructura-del-codigo-fuente">
+<h2><a class="toc-backref" href="#id5">Estructura del código fuente</a><a class="headerlink" href="#estructura-del-codigo-fuente" title="Enlazar permanentemente con este título"></a></h2>
+<p>Los archivos fuente del sitio están todos ubicados en la carpeta <code class="docutils literal notranslate"><span class="pre">source</span></code>.
+Las plantillas para varios complementos de sphinx se encuentran en <code class="docutils literal notranslate"><span class="pre">source/_templates</span></code>.
+El directorio raíz del repositorio contiene la configuración y los archivos necesarios para construir localmente el sitio para hacer pruebas.</p>
 </div>
-<div class="section" id="building-the-site-locally">
-<h2><a class="toc-backref" href="#id4">Building the site locally</a><a class="headerlink" href="#building-the-site-locally" title="Enlazar permanentemente con este título"></a></h2>
-<p>Start by installing requirements located in the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file:</p>
+<div class="section" id="construir-el-sitio-localmente">
+<h2><a class="toc-backref" href="#id6">Construir el sitio localmente</a><a class="headerlink" href="#construir-el-sitio-localmente" title="Enlazar permanentemente con este título"></a></h2>
+<p>Comience instalando los requisitos ubicados en el archivo <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>:</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-0-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-0-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-0-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-0-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><p>The next command does a user-specific install, which requires <code class="docutils literal notranslate"><span class="pre">~/.local/bin/</span></code> to be added to <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>:</p>
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-0-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-0-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-0-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-0-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><blockquote>
+<div><p>El siguiente comando realiza una instalación de tipo usuario actual, este requiere que se agregue <code class="docutils literal notranslate"><span class="pre">~/.local/bin/</span></code> a <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>:</p>
+</div></blockquote>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip3 install --user --upgrade -r requirements.txt</span>
 </pre></div>
 </div>
@@ -423,7 +425,7 @@ The root directory contains configuration and files required to locally build th
 </pre></div>
 </div>
 </div></div>
-<p>In order for Sphinx to be able to generate diagrams, the <code class="docutils literal notranslate"><span class="pre">dot</span></code> command must be available.</p>
+<p>Para que Sphinx pueda generar diagramas, el comando <code class="docutils literal notranslate"><span class="pre">dot</span></code> debe estar disponible.</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-1-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-1-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-1-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-1-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt update ; sudo apt install graphviz</span>
 </pre></div>
@@ -431,116 +433,116 @@ The root directory contains configuration and files required to locally build th
 </div><div aria-labelledby="tab-1-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">brew install graphviz</span>
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-1-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><p>Download an installer from <a class="reference external" href="https://graphviz.gitlab.io/_pages/Download/Download_windows.html">the Graphviz Download page</a> and install it.
-Make sure to allow the installer to add it to the Windows <code class="docutils literal notranslate"><span class="pre">%PATH%</span></code>, otherwise Sphinx will not be able to find it.</p>
+</div><div aria-labelledby="tab-1-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><p>Descarga un instalador  de <a class="reference external" href="https://graphviz.gitlab.io/_pages/Download/Download_windows.html">la pagina de descargas de Graphviz</a> e instálalo.
+Asegurate de permitir que el instalador añada a Graphviz al <a href="#id1"><span class="problematic" id="id2">``</span></a>%PATH%``de Windows de lo contrario Sphinx no lo encontrara.</p>
 </div></div>
-<div class="section" id="building-the-site-for-one-branch">
-<h3><a class="toc-backref" href="#id5">Building the site for one branch</a><a class="headerlink" href="#building-the-site-for-one-branch" title="Enlazar permanentemente con este título"></a></h3>
-<p>To build the site for just this branch, type <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> at the top-level of the repository.
-This is the recommended way to test out local changes.</p>
+<div class="section" id="construir-el-sitio-para-una-rama">
+<h3><a class="toc-backref" href="#id7">Construir el sitio para una rama</a><a class="headerlink" href="#construir-el-sitio-para-una-rama" title="Enlazar permanentemente con este título"></a></h3>
+<p>Para construir el sitio unicamente para la rama actual, escribe <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> en la carpeta raíz del repositorio.
+Esta es la forma recomendada de probar los cambios locales.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">make html</span>
 </pre></div>
 </div>
-<p>The build process can take some time.
-To see the output, open <code class="docutils literal notranslate"><span class="pre">build/html/index.html</span></code> in your browser.</p>
-<p>You can also run the documentation tests locally (using <a class="reference external" href="https://github.com/PyCQA/doc8">doc8</a>) with the following command:</p>
+<p>El proceso de compilación puede llevar algún tiempo.
+Para ver el resultado, abre <code class="docutils literal notranslate"><span class="pre">build/html/index.html</span></code> en su navegador.</p>
+<p>También puedes ejecutar las pruebas de documentación localmente (usando <a class="reference external" href="https://github.com/PyCQA/doc8">doc8</a>) con el siguiente comando:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">make test</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="building-the-site-for-all-branches">
-<h3><a class="toc-backref" href="#id6">Building the site for all branches</a><a class="headerlink" href="#building-the-site-for-all-branches" title="Enlazar permanentemente con este título"></a></h3>
-<p>To build the site for all branches, type <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">multiversion</span></code> from the <code class="docutils literal notranslate"><span class="pre">rolling</span></code> branch.
-This has two drawbacks:</p>
+<div class="section" id="construir-el-sitio-para-todas-las-ramas">
+<h3><a class="toc-backref" href="#id8">Construir el sitio para todas las ramas.</a><a class="headerlink" href="#construir-el-sitio-para-todas-las-ramas" title="Enlazar permanentemente con este título"></a></h3>
+<p>Para construir el sitio para todas las ramas, escribe <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">multiversion</span></code> desde la rama <code class="docutils literal notranslate"><span class="pre">rolling</span></code>.
+Esto tiene dos inconvenientes:</p>
 <ol class="arabic simple">
-<li><p>The multiversion plugin doesn’t understand how to do incremental builds, so it always rebuilds everything.
-This can be slow.</p></li>
-<li><p>When typing <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">multiversion</span></code>, it will always check out exactly the branches listed in the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file.
-That means that local changes will not be shown.</p></li>
+<li><p>El complemento multiversión no entiende cómo hacer compilaciones incrementales, por lo que siempre reconstruye todo.
+Esto puede ser lento.</p></li>
+<li><p>Al escribir <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">multiversion</span></code>, siempre verificará exactamente las ramas enumeradas en el archivo <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>.
+Eso significa que no se mostrarán los cambios locales.</p></li>
 </ol>
-<p>To show local changes in the multiversion output, you must first commit the changes to a local branch.
-Then you must edit the <a class="reference external" href="https://github.com/ros2/ros2_documentation/blob/rolling/conf.py">conf.py</a> file and change the <code class="docutils literal notranslate"><span class="pre">smv_branch_whitelist</span></code> variable to point to your branch.</p>
+<p>Para mostrar los cambios locales en la salida de varias versiones, primero debes realizar un commit con los cambios en una rama local.
+Luego debes editar el archivo <a class="reference external" href="https://github.com/ros2/ros2_documentation/blob/rolling/conf.py">conf.py</a> y cambiar la variable <code class="docutils literal notranslate"><span class="pre">smv_branch_whitelist</span></code> para que apunte a tu rama.</p>
 </div>
-<div class="section" id="checking-for-broken-links">
-<h3><a class="toc-backref" href="#id7">Checking for broken links</a><a class="headerlink" href="#checking-for-broken-links" title="Enlazar permanentemente con este título"></a></h3>
-<p>To check for broken links on the site, run:</p>
+<div class="section" id="comprobacion-de-enlaces-rotos">
+<h3><a class="toc-backref" href="#id9">Comprobación de enlaces rotos</a><a class="headerlink" href="#comprobacion-de-enlaces-rotos" title="Enlazar permanentemente con este título"></a></h3>
+<p>Para verificar si hay enlaces rotos en el sitio, ejecuta:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">make linkcheck</span>
 </pre></div>
 </div>
-<p>This will check the entire site for broken links, and output the results to the screen and <code class="docutils literal notranslate"><span class="pre">build/linkcheck</span></code>.</p>
+<p>Esto comprobará todo el sitio en busca de enlaces rotos y mostrará los resultados en la pantalla y en <code class="docutils literal notranslate"><span class="pre">build/linkcheck</span></code>.</p>
 </div>
 </div>
-<div class="section" id="writing-pages">
-<h2><a class="toc-backref" href="#id8">Writing pages</a><a class="headerlink" href="#writing-pages" title="Enlazar permanentemente con este título"></a></h2>
-<p>The ROS 2 documentation website uses the <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> format, which is the default plaintext markup language used by Sphinx.
-This section is a brief introduction to <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> concepts, syntax, and best practices.</p>
-<p>You can refer to <a class="reference external" href="https://docutils.sourceforge.io/rst.html">reStructuredText User Documentation</a> for a detailed technical specification.</p>
-<div class="section" id="id1">
-<h3><a class="toc-backref" href="#id9">Table of Contents</a><a class="headerlink" href="#id1" title="Enlazar permanentemente con este título"></a></h3>
-<p>There are two types of directives used for the generation of a table of contents, <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">toctree::</span></code> and <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">contents::</span></code>.
-The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">toctree::</span></code> is used in top-level pages like <code class="docutils literal notranslate"><span class="pre">Tutorials.rst</span></code> to set ordering and visibility of its child pages.
-This directive creates both left navigation panel and in-page navigation links to the child pages listed.
-It helps readers to understand the structure of separate documentation sections and navigate between pages.</p>
+<div class="section" id="escribir-paginas">
+<h2><a class="toc-backref" href="#id10">Escribir paginas</a><a class="headerlink" href="#escribir-paginas" title="Enlazar permanentemente con este título"></a></h2>
+<p>El sitio web de documentación de ROS 2 utiliza el formato <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code>, que es el lenguaje de markup de texto plano que Sphinx utiliza de manera predeterminada.
+Esta sección es una breve introducción a los conceptos, la sintaxis y las mejores prácticas de <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code>.</p>
+<p>Puede consultar la <a class="reference external" href="https://docutils.sourceforge.io/rst.html">Documentación de reStructuredText</a> para obtener una especificación técnica detallada.</p>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id11">Tabla de Contenido</a><a class="headerlink" href="#id3" title="Enlazar permanentemente con este título"></a></h3>
+<p>Hay dos tipos de directivas utilizadas para la generación de una tabla de contenido, <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">toctree::</span></code> y <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">content::</span></code>.
+El <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">toctree::</span></code> se usa en páginas de nivel superior como <code class="docutils literal notranslate"><span class="pre">Tutorials.rst</span></code> para establecer el orden y la visibilidad de sus páginas secundarias.
+Esta directiva crea tanto el panel de navegación izquierdo como los enlaces de navegación en la página a las páginas secundarias enumeradas.
+Ayuda a los lectores a comprender la estructura de diferentes secciones de la documentación y la navegación entre ellos.</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
    <span class="nc">:maxdepth:</span> 1
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">contents::</span></code> directive is used for the generation of a table of contents for that particular page.
-It parses all present headings in a page and builds an in-page nested table of contents.
-It helps readers to see an overview of the content and navigate inside a page.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">contents::</span></code> directive supports the definition of maximum depth of nested sections.
-Using <code class="docutils literal notranslate"><span class="pre">:depth:</span> <span class="pre">2</span></code> will only show Sections and Subsections in the table of contents.</p>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">contents</span><span class="p">::</span> Table of Contents
+<p>La directiva <code class="docutils literal notranslate"><span class="pre">..contents::</span></code> se usa para generar una tabla de contenido para esa página en particular.
+Analiza todos los encabezados presentes en una página y crea una tabla de contenido dentro de la página.
+Ayuda a los lectores a ver una descripción general del contenido y navegar dentro de una página.</p>
+<p>La directiva <code class="docutils literal notranslate"><span class="pre">..contents::</span></code> soporta la definición de profundidad máxima de secciones anidadas.
+Al usar <code class="docutils literal notranslate"><span class="pre">:</span> <span class="pre">depth:</span> <span class="pre">2</span></code> solo mostrará Secciones y Subsecciones en la tabla de contenido.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">contents</span><span class="p">::</span> Tabla de Contenido
    <span class="nc">:depth:</span> 2
    <span class="nc">:local:</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="headings">
-<h3><a class="toc-backref" href="#id10">Headings</a><a class="headerlink" href="#headings" title="Enlazar permanentemente con este título"></a></h3>
-<p>There are four main Heading types used in the documentation.
-Note that the number of symbols has to match the length of the title.</p>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">Page Title Header</span>
-<span class="gh">=================</span>
+<div class="section" id="encabezados">
+<h3><a class="toc-backref" href="#id12">Encabezados</a><a class="headerlink" href="#encabezados" title="Enlazar permanentemente con este título"></a></h3>
+<p>Hay cuatro tipos principales de encabezados utilizados en la documentación.
+Ten en cuenta que el número de símbolos tiene que coincidir con la longitud del título.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">Encabezado titulo de pagina</span>
+<span class="gh">==========================</span>
 
-<span class="gh">Section Header</span>
-<span class="gh">--------------</span>
+<span class="gh">Encabezado de Sección</span>
+<span class="gh">---------------------</span>
 
-<span class="gh">2 Subsection Header</span>
-<span class="gh">^^^^^^^^^^^^^^^^^^^</span>
+<span class="gh">2 Encabezado de Subsección</span>
+<span class="gh">^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
 
-<span class="gh">2.4 Subsubsection Header</span>
-<span class="gh">~~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="gh">2.4 Encabezado de Subsubsección</span>
+<span class="gh">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 </pre></div>
 </div>
-<p>We usually use one digit for numbering subsections and two digits (dot separated) for numbering subsubsections in Tutorials and How-To-Guides.</p>
+<p>Por lo general, usamos un dígito para numerar las subsecciones y dos dígitos (separados por puntos) para numerar las subsubsecciones en los tutoriales y las How-To-Guides.</p>
 </div>
-<div class="section" id="lists">
-<h3><a class="toc-backref" href="#id11">Lists</a><a class="headerlink" href="#lists" title="Enlazar permanentemente con este título"></a></h3>
-<p>Stars <code class="docutils literal notranslate"><span class="pre">*</span></code> are used for listing unordered items with bullet points and number sign <code class="docutils literal notranslate"><span class="pre">#.</span></code>  is used for listing numbered items.
-Both of them support nested definitions and will render accordingly.</p>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="m">*</span> bullet point
+<div class="section" id="listas">
+<h3><a class="toc-backref" href="#id13">Listas</a><a class="headerlink" href="#listas" title="Enlazar permanentemente con este título"></a></h3>
+<p>Las estrellas <code class="docutils literal notranslate"><span class="pre">*</span></code> se usan para listar con viñetas elementos desordenados  y el signo de número <code class="docutils literal notranslate"><span class="pre">#.</span></code> se usa para listar elementos numerados.
+Ambos admiten definiciones anidadas y se muestran de manera acorde.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="m">*</span> viñeta
 
-  <span class="m">*</span> bullet point nested
-  <span class="m">*</span> bullet point nested
+  <span class="m">*</span> viñeta anidada
+  <span class="m">*</span> viñeta anidada
 
-<span class="m">*</span> bullet point
+<span class="m">*</span> viñeta
 </pre></div>
 </div>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="m">#.</span> first listed item
-<span class="m">#.</span> second lited item
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="m">#.</span> Pirmer elemento
+<span class="m">#.</span> Segundo elemento
 </pre></div>
 </div>
 </div>
-<div class="section" id="code-formatting">
-<h3><a class="toc-backref" href="#id12">Code Formatting</a><a class="headerlink" href="#code-formatting" title="Enlazar permanentemente con este título"></a></h3>
-<p>In-text code can be formatted using <code class="docutils literal notranslate"><span class="pre">backticks</span></code> for showing <code class="docutils literal notranslate"><span class="pre">highlighted</span></code> code.</p>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>In-text code can be formatted using <span class="s">``backticks``</span> for showing <span class="s">``highlighted``</span> code.
+<div class="section" id="formato-de-codigo">
+<h3><a class="toc-backref" href="#id14">Formato de código</a><a class="headerlink" href="#formato-de-codigo" title="Enlazar permanentemente con este título"></a></h3>
+<p>Las <code class="docutils literal notranslate"><span class="pre">comillas</span> <span class="pre">invertidas</span></code> pueden ser usadas para <code class="docutils literal notranslate"><span class="pre">resaltar</span></code> código en el texto.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Las <span class="s">``comillas invertidas``</span> pueden ser usadas para <span class="s">``resaltar``</span> código en el texto.
 </pre></div>
 </div>
-<p>Code blocks inside a page need to be captured using <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">code-block::</span></code> directive.
-<code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">code-block::</span></code> supports code highlighting for syntaxes like <code class="docutils literal notranslate"><span class="pre">C++</span></code>, <code class="docutils literal notranslate"><span class="pre">YAML</span></code>, <code class="docutils literal notranslate"><span class="pre">console</span></code>, <code class="docutils literal notranslate"><span class="pre">bash</span></code>, and more.
-Code inside the directive needs to be indented.</p>
+<p>Los bloques de código dentro de una página necesitan ser encerrados usando la directiva <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">code-block::</span></code>.
+<code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">code-block::</span></code> admite el resaltado de código para sintaxis como <code class="docutils literal notranslate"><span class="pre">C++</span></code>, <code class="docutils literal notranslate"><span class="pre">YAML</span></code>, <code class="docutils literal notranslate"><span class="pre">console</span></code>, <code class="docutils literal notranslate"><span class="pre">bash</span></code> y más.
+El código dentro de la directiva debe estar indentado.</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> <span class="k">C++</span>
 
    <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"></span>
@@ -553,62 +555,62 @@ Code inside the directive needs to be indented.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="images">
-<h3><a class="toc-backref" href="#id13">Images</a><a class="headerlink" href="#images" title="Enlazar permanentemente con este título"></a></h3>
-<p>Images can be inserted using the <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">image::</span></code> directive.</p>
+<div class="section" id="imagenes">
+<h3><a class="toc-backref" href="#id15">Imágenes</a><a class="headerlink" href="#imagenes" title="Enlazar permanentemente con este título"></a></h3>
+<p>Las imágenes se pueden insertar usando la directiva <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">image::</span></code>.</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">image</span><span class="p">::</span> images/turtlesim_follow1.png
 </pre></div>
 </div>
 </div>
-<div class="section" id="references-and-links">
-<h3><a class="toc-backref" href="#id14">References and Links</a><a class="headerlink" href="#references-and-links" title="Enlazar permanentemente con este título"></a></h3>
-<div class="section" id="external-links">
-<h4>External links<a class="headerlink" href="#external-links" title="Enlazar permanentemente con este título"></a></h4>
-<p>The syntax of creating links to external web pages is shown below.</p>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="s">`ROS Docs </span><span class="si">&lt;https://docs.ros.org&gt;</span><span class="s">`_</span>
+<div class="section" id="referencias-y-enlaces">
+<h3><a class="toc-backref" href="#id16">Referencias y enlaces</a><a class="headerlink" href="#referencias-y-enlaces" title="Enlazar permanentemente con este título"></a></h3>
+<div class="section" id="enlaces-externos">
+<h4>Enlaces externos<a class="headerlink" href="#enlaces-externos" title="Enlazar permanentemente con este título"></a></h4>
+<p>La sintaxis para crear enlaces a páginas web externas se muestra a continuación.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="s">`Documentos de ROS </span><span class="si">&lt;https://docs.ros.org&gt;</span><span class="s">`_</span>
 </pre></div>
 </div>
-<p>The above link will appear as <a class="reference external" href="https://docs.ros.org">ROS Docs</a>.
-Note the underscore after the final single quote.</p>
+<p>El enlace anterior aparecerá como <a class="reference external" href="https://docs.ros.org">Documentos de ROS</a>.
+Tenga en cuenta el guión bajo después de la comilla simple final.</p>
 </div>
-<div class="section" id="internal-links">
-<h4>Internal links<a class="headerlink" href="#internal-links" title="Enlazar permanentemente con este título"></a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">:doc:</span></code> directive is used to create in-text links to other pages.</p>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="na">:doc:</span><span class="nv">`Quality of Service &lt;../Tutorials/Quality-of-Service&gt;`</span>
+<div class="section" id="enlaces-internos">
+<h4>Enlaces internos<a class="headerlink" href="#enlaces-internos" title="Enlazar permanentemente con este título"></a></h4>
+<p>La directiva <code class="docutils literal notranslate"><span class="pre">:doc:</span></code> se usa para crear enlaces en el texto a otras páginas.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="na">:doc:</span><span class="nv">`Calidad de Servicio &lt;../Tutorials/Quality-of-Service&gt;`</span>
 </pre></div>
 </div>
-<p>Note that the relative path to the file is used.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">ref</span></code> directive is used to make links to specific parts of a page.
-These could be headings, images or code sections inside the current or different page.</p>
-<p>Definition of explicit target right before the desired object is required.
-In the example below, the target is defined as <code class="docutils literal notranslate"><span class="pre">_talker-listener</span></code> one line before the heading <code class="docutils literal notranslate"><span class="pre">Try</span> <span class="pre">some</span> <span class="pre">examples</span></code>.</p>
+<p>Tenga en cuenta que se utiliza la ruta relativa al archivo.</p>
+<p>La directiva <code class="docutils literal notranslate"><span class="pre">ref</span></code> se usa para hacer enlaces a partes específicas de una página.
+Estos pueden ser encabezados, imágenes o secciones de código dentro de la página actual u otra.</p>
+<p>Se necesita definir explícitamente una referencia justo antes del elemento deseado.
+En el siguiente ejemplo, la referencia se define como <code class="docutils literal notranslate"><span class="pre">_talker-listener</span></code> una línea antes del título <code class="docutils literal notranslate"><span class="pre">Prueba</span> <span class="pre">algunos</span> <span class="pre">ejemplos</span></code>.</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">_talker-listener:</span>
 
-<span class="gh">Try some examples</span>
-<span class="gh">-----------------</span>
+ Prueba algunos ejemplos
+ -----------------
 </pre></div>
 </div>
-<p>Now the link from any page in the documentation to that header can be created.</p>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="na">:ref:</span><span class="nv">`talker-listener demo &lt;talker-listener&gt;`</span>
+<p>Ahora se puede crear el enlace desde cualquier página de la documentación a ese encabezado.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="na">:ref:</span><span class="nv">` demo talker-listener &lt;talker-listener&gt;`</span>
 </pre></div>
 </div>
-<p>This link will navigate a reader to the target page with an HTML anchor link <code class="docutils literal notranslate"><span class="pre">#talker-listener</span></code>.</p>
+<p>Este enlace llevará al lector a la página de destino con un enlace de anclaje HTML <code class="docutils literal notranslate"><span class="pre">#talker-listener</span></code>.</p>
 </div>
 <div class="section" id="macros">
 <h4>Macros<a class="headerlink" href="#macros" title="Enlazar permanentemente con este título"></a></h4>
-<p>Macros can be used to simplify writing documentation that targets multiple distributions.</p>
-<p>Use a macro by including the macro name in curly braces.
-For example, when generating the docs for Rolling on the <code class="docutils literal notranslate"><span class="pre">rolling</span></code> branch:</p>
+<p>Las macros se pueden usar para simplificar la escritura de documentación dirigida a múltiples distribuciones.</p>
+<p>Use una macro incluyendo el nombre de la macro entre llaves.
+Por ejemplo, al generar los documentos para Rolling en la rama <code class="docutils literal notranslate"><span class="pre">rolling</span></code>:</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 28%" />
-<col style="width: 28%" />
-<col style="width: 45%" />
+<col style="width: 26%" />
+<col style="width: 31%" />
+<col style="width: 43%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Use</p></th>
-<th class="head"><p>Becomes (for Rolling)</p></th>
-<th class="head"><p>Example</p></th>
+<tr class="row-odd"><th class="head"><p>Usando</p></th>
+<th class="head"><p>Resultado (para Rolling)</p></th>
+<th class="head"><p>Ejemplo</p></th>
 </tr>
 </thead>
 <tbody>
@@ -630,7 +632,7 @@ For example, when generating the docs for Rolling on the <code class="docutils l
 </tr>
 </tbody>
 </table>
-<p>The same file can be used on multiple branches (i.e., for multiple distros) and the generated content will be distro-specific.</p>
+<p>El mismo archivo se puede usar en varias sucursales (es decir, para varias distribuciones) y el contenido generado será específico de la distribución.</p>
 </div>
 </div>
 </div>
@@ -641,7 +643,7 @@ For example, when generating the docs for Rolling on the <code class="docutils l
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
-        <a href="Windows-Tips-and-Tricks.html" class="btn btn-neutral float-left" title="Windows Tips and Tricks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="Windows-Tips-and-Tricks.html" class="btn btn-neutral float-left" title="Consejos y trucos de Windows" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
         <a href="../Features.html" class="btn btn-neutral float-right" title="Features Status" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
