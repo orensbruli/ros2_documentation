@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Managing nodes with managed lifecycles &mdash; documentación de ROS 2 Documentation: Rolling - </title>
+  <title>Gestión de lifecycle nodes &mdash; documentación de ROS 2 Documentation: Rolling - </title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
@@ -25,8 +25,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Setting up efficient intra-process communication" href="Intra-Process-Communication.html" />
-    <link rel="prev" title="Using quality-of-service settings for lossy networks" href="Quality-of-Service.html" /> 
+    <link rel="next" title="Establecer una comunicación intraproceso eficiente" href="Intra-Process-Communication.html" />
+    <link rel="prev" title="Uso de configuraciones de calidad de servicio para redes con pérdidas" href="Quality-of-Service.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -205,14 +205,14 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../Demos.html">Demos</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="Quality-of-Service.html">Using quality-of-service settings for lossy networks</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Managing nodes with managed lifecycles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Intra-Process-Communication.html">Setting up efficient intra-process communication</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Rosbag-with-ROS1-Bridge.html">Recording and playing back data with <code class="docutils literal notranslate"><span class="pre">rosbag</span></code> using the ROS 1 bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Quality-of-Service.html">Uso de configuraciones de calidad de servicio para redes con pérdidas</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Gestión de lifecycle nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Intra-Process-Communication.html">Establecer una comunicación intraproceso eficiente</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Rosbag-with-ROS1-Bridge.html">Grabación y reproducción de datos con <code class="docutils literal notranslate"><span class="pre">rosbag</span></code> utilizando ROS 1 bridge</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Real-Time-Programming.html">Understanding real-time programming</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dummy-robot-demo.html">Experimenting with a dummy robot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Logging-and-logger-configuration.html">Logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Content-Filtering-Subscription.html">Creating a content filtering subscription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dummy-robot-demo.html">Experimentando con un robot ficticio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logging-and-logger-configuration.html">Registro de mensajes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Content-Filtering-Subscription.html">Creación de un suscriptor de filtrado de contenido</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a><ul>
@@ -343,7 +343,7 @@
       <li><a href="../../index.html" class="icon icon-home"></a></li>
           <li class="breadcrumb-item"><a href="../../Tutorials.html">Tutorials</a></li>
           <li class="breadcrumb-item"><a href="../Demos.html">Demos</a></li>
-      <li class="breadcrumb-item active">Managing nodes with managed lifecycles</li>
+      <li class="breadcrumb-item active">Gestión de lifecycle nodes</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/ros2/ros2_documentation/blob/rolling/source/Tutorials/Demos/Managed-Nodes.rst" class="fa fa-github"> Editar en GitHub</a>
       </li>
@@ -364,10 +364,10 @@
 </p>
 
 
-  <div class="section" id="managing-nodes-with-managed-lifecycles">
-<h1>Managing nodes with managed lifecycles<a class="headerlink" href="#managing-nodes-with-managed-lifecycles" title="Enlazar permanentemente con este título"></a></h1>
-<p>This page lives now directly side-by-side with the <a class="reference external" href="https://github.com/ros2/demos/blob/rolling/lifecycle/README.rst">code</a>.
-For more information about the <code class="docutils literal notranslate"><span class="pre">lifecycle</span></code> package, refer to <a class="reference external" href="https://index.ros.org/p/lifecycle/github-ros2-demos/">rosindex</a>.</p>
+  <div class="section" id="gestion-de-lifecycle-nodes">
+<h1>Gestión de lifecycle nodes<a class="headerlink" href="#gestion-de-lifecycle-nodes" title="Enlazar permanentemente con este título"></a></h1>
+<p>Esta página se encuentra en este <a class="reference external" href="https://github.com/ros2/demos/blob/rolling/lifecycle/README.rst">código</a>.
+Para obtener más información sobre el paquete <code class="docutils literal notranslate"><span class="pre">lifecycle</span></code>, consulta <a class="reference external" href="https://index.ros.org/p/lifecycle/github-ros2-demos/">rosindex</a>.</p>
 </div>
 
 
@@ -375,8 +375,8 @@ For more information about the <code class="docutils literal notranslate"><span 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
-        <a href="Quality-of-Service.html" class="btn btn-neutral float-left" title="Using quality-of-service settings for lossy networks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
-        <a href="Intra-Process-Communication.html" class="btn btn-neutral float-right" title="Setting up efficient intra-process communication" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Quality-of-Service.html" class="btn btn-neutral float-left" title="Uso de configuraciones de calidad de servicio para redes con pérdidas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="Intra-Process-Communication.html" class="btn btn-neutral float-right" title="Establecer una comunicación intraproceso eficiente" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

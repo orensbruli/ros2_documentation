@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Using quality-of-service settings for lossy networks &mdash; documentación de ROS 2 Documentation: Rolling - </title>
+  <title>Uso de configuraciones de calidad de servicio para redes con pérdidas &mdash; documentación de ROS 2 Documentation: Rolling - </title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
@@ -26,7 +26,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Managing nodes with managed lifecycles" href="Managed-Nodes.html" />
+    <link rel="next" title="Gestión de lifecycle nodes" href="Managed-Nodes.html" />
     <link rel="prev" title="Demos" href="../Demos.html" /> 
 </head>
 
@@ -206,14 +206,14 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../Demos.html">Demos</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Using quality-of-service settings for lossy networks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Managed-Nodes.html">Managing nodes with managed lifecycles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Intra-Process-Communication.html">Setting up efficient intra-process communication</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Rosbag-with-ROS1-Bridge.html">Recording and playing back data with <code class="docutils literal notranslate"><span class="pre">rosbag</span></code> using the ROS 1 bridge</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Uso de configuraciones de calidad de servicio para redes con pérdidas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Managed-Nodes.html">Gestión de lifecycle nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Intra-Process-Communication.html">Establecer una comunicación intraproceso eficiente</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Rosbag-with-ROS1-Bridge.html">Grabación y reproducción de datos con <code class="docutils literal notranslate"><span class="pre">rosbag</span></code> utilizando ROS 1 bridge</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Real-Time-Programming.html">Understanding real-time programming</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dummy-robot-demo.html">Experimenting with a dummy robot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Logging-and-logger-configuration.html">Logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Content-Filtering-Subscription.html">Creating a content filtering subscription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dummy-robot-demo.html">Experimentando con un robot ficticio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logging-and-logger-configuration.html">Registro de mensajes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Content-Filtering-Subscription.html">Creación de un suscriptor de filtrado de contenido</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a><ul>
@@ -344,7 +344,7 @@
       <li><a href="../../index.html" class="icon icon-home"></a></li>
           <li class="breadcrumb-item"><a href="../../Tutorials.html">Tutorials</a></li>
           <li class="breadcrumb-item"><a href="../Demos.html">Demos</a></li>
-      <li class="breadcrumb-item active">Using quality-of-service settings for lossy networks</li>
+      <li class="breadcrumb-item active">Uso de configuraciones de calidad de servicio para redes con pérdidas</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/ros2/ros2_documentation/blob/rolling/source/Tutorials/Demos/Quality-of-Service.rst" class="fa fa-github"> Editar en GitHub</a>
       </li>
@@ -365,46 +365,46 @@
 </p>
 
 
-  <div class="section" id="using-quality-of-service-settings-for-lossy-networks">
-<h1>Using quality-of-service settings for lossy networks<a class="headerlink" href="#using-quality-of-service-settings-for-lossy-networks" title="Enlazar permanentemente con este título"></a></h1>
-<div class="contents local topic" id="table-of-contents">
-<p class="topic-title">Table of Contents</p>
+  <div class="section" id="uso-de-configuraciones-de-calidad-de-servicio-para-redes-con-perdidas">
+<h1>Uso de configuraciones de calidad de servicio para redes con pérdidas<a class="headerlink" href="#uso-de-configuraciones-de-calidad-de-servicio-para-redes-con-perdidas" title="Enlazar permanentemente con este título"></a></h1>
+<div class="contents local topic" id="tabla-de-contenidos">
+<p class="topic-title">Tabla de contenidos</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#background" id="id1">Background</a></p></li>
-<li><p><a class="reference internal" href="#prerequisites" id="id2">Prerequisites</a></p></li>
-<li><p><a class="reference internal" href="#run-the-demo" id="id3">Run the demo</a></p>
+<li><p><a class="reference internal" href="#historial" id="id1">Historial</a></p></li>
+<li><p><a class="reference internal" href="#requisitos-precios" id="id2">Requisitos precios</a></p></li>
+<li><p><a class="reference internal" href="#ejecucion-de-la-demo" id="id3">Ejecución de la demo</a></p>
 <ul>
-<li><p><a class="reference internal" href="#command-line-options" id="id4">Command line options</a></p></li>
-<li><p><a class="reference internal" href="#add-network-traffic" id="id5">Add network traffic</a></p></li>
+<li><p><a class="reference internal" href="#opciones-de-la-linea-de-comandos" id="id4">Opciones de la línea de comandos</a></p></li>
+<li><p><a class="reference internal" href="#agregar-trafico-de-red" id="id5">Agregar tráfico de red</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="background">
-<h2><a class="toc-backref" href="#id1">Background</a><a class="headerlink" href="#background" title="Enlazar permanentemente con este título"></a></h2>
-<p>Please read the documentation page <a class="reference internal" href="../../Concepts/About-Quality-of-Service-Settings.html"><span class="doc">about QoS settings</span></a> for background information on available support in ROS 2.</p>
-<p>In this demo, we will spawn a node that publishes a camera image and another that subscribes to the image and shows it on the screen.
-We will then simulate a lossy network connection between them and show how different quality of service settings handle the bad link.</p>
+<div class="section" id="historial">
+<h2><a class="toc-backref" href="#id1">Historial</a><a class="headerlink" href="#historial" title="Enlazar permanentemente con este título"></a></h2>
+<p>Lee la página de documentación <a class="reference internal" href="../../Concepts/About-Quality-of-Service-Settings.html"><span class="doc">sobre la configuración de QoS</span></a> para obtener información general sobre el soporte disponible en ROS 2.</p>
+<p>En esta demostración, generaremos un nodo que publica una imagen de cámara y otro que se suscribe a la imagen y la muestra en la pantalla.
+Luego simularemos una conexión de red con pérdida entre ellos y mostraremos cómo las diferentes configuraciones de calidad de servicio manejan el enlace defectuoso.</p>
 </div>
-<div class="section" id="prerequisites">
-<h2><a class="toc-backref" href="#id2">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Enlazar permanentemente con este título"></a></h2>
-<p>This tutorial assumes you have a <a class="reference internal" href="../../Installation.html"><span class="doc">working ROS 2 installation</span></a> and OpenCV.
-See the <a class="reference external" href="http://docs.opencv.org/doc/tutorials/introduction/table_of_content_introduction/table_of_content_introduction.html#table-of-content-introduction">OpenCV documentation</a> for its installation instructions.
-You will also need the ROS package <code class="docutils literal notranslate"><span class="pre">image_tools</span></code>.</p>
+<div class="section" id="requisitos-precios">
+<h2><a class="toc-backref" href="#id2">Requisitos precios</a><a class="headerlink" href="#requisitos-precios" title="Enlazar permanentemente con este título"></a></h2>
+<p>Este tutorial asume que tienes una <a class="reference internal" href="../../Installation.html"><span class="doc">instalación de ROS 2</span></a> y OpenCV.
+Consulta la documentación de <a class="reference external" href="http://docs.opencv.org/doc/tutorials/introduction/table_of_content_introduction/table_of_content_introduction.html#table-of-content-introduction">OpenCV</a> para conocer las instrucciones de instalación.
+También necesitarás el paquete ROS <code class="docutils literal notranslate"><span class="pre">image_tools</span></code>.</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-TGludXggQmluYXJpZXM=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-TGludXggQmluYXJpZXM=" name="TGludXggQmluYXJpZXM=" role="tab" tabindex="0">Linux Binaries</button><button aria-controls="panel-0-RnJvbSBTb3VyY2U=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-RnJvbSBTb3VyY2U=" name="RnJvbSBTb3VyY2U=" role="tab" tabindex="-1">From Source</button></div><div aria-labelledby="tab-0-TGludXggQmluYXJpZXM=" class="sphinx-tabs-panel group-tab" id="panel-0-TGludXggQmluYXJpZXM=" name="TGludXggQmluYXJpZXM=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install ros-rolling-image-tools
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-0-RnJvbSBTb3VyY2U=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-RnJvbSBTb3VyY2U=" name="RnJvbSBTb3VyY2U=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clone and build the demos repo using the branch that matches your installation</span>
+</div><div aria-labelledby="tab-0-RnJvbSBTb3VyY2U=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-RnJvbSBTb3VyY2U=" name="RnJvbSBTb3VyY2U=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clona y compila el repositorio de demos usando la rama que coincida con tu instalación</span>
 git clone https://github.com/ros2/demos.git -b rolling
 </pre></div>
 </div>
 </div></div>
 </div>
-<div class="section" id="run-the-demo">
-<h2><a class="toc-backref" href="#id3">Run the demo</a><a class="headerlink" href="#run-the-demo" title="Enlazar permanentemente con este título"></a></h2>
-<p>Before running the demo, make sure you have a working webcam connected to your computer.</p>
-<p>Once you’ve installed ROS 2, source your setup file:</p>
+<div class="section" id="ejecucion-de-la-demo">
+<h2><a class="toc-backref" href="#id3">Ejecución de la demo</a><a class="headerlink" href="#ejecucion-de-la-demo" title="Enlazar permanentemente con este título"></a></h2>
+<p>Antes de ejecutar la demostración, asegurate de tener una cámara web en funcionamiento conectada a su computadora.</p>
+<p>Una vez que hayas instalado ROS 2, obtén tu archivo de instalación:</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-1-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-1-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-1-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-1-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>. &lt;path to ROS <span class="m">2</span> install space&gt;/setup.bash
 </pre></div>
@@ -416,32 +416,32 @@ git clone https://github.com/ros2/demos.git -b rolling
 </pre></div>
 </div>
 </div></div>
-<p>Then run:</p>
+<p>Entonces ejecuta:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2 run image_tools showimage
 </pre></div>
 </div>
-<p>Nothing will happen yet.
-<code class="docutils literal notranslate"><span class="pre">showimage</span></code> is a subscriber node that is waiting for a publisher on the <code class="docutils literal notranslate"><span class="pre">image</span></code> topic.</p>
-<p>Note: you have to close the <code class="docutils literal notranslate"><span class="pre">showimage</span></code> process with <code class="docutils literal notranslate"><span class="pre">Ctrl-C</span></code> later.
-You can’t just close the window.</p>
-<p>In a separate terminal, source the install file and run the publisher node:</p>
+<p>No pasará nada todavía.
+<code class="docutils literal notranslate"><span class="pre">showimage</span></code> es un nodo suscriptor que está esperando un editor en el tema <code class="docutils literal notranslate"><span class="pre">image</span></code>.</p>
+<p>Nota: tienes que cerrar el proceso <code class="docutils literal notranslate"><span class="pre">showimage</span></code> con <code class="docutils literal notranslate"><span class="pre">Ctrl-C</span></code> más tarde.
+No puedes simplemente cerrar la ventana.</p>
+<p>En una terminal separada, obtén el archivo de instalación y ejecuta el nodo publicador:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2 run image_tools cam2image
 </pre></div>
 </div>
-<p>This will publish an image from your webcam.
-In case you don’t have a camera attached to your computer, there is a commandline option which publishes predefined images.</p>
+<p>Esto publicará una imagen de su cámara web.
+En caso de que no tengas una cámara conectada a su ordenador, hay una opción de línea de comandos que publica imágenes predefinidas.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2 run image_tools cam2image --ros-args -p burger_mode:<span class="o">=</span>True
 </pre></div>
 </div>
-<p>In this window, you’ll see terminal output:</p>
+<p>En esta ventana, verás la salida del terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Publishing image <span class="c1">#1</span>
 Publishing image <span class="c1">#2</span>
 Publishing image <span class="c1">#3</span>
 ...
 </pre></div>
 </div>
-<p>A window will pop up with the title «view» showing your camera feed.
-In the first window, you’ll see output from the subscriber:</p>
+<p>Aparecerá una ventana con el título «vista» que muestra la transmisión de su cámara.
+En la primera ventana, verás el resultado del suscriptor:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Received image <span class="c1">#1</span>
 Received image <span class="c1">#2</span>
 Received image <span class="c1">#3</span>
@@ -450,52 +450,52 @@ Received image <span class="c1">#3</span>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>macOS users: If these examples do not work or you receive an error like <code class="docutils literal notranslate"><span class="pre">ddsi_conn_write</span> <span class="pre">failed</span> <span class="pre">-1</span></code> then you’ll need to increase your system wide UDP packet size:</p>
+<p>Usuarios de macOS: si estos ejemplos no funcionan o si recibes un error como <code class="docutils literal notranslate"><span class="pre">ddsi_conn_write</span> <span class="pre">fail</span> <span class="pre">-1</span></code>, deberás aumentar el tamaño del paquete UDP en todo el sistema:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo sysctl -w net.inet.udp.recvspace<span class="o">=</span><span class="m">209715</span>
 $ sudo sysctl -w net.inet.udp.maxdgram<span class="o">=</span><span class="m">65500</span>
 </pre></div>
 </div>
-<p>These changes will not persist a reboot. If you want the changes to persist, add these lines to <code class="docutils literal notranslate"><span class="pre">/etc/sysctl.conf</span></code> (create the file if it doesn’t exist already):</p>
+<p>Estos cambios no persistirán al reiniciar. Si deseas que los cambios persistan, agrega estas líneas a <code class="docutils literal notranslate"><span class="pre">/etc/sysctl.conf</span></code> (crea el archivo si aún no existe):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>net.inet.udp.recvspace<span class="o">=</span><span class="m">209715</span>
 net.inet.udp.maxdgram<span class="o">=</span><span class="m">65500</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="command-line-options">
-<h3><a class="toc-backref" href="#id4">Command line options</a><a class="headerlink" href="#command-line-options" title="Enlazar permanentemente con este título"></a></h3>
-<p>In one of your terminals, add a -h flag to the original command:</p>
+<div class="section" id="opciones-de-la-linea-de-comandos">
+<h3><a class="toc-backref" href="#id4">Opciones de la línea de comandos</a><a class="headerlink" href="#opciones-de-la-linea-de-comandos" title="Enlazar permanentemente con este título"></a></h3>
+<p>En uno de tus terminales, agrega un indicador -h al comando original:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2 run image_tools showimage -h
 </pre></div>
 </div>
 </div>
-<div class="section" id="add-network-traffic">
-<h3><a class="toc-backref" href="#id5">Add network traffic</a><a class="headerlink" href="#add-network-traffic" title="Enlazar permanentemente con este título"></a></h3>
+<div class="section" id="agregar-trafico-de-red">
+<h3><a class="toc-backref" href="#id5">Agregar tráfico de red</a><a class="headerlink" href="#agregar-trafico-de-red" title="Enlazar permanentemente con este título"></a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Advertencia</p>
-<p>This section of the demo won’t work on RTI’s Connext DDS.
-When running multiple nodes in the same host, the RTI Connext DDS implementation uses shared memory along with the loopback interface.
-Degrading the loopback interface throughput won’t affect shared memory, thus traffic between the two nodes won’t be affected.</p>
+<p>Esta sección de la demo no funcionará en Connext DDS de RTI.
+Cuando se ejecutan varios nodos en el mismo host, la implementación de RTI Connext DDS usa memoria compartida junto con la interfaz de loopback.
+La degradación del rendimiento de la interfaz de loopback no afectará la memoria compartida, por lo que el tráfico entre los dos nodos no se verá afectado.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>This next section is Linux-specific.</p>
-<p>However, for macOS and Windows you can achieve a similar effect with the utilities «Network Link Conditioner» (part of the xcode tool suite) and «Clumsy» (<a class="reference external" href="http://jagt.github.io/clumsy/index.html">http://jagt.github.io/clumsy/index.html</a>), respectively, but they will not be covered in this tutorial.</p>
+<p>La siguiente sección es específica de Linux.</p>
+<p>Sin embargo, para macOS y Windows puedes lograr un efecto similar con las utilidades «Network Link Conditioner» (parte del conjunto de herramientas xcode) y «Clumsy» (<a class="reference external" href="http://jagt.github.io/clumsy/index.html">http://jagt.github.io/clumsy/index.html</a>), respectivamente, pero no se tratarán en este tutorial.</p>
 </div>
-<p>We are going to use the Linux network traffic control utility, <code class="docutils literal notranslate"><span class="pre">tc</span></code> (<a class="reference external" href="http://linux.die.net/man/8/tc">http://linux.die.net/man/8/tc</a>).</p>
+<p>Vamos a utilizar la utilidad de control de tráfico de red de Linux, <code class="docutils literal notranslate"><span class="pre">tc</span></code> (<a class="reference external" href="http://linux.die.net/man/8/tc">http://linux.die.net/man/8/tc</a>).</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo tc qdisc add dev lo root netem loss <span class="m">5</span>%
 </pre></div>
 </div>
-<p>This magical incantation will simulate 5% packet loss over the local loopback device.
-If you use a higher resolution of the images (e.g. <code class="docutils literal notranslate"><span class="pre">--ros-args</span> <span class="pre">-p</span> <span class="pre">width:=640</span> <span class="pre">-p</span> <span class="pre">height:=480</span></code>) you might want to try a lower packet loss rate (e.g. <code class="docutils literal notranslate"><span class="pre">1%</span></code>).</p>
-<p>Next we start the <code class="docutils literal notranslate"><span class="pre">cam2image</span></code> and <code class="docutils literal notranslate"><span class="pre">showimage</span></code>, and we’ll soon notice that both programs seem to have slowed down the rate at which images are transmitted.
-This is caused by the behavior of the default QoS settings.
-Enforcing reliability on a lossy channel means that the publisher (in this case, <code class="docutils literal notranslate"><span class="pre">cam2image</span></code>) will resend the network packets until it receives acknowledgement from the consumer (i.e. <code class="docutils literal notranslate"><span class="pre">showimage</span></code>).</p>
-<p>Let’s now try running both programs, but with more suitable settings.
-First of all, we’ll use the <code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">reliability:=best_effort</span></code> option to enable best effort communication.
-The publisher will now just attempt to deliver the network packets, and don’t expect acknowledgement from the consumer.
-We see now that some of the frames on the <code class="docutils literal notranslate"><span class="pre">showimage</span></code> side were dropped, so the frame numbers in the shell running <code class="docutils literal notranslate"><span class="pre">showimage</span></code> won’t be consecutive anymore:</p>
+<p>Este conjuro mágico simulará una pérdida de paquetes del 5% en el dispositivo de loopback local.
+Si usas una resolución más alta de las imágenes (por ejemplo, <code class="docutils literal notranslate"><span class="pre">--ros-args</span> <span class="pre">-p</span> <span class="pre">width:=640</span> <span class="pre">-p</span> <span class="pre">height:=480</span></code>), es posible que desees probar una tasa de pérdida de paques más baja (por ejemplo, 1%).</p>
+<p>A continuación, iniciamos <code class="docutils literal notranslate"><span class="pre">cam2image</span></code> y <code class="docutils literal notranslate"><span class="pre">showimage</span></code>, y pronto notaremos que ambos programas parecen haber disminuido la velocidad a la que se transmiten las imágenes.
+Esto se debe al comportamiento de la configuración de QoS predeterminada.
+Hacer cumplir la confiabilidad en un canal con pérdida significa que el editor (en este caso, <code class="docutils literal notranslate"><span class="pre">cam2image</span></code>) reenviará los paquetes de red hasta que reciba el reconocimiento del consumidor (es decir, <code class="docutils literal notranslate"><span class="pre">showimage</span></code>).</p>
+<p>Intentaremos ahora ejecutar ambos programas, pero con configuraciones más adecuadas.
+En primer lugar, usaremos la opción <code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">reliability:=best_effort</span></code> para habilitar la comunicación de best effort.
+El editor ahora solo intentará entregar los paquetes de red y no esperará el reconocimiento del consumidor.
+Vemos ahora que algunos de los cuadros en el lado de <code class="docutils literal notranslate"><span class="pre">showimage</span></code> se eliminaron, por lo que los números de cuadro en el shell que ejecuta <code class="docutils literal notranslate"><span class="pre">showimage</span></code> ya no serán consecutivos:</p>
 <a class="reference external image-reference" href="https://raw.githubusercontent.com/ros2/demos/rolling/image_tools/doc/qos-best-effort.png"><img alt="Best effort image transfer" src="https://raw.githubusercontent.com/ros2/demos/rolling/image_tools/doc/qos-best-effort.png" /></a>
-<p>When you’re done, remember to delete the queueing discipline:</p>
+<p>Cuando hayas terminado, recuerda eliminar la disciplina de cola:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo tc qdisc delete dev lo root netem loss <span class="m">5</span>%
 </pre></div>
 </div>
@@ -509,7 +509,7 @@ We see now that some of the frames on the <code class="docutils literal notransl
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
         <a href="../Demos.html" class="btn btn-neutral float-left" title="Demos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
-        <a href="Managed-Nodes.html" class="btn btn-neutral float-right" title="Managing nodes with managed lifecycles" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Managed-Nodes.html" class="btn btn-neutral float-right" title="Gestión de lifecycle nodes" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

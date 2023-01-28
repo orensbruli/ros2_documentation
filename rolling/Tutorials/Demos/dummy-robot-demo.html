@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Experimenting with a dummy robot &mdash; documentación de ROS 2 Documentation: Rolling - </title>
+  <title>Experimentando con un robot ficticio &mdash; documentación de ROS 2 Documentation: Rolling - </title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
@@ -25,7 +25,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Logging" href="Logging-and-logger-configuration.html" />
+    <link rel="next" title="Registro de mensajes" href="Logging-and-logger-configuration.html" />
     <link rel="prev" title="Understanding real-time programming" href="Real-Time-Programming.html" /> 
 </head>
 
@@ -205,14 +205,14 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../Demos.html">Demos</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="Quality-of-Service.html">Using quality-of-service settings for lossy networks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Managed-Nodes.html">Managing nodes with managed lifecycles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Intra-Process-Communication.html">Setting up efficient intra-process communication</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Rosbag-with-ROS1-Bridge.html">Recording and playing back data with <code class="docutils literal notranslate"><span class="pre">rosbag</span></code> using the ROS 1 bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Quality-of-Service.html">Uso de configuraciones de calidad de servicio para redes con pérdidas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Managed-Nodes.html">Gestión de lifecycle nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Intra-Process-Communication.html">Establecer una comunicación intraproceso eficiente</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Rosbag-with-ROS1-Bridge.html">Grabación y reproducción de datos con <code class="docutils literal notranslate"><span class="pre">rosbag</span></code> utilizando ROS 1 bridge</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Real-Time-Programming.html">Understanding real-time programming</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Experimenting with a dummy robot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Logging-and-logger-configuration.html">Logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Content-Filtering-Subscription.html">Creating a content filtering subscription</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Experimentando con un robot ficticio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logging-and-logger-configuration.html">Registro de mensajes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Content-Filtering-Subscription.html">Creación de un suscriptor de filtrado de contenido</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a><ul>
@@ -343,7 +343,7 @@
       <li><a href="../../index.html" class="icon icon-home"></a></li>
           <li class="breadcrumb-item"><a href="../../Tutorials.html">Tutorials</a></li>
           <li class="breadcrumb-item"><a href="../Demos.html">Demos</a></li>
-      <li class="breadcrumb-item active">Experimenting with a dummy robot</li>
+      <li class="breadcrumb-item active">Experimentando con un robot ficticio</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/ros2/ros2_documentation/blob/rolling/source/Tutorials/Demos/dummy-robot-demo.rst" class="fa fa-github"> Editar en GitHub</a>
       </li>
@@ -364,18 +364,18 @@
 </p>
 
 
-  <div class="section" id="experimenting-with-a-dummy-robot">
-<h1>Experimenting with a dummy robot<a class="headerlink" href="#experimenting-with-a-dummy-robot" title="Enlazar permanentemente con este título"></a></h1>
-<p>In this demo, we present a simple demo robot with all components from publishing joint states over publishing fake laser data until visualizing the robot model on a map in RViz.</p>
-<div class="section" id="launching-the-demo">
-<h2>Launching the demo<a class="headerlink" href="#launching-the-demo" title="Enlazar permanentemente con este título"></a></h2>
-<p>We assume your ROS 2 installation dir as <code class="docutils literal notranslate"><span class="pre">~/ros2_ws</span></code>. Please change the directories according to your platform.</p>
-<p>To start the demo, we execute the demo bringup launch file, which we are going to explain in more details in the next section.</p>
+  <div class="section" id="experimentando-con-un-robot-ficticio">
+<h1>Experimentando con un robot ficticio<a class="headerlink" href="#experimentando-con-un-robot-ficticio" title="Enlazar permanentemente con este título"></a></h1>
+<p>En esta demo, presentamos un robot de demostración simple con todos los componentes, desde la publicación de estados conjuntos hasta la publicación de datos láser falsos hasta la visualización del modelo de robot en un mapa en RViz.</p>
+<div class="section" id="lanzamiento-de-la-demo">
+<h2>Lanzamiento de la demo<a class="headerlink" href="#lanzamiento-de-la-demo" title="Enlazar permanentemente con este título"></a></h2>
+<p>Asumimos que tu directorio de instalación de ROS 2 es <code class="docutils literal notranslate"><span class="pre">~/ros2_ws</span></code>. Cambia los directorios según su plataforma.</p>
+<p>Para iniciar la demo, ejecutamos el archivo de inicio de la demo, que explicaremos con más detalle en la siguiente sección.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/ros2_ws/install/setup.bash
 ros2 launch dummy_robot_bringup dummy_robot_bringup.launch.py
 </pre></div>
 </div>
-<p>You should see some prints inside your terminal along the lines of the following:</p>
+<p>Deberías ver algunas impresiones dentro de su terminal a lo largo de las siguientes líneas:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>launch<span class="o">]</span>: process<span class="o">[</span>dummy_map_server-1<span class="o">]</span>: started with pid <span class="o">[</span><span class="m">25812</span><span class="o">]</span>
 <span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>launch<span class="o">]</span>: process<span class="o">[</span>robot_state_publisher-2<span class="o">]</span>: started with pid <span class="o">[</span><span class="m">25813</span><span class="o">]</span>
 <span class="o">[</span>INFO<span class="o">]</span> <span class="o">[</span>launch<span class="o">]</span>: process<span class="o">[</span>dummy_joint_states-3<span class="o">]</span>: started with pid <span class="o">[</span><span class="m">25814</span><span class="o">]</span>
@@ -403,26 +403,26 @@ Adding fixed segment from single_rrbot_link3 to single_rrbot_camera_link
 Adding fixed segment from single_rrbot_link3 to single_rrbot_hokuyo_link
 </pre></div>
 </div>
-<p>If you now open in a next terminal your RViz, you’ll see your robot. 🎉</p>
+<p>Si ahora abres en una terminal tu RViz, verás tu robot. 🎉</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> &lt;ROS2_INSTALL_FOLDER&gt;/setup.bash
 $ rviz2
 </pre></div>
 </div>
-<p>This opens RViz2. Assuming you have your dummy_robot_bringup still launched, you can now add the TF display plugin and configure your global frame to <code class="docutils literal notranslate"><span class="pre">world</span></code>. Once you did that, you should see a similar picture:</p>
+<p>Esto abre RViz2. Suponiendo que todavía tienes su dummy_robot_bringup lanzado, ahora puedes agregar el complemento de pantalla TF y configurar su marco global para <code class="docutils literal notranslate"><span class="pre">world</span></code>. Una vez que hayas hecho eso, deberías ver una imagen similar:</p>
 <img alt="../../_images/rviz-dummy-robot.png" src="../../_images/rviz-dummy-robot.png" />
-<div class="section" id="what-s-happening">
-<h3>What’s happening?<a class="headerlink" href="#what-s-happening" title="Enlazar permanentemente con este título"></a></h3>
-<p>If you have a closer look at the launch file, we start a couple of nodes at the same time.</p>
+<div class="section" id="que-esta-pasando">
+<h3>¿Qué esta pasando?<a class="headerlink" href="#que-esta-pasando" title="Enlazar permanentemente con este título"></a></h3>
+<p>Si observas más de cerca el archivo de inicio, iniciamos un par de nodos al mismo tiempo.</p>
 <ul class="simple">
 <li><p>dummy_map_server</p></li>
 <li><p>dummy_laser</p></li>
 <li><p>dummy_joint_states</p></li>
 <li><p>robot_state_publisher</p></li>
 </ul>
-<p>The first two packages are relatively simple. The <code class="docutils literal notranslate"><span class="pre">dummy_map_server</span></code> constantly publishes an empty map with a periodic update. The <code class="docutils literal notranslate"><span class="pre">dummy_laser</span></code> does basically the same; publishing dummy fake laser scans.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">dummy_joint_states</span></code> node is publishing fake joint state data. As we are publishing a simple RRbot with only two joints, this node publishes joint states values for these two joints.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">robot_state_publisher</span></code> is doing the actual interesting work. It parses the given URDF file, extracts the robot model and listens to the incoming joint states. With this information, it publishes TF values for our robot which we visualize in RViz.</p>
-<p>Hooray!</p>
+<p>Los primeros dos paquetes son relativamente simples. El <code class="docutils literal notranslate"><span class="pre">dummy_map_server</span></code> publica constantemente un mapa vacío con una actualización periódica. El <code class="docutils literal notranslate"><span class="pre">dummy_laser</span></code> hace básicamente lo mismo; publicación de escaneos láser falsos ficticios.</p>
+<p>El nodo <code class="docutils literal notranslate"><span class="pre">dummy_joint_states</span></code> está publicando datos de joint states falsos. Como estamos publicando un RRbot simple con solo dos articulaciones, este nodo publica valores de joint states para estas dos articulaciones.</p>
+<p>El <code class="docutils literal notranslate"><span class="pre">robot_state_publisher</span></code> está haciendo un trabajo realmente interesante. Analiza el archivo URDF dado, extrae el modelo de robot y escucha los estados de unión entrantes. Con esta información publica valores de TF para nuestro robot que visualizamos en RViz.</p>
+<p>¡Hurra!</p>
 </div>
 </div>
 </div>
@@ -433,7 +433,7 @@ $ rviz2
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
         <a href="Real-Time-Programming.html" class="btn btn-neutral float-left" title="Understanding real-time programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
-        <a href="Logging-and-logger-configuration.html" class="btn btn-neutral float-right" title="Logging" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Logging-and-logger-configuration.html" class="btn btn-neutral float-right" title="Registro de mensajes" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

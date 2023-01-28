@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Logging &mdash; documentación de ROS 2 Documentation: Rolling - </title>
+  <title>Registro de mensajes &mdash; documentación de ROS 2 Documentation: Rolling - </title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Creating a content filtering subscription" href="Content-Filtering-Subscription.html" />
-    <link rel="prev" title="Experimenting with a dummy robot" href="dummy-robot-demo.html" /> 
+    <link rel="next" title="Creación de un suscriptor de filtrado de contenido" href="Content-Filtering-Subscription.html" />
+    <link rel="prev" title="Experimentando con un robot ficticio" href="dummy-robot-demo.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -206,14 +206,14 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../Demos.html">Demos</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="Quality-of-Service.html">Using quality-of-service settings for lossy networks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Managed-Nodes.html">Managing nodes with managed lifecycles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Intra-Process-Communication.html">Setting up efficient intra-process communication</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Rosbag-with-ROS1-Bridge.html">Recording and playing back data with <code class="docutils literal notranslate"><span class="pre">rosbag</span></code> using the ROS 1 bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Quality-of-Service.html">Uso de configuraciones de calidad de servicio para redes con pérdidas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Managed-Nodes.html">Gestión de lifecycle nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Intra-Process-Communication.html">Establecer una comunicación intraproceso eficiente</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Rosbag-with-ROS1-Bridge.html">Grabación y reproducción de datos con <code class="docutils literal notranslate"><span class="pre">rosbag</span></code> utilizando ROS 1 bridge</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Real-Time-Programming.html">Understanding real-time programming</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dummy-robot-demo.html">Experimenting with a dummy robot</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Content-Filtering-Subscription.html">Creating a content filtering subscription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dummy-robot-demo.html">Experimentando con un robot ficticio</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Registro de mensajes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Content-Filtering-Subscription.html">Creación de un suscriptor de filtrado de contenido</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a><ul>
@@ -344,7 +344,7 @@
       <li><a href="../../index.html" class="icon icon-home"></a></li>
           <li class="breadcrumb-item"><a href="../../Tutorials.html">Tutorials</a></li>
           <li class="breadcrumb-item"><a href="../Demos.html">Demos</a></li>
-      <li class="breadcrumb-item active">Logging</li>
+      <li class="breadcrumb-item active">Registro de mensajes</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/ros2/ros2_documentation/blob/rolling/source/Tutorials/Demos/Logging-and-logger-configuration.rst" class="fa fa-github"> Editar en GitHub</a>
       </li>
@@ -365,44 +365,52 @@
 </p>
 
 
-  <div class="section" id="logging">
-<h1>Logging<a class="headerlink" href="#logging" title="Enlazar permanentemente con este título"></a></h1>
-<div class="contents local topic" id="table-of-contents">
-<p class="topic-title">Table of Contents</p>
+  <ol class="loweralpha" start="12">
+<li><p>redirect-from:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Logging</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">logger</span><span class="o">-</span><span class="n">configuration</span>
+<span class="n">Tutorials</span><span class="o">/</span><span class="n">Logging</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">logger</span><span class="o">-</span><span class="n">configuration</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="section" id="registro-de-mensajes">
+<h1>Registro de mensajes<a class="headerlink" href="#registro-de-mensajes" title="Enlazar permanentemente con este título"></a></h1>
+<div class="contents local topic" id="tabla-de-contenidos">
+<p class="topic-title">Tabla de contenidos</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#using-log-statements-in-code" id="id1">Using log statements in code</a></p>
+<li><p><a class="reference internal" href="#uso-de-sentencias-de-registro-en-el-codigo" id="id1">Uso de sentencias de registro en el código</a></p>
 <ul>
-<li><p><a class="reference internal" href="#basic-logging" id="id2">Basic logging</a></p></li>
-<li><p><a class="reference internal" href="#logging-only-the-first-time" id="id3">Logging only the first time</a></p></li>
-<li><p><a class="reference internal" href="#logging-all-but-the-first-time" id="id4">Logging all but the first time</a></p></li>
-<li><p><a class="reference internal" href="#logging-throttled" id="id5">Logging throttled</a></p></li>
-<li><p><a class="reference internal" href="#logging-throttled-all-but-the-first-time" id="id6">Logging throttled all but the first time</a></p></li>
+<li><p><a class="reference internal" href="#regstro-basico" id="id2">Regstro básico</a></p></li>
+<li><p><a class="reference internal" href="#registro-de-mensajes-solo-la-primera-vez" id="id3">Registro de mensajes solo la primera vez</a></p></li>
+<li><p><a class="reference internal" href="#registro-de-todos-los-mensajes-excepto-el-primero" id="id4">Registro de todos los mensajes excepto el primero</a></p></li>
+<li><p><a class="reference internal" href="#registro-de-menasjes-acelerado" id="id5">Registro de menasjes acelerado</a></p></li>
+<li><p><a class="reference internal" href="#registro-acelerado-de-todos-los-mensajes-menos-el-primero" id="id6">Registro acelerado de todos los mensajes menos el primero</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#logging-demo" id="id7">Logging demo</a></p></li>
-<li><p><a class="reference internal" href="#logging-directory-configuration" id="id8">Logging directory configuration</a></p></li>
-<li><p><a class="reference internal" href="#logger-level-configuration-programmatically" id="id9">Logger level configuration: programmatically</a></p></li>
-<li><p><a class="reference internal" href="#logger-level-configuration-externally" id="id10">Logger level configuration: externally</a></p>
+<li><p><a class="reference internal" href="#demo-registro-de-mensajes" id="id7">Demo registro de mensajes</a></p></li>
+<li><p><a class="reference internal" href="#configuracion-del-directorio-de-registro-de-mensajes" id="id8">Configuración del directorio de registro de mensajes</a></p></li>
+<li><p><a class="reference internal" href="#configuracion-de-nivel-de-registros-programaticamente" id="id9">Configuración de nivel de registros: programáticamente</a></p></li>
+<li><p><a class="reference internal" href="#configuracion-de-nivel-del-registro-externamente" id="id10">Configuración de nivel del registro: externamente</a></p>
 <ul>
-<li><p><a class="reference internal" href="#using-the-logger-config-component" id="id11">Using the logger config component</a></p></li>
+<li><p><a class="reference internal" href="#usando-el-componente-de-configuracion-del-registro" id="id11">Usando el componente de configuración del registro</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#logger-level-configuration-command-line" id="id12">Logger level configuration: command line</a></p>
+<li><p><a class="reference internal" href="#configuracion-de-nivel-de-registro-linea-de-comando" id="id12">Configuración de nivel de registro: línea de comando</a></p>
 <ul>
-<li><p><a class="reference internal" href="#console-output-formatting" id="id13">Console output formatting</a></p></li>
-<li><p><a class="reference internal" href="#console-output-colorizing" id="id14">Console output colorizing</a></p></li>
-<li><p><a class="reference internal" href="#default-stream-for-console-output" id="id15">Default stream for console output</a></p></li>
-<li><p><a class="reference internal" href="#line-buffered-console-output" id="id16">Line buffered console output</a></p></li>
+<li><p><a class="reference internal" href="#formato-de-salida-de-la-consola" id="id13">Formato de salida de la consola</a></p></li>
+<li><p><a class="reference internal" href="#colorizacion-de-la-salida-de-la-consola" id="id14">Colorización de la salida de la consola</a></p></li>
+<li><p><a class="reference internal" href="#transmision-predeterminada-para-la-salida-de-la-consola" id="id15">Transmisión predeterminada para la salida de la consola</a></p></li>
+<li><p><a class="reference internal" href="#salida-de-consola-con-bufer-de-linea" id="id16">Salida de consola con búfer de línea</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
-<p>See <a class="reference internal" href="../../Concepts/About-Logging.html"><span class="doc">the logging page</span></a> for details on available functionality.</p>
-<div class="section" id="using-log-statements-in-code">
-<h2><a class="toc-backref" href="#id1">Using log statements in code</a><a class="headerlink" href="#using-log-statements-in-code" title="Enlazar permanentemente con este título"></a></h2>
-<div class="section" id="basic-logging">
-<h3><a class="toc-backref" href="#id2">Basic logging</a><a class="headerlink" href="#basic-logging" title="Enlazar permanentemente con este título"></a></h3>
-<p>The following code will output a log message from a ROS 2 node at <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> severity:</p>
+<p>Consulta <a class="reference internal" href="../../Concepts/About-Logging.html"><span class="doc">la página de registro</span></a> para obtener detalles sobre la funcionalidad disponible.</p>
+<div class="section" id="uso-de-sentencias-de-registro-en-el-codigo">
+<h2><a class="toc-backref" href="#id1">Uso de sentencias de registro en el código</a><a class="headerlink" href="#uso-de-sentencias-de-registro-en-el-codigo" title="Enlazar permanentemente con este título"></a></h2>
+<div class="section" id="regstro-basico">
+<h3><a class="toc-backref" href="#id2">Regstro básico</a><a class="headerlink" href="#regstro-basico" title="Enlazar permanentemente con este título"></a></h3>
+<p>El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la gravedad <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>:</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-Qysr" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-Qysr" name="Qysr" role="tab" tabindex="0">C++</button><button aria-controls="panel-0-UHl0aG9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="-1">Python</button></div><div aria-labelledby="tab-0-Qysr" class="sphinx-tabs-panel group-tab" id="panel-0-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// printf style</span>
 <span class="n">RCLCPP_DEBUG</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;My log message %d&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
@@ -415,11 +423,11 @@
 </pre></div>
 </div>
 </div></div>
-<p>Note that in both cases, no trailing newline is added, as the logging infrastructure will automatically add one.</p>
+<p>Ten en cuenta que, en ambos casos, no se agrega una nueva línea final, ya que la infraestructura de registro agregará una automáticamente.</p>
 </div>
-<div class="section" id="logging-only-the-first-time">
-<h3><a class="toc-backref" href="#id3">Logging only the first time</a><a class="headerlink" href="#logging-only-the-first-time" title="Enlazar permanentemente con este título"></a></h3>
-<p>The following code will output a log message from a ROS 2 node at <code class="docutils literal notranslate"><span class="pre">INFO</span></code> severity, but only the first time it is hit:</p>
+<div class="section" id="registro-de-mensajes-solo-la-primera-vez">
+<h3><a class="toc-backref" href="#id3">Registro de mensajes solo la primera vez</a><a class="headerlink" href="#registro-de-mensajes-solo-la-primera-vez" title="Enlazar permanentemente con este título"></a></h3>
+<p>El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la gravedad <code class="docutils literal notranslate"><span class="pre">INFO</span></code>, pero solo la primera vez que se activa:</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-Qysr" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-Qysr" name="Qysr" role="tab" tabindex="0">C++</button><button aria-controls="panel-1-UHl0aG9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="-1">Python</button></div><div aria-labelledby="tab-1-Qysr" class="sphinx-tabs-panel group-tab" id="panel-1-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// printf style</span>
 <span class="n">RCLCPP_INFO_ONCE</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;My log message %d&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
@@ -434,9 +442,9 @@
 </div>
 </div></div>
 </div>
-<div class="section" id="logging-all-but-the-first-time">
-<h3><a class="toc-backref" href="#id4">Logging all but the first time</a><a class="headerlink" href="#logging-all-but-the-first-time" title="Enlazar permanentemente con este título"></a></h3>
-<p>The following code will output a log message from a ROS 2 node at <code class="docutils literal notranslate"><span class="pre">WARN</span></code> severity, but not the very first time it is hit:</p>
+<div class="section" id="registro-de-todos-los-mensajes-excepto-el-primero">
+<h3><a class="toc-backref" href="#id4">Registro de todos los mensajes excepto el primero</a><a class="headerlink" href="#registro-de-todos-los-mensajes-excepto-el-primero" title="Enlazar permanentemente con este título"></a></h3>
+<p>El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la gravedad <code class="docutils literal notranslate"><span class="pre">ADVERTIR</span></code>, pero no la primera vez que se activa:</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-Qysr" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-2-Qysr" name="Qysr" role="tab" tabindex="0">C++</button><button aria-controls="panel-2-UHl0aG9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="-1">Python</button></div><div aria-labelledby="tab-2-Qysr" class="sphinx-tabs-panel group-tab" id="panel-2-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// printf style</span>
 <span class="n">RCLCPP_WARN_SKIPFIRST</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;My log message %d&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
@@ -451,10 +459,10 @@
 </div>
 </div></div>
 </div>
-<div class="section" id="logging-throttled">
-<h3><a class="toc-backref" href="#id5">Logging throttled</a><a class="headerlink" href="#logging-throttled" title="Enlazar permanentemente con este título"></a></h3>
-<p>The following code will output a log message from a ROS 2 node at <code class="docutils literal notranslate"><span class="pre">ERROR</span></code> severity, but no more than once per second.</p>
-<p>The interval parameter specifying milliseconds between messages should have an integer data type so it can be converted to a <code class="docutils literal notranslate"><span class="pre">rcutils_duration_value_t</span></code> (an <code class="docutils literal notranslate"><span class="pre">int64_t</span></code>):</p>
+<div class="section" id="registro-de-menasjes-acelerado">
+<h3><a class="toc-backref" href="#id5">Registro de menasjes acelerado</a><a class="headerlink" href="#registro-de-menasjes-acelerado" title="Enlazar permanentemente con este título"></a></h3>
+<p>El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la gravedad <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, pero no más de una vez por segundo.</p>
+<p>El parámetro de intervalo que especifica milisegundos entre mensajes debe tener un tipo de datos entero para que pueda convertirse en <code class="docutils literal notranslate"><span class="pre">rcutils_duration_value_t</span></code> (un <code class="docutils literal notranslate"><span class="pre">int64_t</span></code>):</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-Qysr" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-3-Qysr" name="Qysr" role="tab" tabindex="0">C++</button><button aria-controls="panel-3-UHl0aG9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-3-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="-1">Python</button></div><div aria-labelledby="tab-3-Qysr" class="sphinx-tabs-panel group-tab" id="panel-3-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// printf style</span>
 <span class="n">RCLCPP_ERROR_THROTTLE</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">get_clock</span><span class="p">(),</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;My log message %d&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
@@ -472,9 +480,9 @@
 </div>
 </div></div>
 </div>
-<div class="section" id="logging-throttled-all-but-the-first-time">
-<h3><a class="toc-backref" href="#id6">Logging throttled all but the first time</a><a class="headerlink" href="#logging-throttled-all-but-the-first-time" title="Enlazar permanentemente con este título"></a></h3>
-<p>The following code will output a log message from a ROS 2 node at <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> severity, no more than once per second, skipping the very first time it is hit:</p>
+<div class="section" id="registro-acelerado-de-todos-los-mensajes-menos-el-primero">
+<h3><a class="toc-backref" href="#id6">Registro acelerado de todos los mensajes menos el primero</a><a class="headerlink" href="#registro-acelerado-de-todos-los-mensajes-menos-el-primero" title="Enlazar permanentemente con este título"></a></h3>
+<p>El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la gravedad <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>, no más de una vez por segundo, omitiendo la primera vez que se llama:</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-4-Qysr" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-4-Qysr" name="Qysr" role="tab" tabindex="0">C++</button><button aria-controls="panel-4-UHl0aG9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-4-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="-1">Python</button></div><div aria-labelledby="tab-4-Qysr" class="sphinx-tabs-panel group-tab" id="panel-4-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// printf style</span>
 <span class="n">RCLCPP_DEBUG_SKIPFIRST_THROTTLE</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">get_clock</span><span class="p">(),</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;My log message %d&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
@@ -489,26 +497,26 @@
 </div></div>
 </div>
 </div>
-<div class="section" id="logging-demo">
-<h2><a class="toc-backref" href="#id7">Logging demo</a><a class="headerlink" href="#logging-demo" title="Enlazar permanentemente con este título"></a></h2>
-<p>In this <a class="reference external" href="https://github.com/ros2/demos/tree/rolling/logging_demo">demo</a>, different types of log calls are shown and the severity level of different loggers is configured locally and externally.</p>
-<p>Start the demo with:</p>
+<div class="section" id="demo-registro-de-mensajes">
+<h2><a class="toc-backref" href="#id7">Demo registro de mensajes</a><a class="headerlink" href="#demo-registro-de-mensajes" title="Enlazar permanentemente con este título"></a></h2>
+<p>En esta <a class="reference external" href="https://github.com/ros2/demos/tree/rolling/logging_demo">demo</a>, se muestran diferentes tipos de llamadas de registro y el nivel de gravedad de diferentes registradores se configura local y externamente.</p>
+<p>Como iniciar la demo:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2 run logging_demo logging_demo_main
 </pre></div>
 </div>
-<p>Over time you will see output from various log calls with different properties.
-To start with you will only see output from log calls with severity <code class="docutils literal notranslate"><span class="pre">INFO</span></code> and above (<code class="docutils literal notranslate"><span class="pre">WARN</span></code>, <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, <code class="docutils literal notranslate"><span class="pre">FATAL</span></code>).
-Note that the first message will only be logged once, though the line is reached on each iteration, as that is a property of the log call used for that message.</p>
+<p>Con el tiempo, verás el resultado de varias llamadas de registro con diferentes propiedades.
+Para empezar, solo verás el resultado de las llamadas de registro con gravedad <code class="docutils literal notranslate"><span class="pre">INFO</span></code> y superior (<code class="docutils literal notranslate"><span class="pre">WARN</span></code>, <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, <code class="docutils literal notranslate"><span class="pre">FATAL</span></code>).
+Ten en cuenta que el primer mensaje solo se registrará una vez, aunque se alcanza la línea en cada iteración, ya que esa es una propiedad de la llamada de registro utilizada para ese mensaje.</p>
 </div>
-<div class="section" id="logging-directory-configuration">
-<h2><a class="toc-backref" href="#id8">Logging directory configuration</a><a class="headerlink" href="#logging-directory-configuration" title="Enlazar permanentemente con este título"></a></h2>
-<p>The logging directory can be configured through two environment variables: <code class="docutils literal notranslate"><span class="pre">ROS_LOG_DIR</span></code> and <code class="docutils literal notranslate"><span class="pre">ROS_HOME</span></code>.
-The logic is as follows:</p>
+<div class="section" id="configuracion-del-directorio-de-registro-de-mensajes">
+<h2><a class="toc-backref" href="#id8">Configuración del directorio de registro de mensajes</a><a class="headerlink" href="#configuracion-del-directorio-de-registro-de-mensajes" title="Enlazar permanentemente con este título"></a></h2>
+<p>El directorio de registro de mensajes se puede configurar a través de dos variables de entorno: <code class="docutils literal notranslate"><span class="pre">ROS_LOG_DIR</span></code> y <code class="docutils literal notranslate"><span class="pre">ROS_HOME</span></code>.
+La logica es la siguiente:</p>
 <ul class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">$ROS_LOG_DIR</span></code> if <code class="docutils literal notranslate"><span class="pre">ROS_LOG_DIR</span></code> is set and not empty.</p></li>
-<li><p>Otherwise, use <code class="docutils literal notranslate"><span class="pre">$ROS_HOME/log</span></code>, using <code class="docutils literal notranslate"><span class="pre">~/.ros</span></code> for <code class="docutils literal notranslate"><span class="pre">ROS_HOME</span></code> if not set or if empty.</p></li>
+<li><p>Usa <code class="docutils literal notranslate"><span class="pre">$ROS_LOG_DIR</span></code> si <code class="docutils literal notranslate"><span class="pre">ROS_LOG_DIR</span></code> está establecido y no está vacío.</p></li>
+<li><p>De lo contrario, usa <code class="docutils literal notranslate"><span class="pre">$ROS_HOME/log</span></code>, usando <code class="docutils literal notranslate"><span class="pre">~/.ros</span></code> para <code class="docutils literal notranslate"><span class="pre">ROS_HOME</span></code> si no está configurado o si está vacío.</p></li>
 </ul>
-<p>For example, to set the logging directory to <code class="docutils literal notranslate"><span class="pre">~/my_logs</span></code>:</p>
+<p>Por ejemplo, para establecer el directorio de registro en <code class="docutils literal notranslate"><span class="pre">~/my_logs</span></code>:</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-5-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-5-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-5-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-5-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-5-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-5-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-5-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-5-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">ROS_LOG_DIR</span><span class="o">=</span>~/my_logs
 ros2 run logging_demo logging_demo_main
@@ -523,11 +531,11 @@ ros2 run logging_demo logging_demo_main
 </pre></div>
 </div>
 </div></div>
-<p>You will then find the logs under <code class="docutils literal notranslate"><span class="pre">~/my_logs/</span></code>.</p>
-<p>Alternatively, you can set <code class="docutils literal notranslate"><span class="pre">ROS_HOME</span></code> and the logging directory will be relative to it (<code class="docutils literal notranslate"><span class="pre">$ROS_HOME/log</span></code>).
-<code class="docutils literal notranslate"><span class="pre">ROS_HOME</span></code> is intended to be used by anything that needs a base directory.
-Note that <code class="docutils literal notranslate"><span class="pre">ROS_LOG_DIR</span></code> has to be either unset or empty.
-For example, with <code class="docutils literal notranslate"><span class="pre">ROS_HOME</span></code> set to <code class="docutils literal notranslate"><span class="pre">~/my_ros_home</span></code>:</p>
+<p>Luego encontrarás los registros en <code class="docutils literal notranslate"><span class="pre">~/my_logs/</span></code>.</p>
+<p>Alternativamente, puedes configurar <code class="docutils literal notranslate"><span class="pre">ROS_HOME</span></code> y el directorio de registro será relativo a él (<code class="docutils literal notranslate"><span class="pre">$ROS_HOME/log</span></code>).
+<code class="docutils literal notranslate"><span class="pre">ROS_HOME</span></code> está destinado a ser utilizado por cualquier cosa que necesite un directorio base.
+Ten en cuenta que <code class="docutils literal notranslate"><span class="pre">ROS_LOG_DIR</span></code> tiene que estar sin configurar o vacío.
+Por ejemplo, con <code class="docutils literal notranslate"><span class="pre">ROS_HOME</span></code> establecido en <code class="docutils literal notranslate"><span class="pre">~/my_ros_home</span></code>:</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-6-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-6-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-6-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-6-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-6-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-6-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-6-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-6-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">ROS_HOME</span><span class="o">=</span>~/my_ros_home
 ros2 run logging_demo logging_demo_main
@@ -542,76 +550,76 @@ ros2 run logging_demo logging_demo_main
 </pre></div>
 </div>
 </div></div>
-<p>You will then find the logs under <code class="docutils literal notranslate"><span class="pre">~/my_ros_home/log/</span></code>.</p>
+<p>Luego encontrarás los registros en <code class="docutils literal notranslate"><span class="pre">~/my_ros_home/log/</span></code>.</p>
 </div>
-<div class="section" id="logger-level-configuration-programmatically">
-<h2><a class="toc-backref" href="#id9">Logger level configuration: programmatically</a><a class="headerlink" href="#logger-level-configuration-programmatically" title="Enlazar permanentemente con este título"></a></h2>
-<p>After 10 iterations the level of the logger will be set to <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>, which will cause additional messages to be logged.</p>
-<p>Some of these debug messages cause additional functions/expressions to be evaluated, which were previously skipped as <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> log calls were not enabled.
-See <a class="reference external" href="https://github.com/ros2/demos/blob/rolling/logging_demo/src/logger_usage_component.cpp">the source code</a> of the demo for further explanation of the calls used, and see the rclcpp logging documentation for a full list of supported logging calls.</p>
+<div class="section" id="configuracion-de-nivel-de-registros-programaticamente">
+<h2><a class="toc-backref" href="#id9">Configuración de nivel de registros: programáticamente</a><a class="headerlink" href="#configuracion-de-nivel-de-registros-programaticamente" title="Enlazar permanentemente con este título"></a></h2>
+<p>Después de 10 iteraciones, el nivel de registro se establecerá en <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>, lo que hará que se registren mensajes adicionales.</p>
+<p>Algunos de estos mensajes de depuración hacen que se evalúen funciones/expresiones adicionales, que anteriormente se omitieron porque las llamadas de registro <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> no estaban habilitadas.
+Consulta <a class="reference external" href="https://github.com/ros2/demos/blob/rolling/logging_demo/src/logger_usage_component.cpp">el código fuente</a> de la demo para obtener una explicación más detallada de las llamadas utilizadas y consulte el registro de rclcpp documentación para obtener una lista completa de las llamadas de registro admitidas.</p>
 </div>
-<div class="section" id="logger-level-configuration-externally">
-<h2><a class="toc-backref" href="#id10">Logger level configuration: externally</a><a class="headerlink" href="#logger-level-configuration-externally" title="Enlazar permanentemente con este título"></a></h2>
-<p>In the future there will be a generalized approach to external configuration of loggers at runtime (similar to how <a class="reference external" href="https://wiki.ros.org/rqt_logger_level">rqt_logger_level</a> in ROS 1 allows logger configuration via remote procedural calls).
-<strong>This concept is not yet officially supported in ROS 2.</strong>
-In the meantime, this demo provides an <strong>example</strong> service that can be called externally to request configuration of logger levels for known names of loggers in the process.</p>
-<p>The demo previously started is already running this example service.
-To set the level of the demo’s logger back to <code class="docutils literal notranslate"><span class="pre">INFO</span></code>, call the service with:</p>
+<div class="section" id="configuracion-de-nivel-del-registro-externamente">
+<h2><a class="toc-backref" href="#id10">Configuración de nivel del registro: externamente</a><a class="headerlink" href="#configuracion-de-nivel-del-registro-externamente" title="Enlazar permanentemente con este título"></a></h2>
+<p>En el futuro, habrá un enfoque generalizado para la configuración externa de registros en tiempo de ejecución (similar a cómo <a class="reference external" href="https://wiki.ros.org/rqt_logger_level">rqt_logger_level</a> en ROS 1 permite la configuración de registros a través de llamadas de procedimiento remotas).
+<strong>Este concepto aún no se admite oficialmente en ROS 2.</strong>
+Mientras tanto, esta demo proporciona un servicio de <strong>ejemplo</strong> al que se puede llamar externamente para solicitar la configuración de los niveles de registro para los nombres conocidos de los registros en el proceso.</p>
+<p>La demo iniciada anteriormente ya está ejecutando este servicio de ejemplo.
+Para volver a establecer el nivel del registrador de la demostración en <code class="docutils literal notranslate"><span class="pre">INFO</span></code>, llama al servicio con:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2 service call /config_logger logging_demo/srv/ConfigLogger <span class="s2">&quot;{logger_name: &#39;logger_usage_demo&#39;, level: INFO}&quot;</span>
 </pre></div>
 </div>
-<p>This service call will work on any logger that is running in the process provided that you know its name.
-This includes the loggers in the ROS 2 core, such as <code class="docutils literal notranslate"><span class="pre">rcl</span></code> (the common client library package).
-To enable debug logging for <code class="docutils literal notranslate"><span class="pre">rcl</span></code>, call:</p>
+<p>Esta llamada de servicio funcionará en cualquier registro que se esté ejecutando en el proceso, siempre que sepa su nombre.
+Esto incluye los registradores en el núcleo de ROS 2, como <code class="docutils literal notranslate"><span class="pre">rcl</span></code> (el paquete de biblioteca de cliente común).
+Para habilitar el registro de depuración para <code class="docutils literal notranslate"><span class="pre">rcl</span></code>, llama a:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2 service call /config_logger logging_demo/srv/ConfigLogger <span class="s2">&quot;{logger_name: &#39;rcl&#39;, level: DEBUG}&quot;</span>
 </pre></div>
 </div>
-<p>You should see debug output from <code class="docutils literal notranslate"><span class="pre">rcl</span></code> start to show.</p>
-<div class="section" id="using-the-logger-config-component">
-<h3><a class="toc-backref" href="#id11">Using the logger config component</a><a class="headerlink" href="#using-the-logger-config-component" title="Enlazar permanentemente con este título"></a></h3>
-<p>The server that responds to the logger configuration requests has been developed as a component so that it may be added to an existing composition-based system.
-For example, if you are using <a class="reference internal" href="../Intermediate/Composition.html"><span class="doc">a container to run your nodes</span></a>, to be able to configure your loggers you only need to request that it additionally load the <code class="docutils literal notranslate"><span class="pre">logging_demo::LoggerConfig</span></code> component into the container.</p>
-<p>As an example, if you want to debug the <code class="docutils literal notranslate"><span class="pre">composition::Talker</span></code> demo, you can start the talker as normal with:</p>
-<p>Shell 1:</p>
+<p>Deberías ver como la salida de depuración de <code class="docutils literal notranslate"><span class="pre">rcl</span></code> comienza a mostrarse.</p>
+<div class="section" id="usando-el-componente-de-configuracion-del-registro">
+<h3><a class="toc-backref" href="#id11">Usando el componente de configuración del registro</a><a class="headerlink" href="#usando-el-componente-de-configuracion-del-registro" title="Enlazar permanentemente con este título"></a></h3>
+<p>El servidor que responde a las solicitudes de configuración del registro se ha desarrollado como un componente para que pueda agregarse a un sistema basado en composición existente.
+Por ejemplo, si estás utilizando <a class="reference internal" href="../Intermediate/Composition.html"><span class="doc">un contenedor para ejecutar sus nodos</span></a>, para poder configurar los registros solo necesitas solicitar que cargue adicionalmente el componente <code class="docutils literal notranslate"><span class="pre">logging_demo::LoggerConfig</span></code> en el contenedor.</p>
+<p>Como ejemplo, si deseas depurar la demostración de <code class="docutils literal notranslate"><span class="pre">composition::Talker</span></code>, puedes iniciar el hablante normalmente con:</p>
+<p>Terminal 1:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2 run rclcpp_components component_container
 </pre></div>
 </div>
-<p>Shell 2:</p>
+<p>Terminal 2:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2 component load /ComponentManager composition composition::Talker
 </pre></div>
 </div>
-<p>And then when you want to enable debug logging, load the <code class="docutils literal notranslate"><span class="pre">LoggerConfig</span></code> component with:</p>
-<p>Shell 2</p>
+<p>Y luego, cuando desees habilitar el registro de depuración, carga el componente <code class="docutils literal notranslate"><span class="pre">LoggerConfig</span></code> con:</p>
+<p>Terminal 2</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2 component load /ComponentManager logging_demo logging_demo::LoggerConfig
 </pre></div>
 </div>
-<p>And finally, configure all unset loggers to the debug severity by addressing the empty-named logger.
-Note that loggers that have been specifically configured to use a particular severity will not be affected by this call.</p>
-<p>Shell 2:</p>
+<p>Por último, configura todos los registros no establecidos con la gravedad de depuración dirigiéndose al registro con nombre vacío.
+Ten en cuenta que los registros que se configuraron específicamente para usar una gravedad particular no se verán afectados por esta llamada.</p>
+<p>Terminal 2:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2 service call /config_logger logging_demo/srv/ConfigLogger <span class="s2">&quot;{logger_name: &#39;&#39;, level: DEBUG}&quot;</span>
 </pre></div>
 </div>
-<p>You should see debug output from any previously unset loggers in the process start to appear, including from the ROS 2 core.</p>
+<p>Deberías ver la salida de depuración de cualquier registrador no configurado previamente en el proceso que comienza a aparecer, incluso desde el núcleo de ROS 2.</p>
 </div>
 </div>
-<div class="section" id="logger-level-configuration-command-line">
-<h2><a class="toc-backref" href="#id12">Logger level configuration: command line</a><a class="headerlink" href="#logger-level-configuration-command-line" title="Enlazar permanentemente con este título"></a></h2>
-<p>As of the Bouncy ROS 2 release, the severity level for loggers that have not had their severity set explicitly can be configured from the command line.
-Restart the demo including the following command line argument:</p>
+<div class="section" id="configuracion-de-nivel-de-registro-linea-de-comando">
+<h2><a class="toc-backref" href="#id12">Configuración de nivel de registro: línea de comando</a><a class="headerlink" href="#configuracion-de-nivel-de-registro-linea-de-comando" title="Enlazar permanentemente con este título"></a></h2>
+<p>A partir del lanzamiento de Bouncy ROS 2, el nivel de severidad para los registros que no han tenido su severidad configurada explícitamente se puede configurar desde la línea de comandos.
+Reinicia la demo incluyendo el siguiente argumento de línea de comando:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2 run logging_demo logging_demo_main --ros-args --log-level debug
 </pre></div>
 </div>
-<p>This configures the default severity for any unset logger to the debug severity level.
-You should see debug output from loggers from the demo itself and from the ROS 2 core.</p>
-<p>The severity level for individual loggers can be configured from the command-line.
-Restart the demo including the following command line arguments:</p>
+<p>Esto configura la gravedad predeterminada para cualquier registro no configurado en el nivel de gravedad de depuración.
+Deberías ver la salida de depuración de los registradores de la demostración y del núcleo de ROS 2.</p>
+<p>El nivel de gravedad de los registradores individuales se puede configurar desde la línea de comandos.
+Reinicia la demo incluyendo los siguientes argumentos de línea de comando:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2 run logging_demo logging_demo_main --ros-args --log-level logger_usage_demo:<span class="o">=</span>debug
 </pre></div>
 </div>
-<div class="section" id="console-output-formatting">
-<h3><a class="toc-backref" href="#id13">Console output formatting</a><a class="headerlink" href="#console-output-formatting" title="Enlazar permanentemente con este título"></a></h3>
-<p>If you would like more or less verbose formatting, you can use RCUTILS_CONSOLE_OUTPUT_FORMAT environment variable.
-For example, to additionally get the timestamp and location of the log calls, stop the demo and restart it with the environment variable set:</p>
+<div class="section" id="formato-de-salida-de-la-consola">
+<h3><a class="toc-backref" href="#id13">Formato de salida de la consola</a><a class="headerlink" href="#formato-de-salida-de-la-consola" title="Enlazar permanentemente con este título"></a></h3>
+<p>Si deseas un formato más o menos detallado, puedes usar la variable de entorno RCUTILS_CONSOLE_OUTPUT_FORMAT.
+Por ejemplo, para obtener adicionalmente la marca de tiempo y la ubicación de las llamadas de registro, deten la demo y reiníciala con la variable de entorno configurada:</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-7-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-7-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-7-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-7-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-7-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-7-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-7-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-7-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">RCUTILS_CONSOLE_OUTPUT_FORMAT</span><span class="o">=</span><span class="s2">&quot;[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})&quot;</span>
 </pre></div>
@@ -624,14 +632,14 @@ ros2 run logging_demo logging_demo_main
 </pre></div>
 </div>
 </div></div>
-<p>You should see the timestamp in seconds and the function name, filename and line number additionally printed with each message.
-<em>The ``time`` option is only supported as of the ROS 2 Bouncy release.</em></p>
+<p>Deberías ver la marca de tiempo en segundos y el nombre de la función, el nombre del archivo y el número de línea impresos adicionalmente con cada mensaje.
+<em>La opción ``time`` solo se admite a partir de la versión ROS 2 Bouncy.</em></p>
 </div>
-<div class="section" id="console-output-colorizing">
-<h3><a class="toc-backref" href="#id14">Console output colorizing</a><a class="headerlink" href="#console-output-colorizing" title="Enlazar permanentemente con este título"></a></h3>
-<p>By default, the output is colorized when it’s targeting a terminal.
-If you would like to force enabling or disabling it, you can use the <code class="docutils literal notranslate"><span class="pre">RCUTILS_COLORIZED_OUTPUT</span></code> environment variable.
-For example:</p>
+<div class="section" id="colorizacion-de-la-salida-de-la-consola">
+<h3><a class="toc-backref" href="#id14">Colorización de la salida de la consola</a><a class="headerlink" href="#colorizacion-de-la-salida-de-la-consola" title="Enlazar permanentemente con este título"></a></h3>
+<p>De forma predeterminada, la salida se colorea cuando se dirige a un terminal.
+Si deseas forzar su activación o desactivación, puede utilizar la variable de entorno <code class="docutils literal notranslate"><span class="pre">RCUTILS_COLORIZED_OUTPUT</span></code>.
+Por ejemplo:</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-8-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-8-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-8-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-8-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-8-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-8-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-8-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-8-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">RCUTILS_COLORIZED_OUTPUT</span><span class="o">=</span><span class="m">0</span>  <span class="c1"># 1 for forcing it</span>
 </pre></div>
@@ -644,19 +652,19 @@ ros2 run logging_demo logging_demo_main
 </pre></div>
 </div>
 </div></div>
-<p>You should see that debug, warn, error and fatal logs aren’t colorized now.</p>
+<p>Deberías ver que los registros de depuración, advertencia, error y fatales no están coloreados ahora.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>In Linux and MacOS forcing colorized output means that if you redirect the output to a file, the ansi escape color codes will appear on it.
-In windows the colorization method relies on console APIs.
-If it is forced you will get a new warning saying that colorization failed.
-The default behavior already checks if the output is a console or not, so forcing colorization is not recommended.</p>
+<p>En Linux y MacOS, forzar la salida coloreada significa que si redirige la salida a un archivo, aparecerán los códigos de color de escape ansi.
+En Windows, el método de colorización se basa en las API de la consola.
+Si es forzado, recibirás una nueva advertencia que indica que la coloración falló.
+El comportamiento predeterminado ya verifica si la salida es una consola o no, por lo que no se recomienda forzar la coloración.</p>
 </div>
 </div>
-<div class="section" id="default-stream-for-console-output">
-<h3><a class="toc-backref" href="#id15">Default stream for console output</a><a class="headerlink" href="#default-stream-for-console-output" title="Enlazar permanentemente con este título"></a></h3>
-<p>In Foxy and later, the output from all debug levels goes to stderr by default.  It is possible to force all output to go to stdout by setting the <code class="docutils literal notranslate"><span class="pre">RCUTILS_LOGGING_USE_STDOUT</span></code> environment variable to <code class="docutils literal notranslate"><span class="pre">1</span></code>.
-For example:</p>
+<div class="section" id="transmision-predeterminada-para-la-salida-de-la-consola">
+<h3><a class="toc-backref" href="#id15">Transmisión predeterminada para la salida de la consola</a><a class="headerlink" href="#transmision-predeterminada-para-la-salida-de-la-consola" title="Enlazar permanentemente con este título"></a></h3>
+<p>En Foxy y versiones posteriores, la salida de todos los niveles de depuración va a stderr de forma predeterminada. Es posible forzar que toda la salida vaya a la salida estándar configurando la variable de entorno <code class="docutils literal notranslate"><span class="pre">RCUTILS_LOGGING_USE_STDOUT</span></code> en <code class="docutils literal notranslate"><span class="pre">1</span></code>.
+Por ejemplo:</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-9-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-9-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-9-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-9-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-9-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-9-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-9-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-9-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">RCUTILS_LOGGING_USE_STDOUT</span><span class="o">=</span><span class="m">1</span>
 </pre></div>
@@ -669,11 +677,11 @@ For example:</p>
 </div>
 </div></div>
 </div>
-<div class="section" id="line-buffered-console-output">
-<h3><a class="toc-backref" href="#id16">Line buffered console output</a><a class="headerlink" href="#line-buffered-console-output" title="Enlazar permanentemente con este título"></a></h3>
-<p>By default, all logging output is unbuffered.
-You can force it to be buffered by setting the <code class="docutils literal notranslate"><span class="pre">RCUTILS_LOGGING_BUFFERED_STREAM</span></code> environment variable to 1.
-For example:</p>
+<div class="section" id="salida-de-consola-con-bufer-de-linea">
+<h3><a class="toc-backref" href="#id16">Salida de consola con búfer de línea</a><a class="headerlink" href="#salida-de-consola-con-bufer-de-linea" title="Enlazar permanentemente con este título"></a></h3>
+<p>De forma predeterminada, todos los resultados de registro no están almacenados en búfer.
+Puedes forzar que se almacene en búfer configurando la variable de entorno <code class="docutils literal notranslate"><span class="pre">RCUTILS_LOGGING_BUFFERED_STREAM</span></code> en 1.
+Por ejemplo:</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-10-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-10-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-10-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-10-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-10-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-10-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-10-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-10-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">RCUTILS_LOGGING_BUFFERED_STREAM</span><span class="o">=</span><span class="m">1</span>
 </pre></div>
@@ -685,7 +693,7 @@ For example:</p>
 </pre></div>
 </div>
 </div></div>
-<p>Then run:</p>
+<p>Entonces usa:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2 run logging_demo logging_demo_main
 </pre></div>
 </div>
@@ -698,8 +706,8 @@ For example:</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
-        <a href="dummy-robot-demo.html" class="btn btn-neutral float-left" title="Experimenting with a dummy robot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
-        <a href="Content-Filtering-Subscription.html" class="btn btn-neutral float-right" title="Creating a content filtering subscription" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="dummy-robot-demo.html" class="btn btn-neutral float-left" title="Experimentando con un robot ficticio" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="Content-Filtering-Subscription.html" class="btn btn-neutral float-right" title="Creación de un suscriptor de filtrado de contenido" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -25,8 +25,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Experimenting with a dummy robot" href="dummy-robot-demo.html" />
-    <link rel="prev" title="Recording and playing back data with rosbag using the ROS 1 bridge" href="Rosbag-with-ROS1-Bridge.html" /> 
+    <link rel="next" title="Experimentando con un robot ficticio" href="dummy-robot-demo.html" />
+    <link rel="prev" title="Grabación y reproducción de datos con rosbag utilizando ROS 1 bridge" href="Rosbag-with-ROS1-Bridge.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -205,14 +205,14 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="reference internal" href="../Demos.html">Demos</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="Quality-of-Service.html">Using quality-of-service settings for lossy networks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Managed-Nodes.html">Managing nodes with managed lifecycles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Intra-Process-Communication.html">Setting up efficient intra-process communication</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Rosbag-with-ROS1-Bridge.html">Recording and playing back data with <code class="docutils literal notranslate"><span class="pre">rosbag</span></code> using the ROS 1 bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Quality-of-Service.html">Uso de configuraciones de calidad de servicio para redes con pérdidas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Managed-Nodes.html">Gestión de lifecycle nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Intra-Process-Communication.html">Establecer una comunicación intraproceso eficiente</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Rosbag-with-ROS1-Bridge.html">Grabación y reproducción de datos con <code class="docutils literal notranslate"><span class="pre">rosbag</span></code> utilizando ROS 1 bridge</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Understanding real-time programming</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dummy-robot-demo.html">Experimenting with a dummy robot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Logging-and-logger-configuration.html">Logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Content-Filtering-Subscription.html">Creating a content filtering subscription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dummy-robot-demo.html">Experimentando con un robot ficticio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Logging-and-logger-configuration.html">Registro de mensajes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Content-Filtering-Subscription.html">Creación de un suscriptor de filtrado de contenido</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Miscellaneous.html">Miscellaneous</a><ul>
@@ -366,199 +366,199 @@
 
   <div class="section" id="understanding-real-time-programming">
 <h1>Understanding real-time programming<a class="headerlink" href="#understanding-real-time-programming" title="Enlazar permanentemente con este título"></a></h1>
-<div class="contents local topic" id="table-of-contents">
-<p class="topic-title">Table of Contents</p>
+<div class="contents local topic" id="tabla-de-contenidos">
+<p class="topic-title">Tabla de contenidos</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#background" id="id1">Background</a></p></li>
-<li><p><a class="reference internal" href="#install-and-run-the-demo" id="id2">Install and run the demo</a></p>
+<li><p><a class="reference internal" href="#historial" id="id1">Historial</a></p></li>
+<li><p><a class="reference internal" href="#instala-y-ejecuta-la-demo" id="id2">Instala y ejecuta la demo</a></p>
 <ul>
-<li><p><a class="reference internal" href="#run-the-tests" id="id3">Run the tests</a></p></li>
-<li><p><a class="reference internal" href="#what-the-heck-just-happened" id="id4">What the heck just happened?</a></p></li>
-<li><p><a class="reference internal" href="#adjust-permissions-for-memory-locking" id="id5">Adjust permissions for memory locking</a></p></li>
-<li><p><a class="reference internal" href="#output-overview" id="id6">Output overview</a></p></li>
-<li><p><a class="reference internal" href="#latency" id="id7">Latency</a></p></li>
-<li><p><a class="reference internal" href="#setting-permissions-for-the-scheduler" id="id8">Setting permissions for the scheduler</a></p></li>
-<li><p><a class="reference internal" href="#plotting-results" id="id9">Plotting results</a></p></li>
+<li><p><a class="reference internal" href="#ejecuta-los-test" id="id3">Ejecuta los test</a></p></li>
+<li><p><a class="reference internal" href="#que-diablos-acaba-de-pasar" id="id4">¿Qué diablos acaba de pasar?</a></p></li>
+<li><p><a class="reference internal" href="#ajustar-permisos-para-bloqueo-de-memoria" id="id5">Ajustar permisos para bloqueo de memoria</a></p></li>
+<li><p><a class="reference internal" href="#resumen-de-salida" id="id6">Resumen de salida</a></p></li>
+<li><p><a class="reference internal" href="#latencia" id="id7">Latencia</a></p></li>
+<li><p><a class="reference internal" href="#configuracion-de-permisos-para-el-programador" id="id8">Configuración de permisos para el programador</a></p></li>
+<li><p><a class="reference internal" href="#resultados-graficos" id="id9">Resultados gráficos</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="background">
-<h2><a class="toc-backref" href="#id1">Background</a><a class="headerlink" href="#background" title="Enlazar permanentemente con este título"></a></h2>
-<p>Real-time computing is a key feature of many robotics systems, particularly safety- and mission-critical applications such as autonomous vehicles, spacecrafts, and industrial manufacturing.
-We are designing and prototyping ROS 2 with real-time performance constraints in mind, since this is a requirement that was not considered in the early stages of ROS 1 and it is now intractable to refactor ROS 1 to be real-time friendly.</p>
-<p><a class="reference external" href="https://design.ros2.org/articles/realtime_background.html">This document</a> outlines the requirements of real-time computing and best practices for software engineers.  In short:</p>
-<p>To make a real-time computer system, our real-time loop must update periodically to meet deadlines.
-We can only tolerate a small margin of error on these deadlines (our maximum allowable jitter).
-To do this, we must avoid nondeterministic operations in the execution path, things like: pagefault events, dynamic memory allocation/deallocation, and synchronization primitives that block indefinitely.</p>
-<p>A classic example of a controls problem commonly solved by real-time computing is balancing an <a class="reference external" href="https://en.wikipedia.org/wiki/Inverted_pendulum">inverted pendulum</a>.
-If the controller blocked for an unexpectedly long amount of time, the pendulum would fall down or go unstable.
-But if the controller reliably updates at a rate faster than the motor controlling the pendulum can operate, the pendulum will successfully adapt react to sensor data to balance the pendulum.</p>
-<p>Now that you know everything about real-time computing, let’s try a demo!</p>
+<div class="section" id="historial">
+<h2><a class="toc-backref" href="#id1">Historial</a><a class="headerlink" href="#historial" title="Enlazar permanentemente con este título"></a></h2>
+<p>La computación en tiempo real es una característica clave de muchos sistemas robóticos, en particular aplicaciones de misión crítica y seguridad, como vehículos autónomos, naves espaciales y fabricación industrial.
+Se está diseñando y creando prototipos de ROS 2 teniendo en cuenta las limitaciones de rendimiento en tiempo real, ya que este es un requisito que no se consideró en las primeras etapas de ROS 1 y ahora es intratable refactorizar ROS 1 para que sea amigable en tiempo real.</p>
+<p><a class="reference external" href="https://design.ros2.org/articles/realtime_background.html">Este documento</a> describe los requisitos de la computación en tiempo real y las mejores prácticas para los ingenieros de software. En resumen:</p>
+<p>Para hacer un sistema informático en tiempo real, nuestro bucle en tiempo real debe actualizarse periódicamente para cumplir con los plazos.
+Solo podemos tolerar un pequeño margen de error en estos plazos (nuestra fluctuación máxima permitida).
+Para hacer esto, debemos evitar operaciones no deterministas en la ruta de ejecución, cosas como: eventos de fallo de página, asignación/desasignación de memoria dinámica y primitivas de sincronización que se bloquean indefinidamente.</p>
+<p>Un ejemplo clásico de un problema de controles comúnmente resuelto por computación en tiempo real es equilibrar un péndulo invertido &lt;<a class="reference external" href="https://en.wikipedia.org/wiki/Inverted_pendulum">https://en.wikipedia.org/wiki/Inverted_pendulum</a>&gt;`__.
+Si el controlador se bloqueara durante un período de tiempo inesperadamente largo, el péndulo se caería o se volvería inestable.
+Pero si el controlador se actualiza de manera confiable a una velocidad más rápida que la que puede operar el motor que controla el péndulo, el péndulo se adaptará con éxito y reaccionará a los datos del sensor para equilibrar el péndulo.</p>
+<p>Ahora que sabe todo acerca de la computación en tiempo real, ¡probemos una demo!</p>
 </div>
-<div class="section" id="install-and-run-the-demo">
-<h2><a class="toc-backref" href="#id2">Install and run the demo</a><a class="headerlink" href="#install-and-run-the-demo" title="Enlazar permanentemente con este título"></a></h2>
-<p>The real-time demo was written with Linux operating systems in mind, since many members of the ROS community doing real-time computing use Xenomai or RT_PREEMPT as their real-time solutions.
-Since many of the operations done in the demo to optimize performance or OS-specific, the demo only builds and runs on Linux systems.
-<strong>So, if you are an OSX or Windows user, don’t try this part!</strong></p>
-<p>Also this must be built from source using a the static DDS API. <strong>Currently the only supported implementation is Connext</strong>.</p>
-<p>First, follow the instructions to build ROS 2 <a class="reference internal" href="../../Installation/Alternatives/Ubuntu-Development-Setup.html"><span class="doc">from source</span></a> using Connext DDS as the middleware.</p>
-<div class="section" id="run-the-tests">
-<h3><a class="toc-backref" href="#id3">Run the tests</a><a class="headerlink" href="#run-the-tests" title="Enlazar permanentemente con este título"></a></h3>
-<p><strong>Before you run make sure you have at least 8Gb of RAM free. With the memory locking, swap will not work anymore.</strong></p>
-<p>Source your ROS 2 setup.bash.</p>
-<p>Run the demo binary, and redirect the output. You may want to use <code class="docutils literal notranslate"><span class="pre">sudo</span></code> in case you get permission error:</p>
+<div class="section" id="instala-y-ejecuta-la-demo">
+<h2><a class="toc-backref" href="#id2">Instala y ejecuta la demo</a><a class="headerlink" href="#instala-y-ejecuta-la-demo" title="Enlazar permanentemente con este título"></a></h2>
+<p>La demostración en tiempo real se escribió pensando en los sistemas operativos Linux, ya que muchos miembros de la comunidad ROS que realizan computación en tiempo real usan Xenomai o RT_PREEMPT como sus soluciones en tiempo real.
+Dado que muchas de las operaciones realizadas en la demostración se realizan para optimizar el rendimiento o son específicas del sistema operativo, la demostración solo compila y se ejecuta en sistemas Linux.
+<strong>Entonces, si eres un usuario de OSX o Windows, ¡no intentes esta parte!</strong></p>
+<p>Además, esto debe construirse desde la fuente utilizando una API DDS estática. <strong>Actualmente, la única implementación admitida es Connext</strong>.</p>
+<p>Primero, sigue las instrucciones para compilar ROS 2 <a class="reference internal" href="../../Installation/Alternatives/Ubuntu-Development-Setup.html"><span class="doc">from source</span></a> utilizando Connext DDS como middleware.</p>
+<div class="section" id="ejecuta-los-test">
+<h3><a class="toc-backref" href="#id3">Ejecuta los test</a><a class="headerlink" href="#ejecuta-los-test" title="Enlazar permanentemente con este título"></a></h3>
+<p><strong>Antes de ejecutar, asegúrate de tener al menos 8 Gb de RAM libres. Con el bloqueo de la memoria, el intercambio ya no funcionará.</strong></p>
+<p>Ejecuta <code class="docutils literal notranslate"><span class="pre">source</span></code> con el archivo de setup.</p>
+<p>Ejecuta el binario de la demo y redirija la salida. Es posible que quieras usar <code class="docutils literal notranslate"><span class="pre">sudo</span></code> en caso de que obtengas un error de permiso:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pendulum_demo &gt; output.txt
 </pre></div>
 </div>
 </div>
-<div class="section" id="what-the-heck-just-happened">
-<h3><a class="toc-backref" href="#id4">What the heck just happened?</a><a class="headerlink" href="#what-the-heck-just-happened" title="Enlazar permanentemente con este título"></a></h3>
-<p>First, even though you redirected stdout, you will see some output to the console (from stderr):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mlockall</span> <span class="n">failed</span><span class="p">:</span> <span class="n">Cannot</span> <span class="n">allocate</span> <span class="n">memory</span>
-<span class="n">Couldn</span><span class="s1">&#39;t lock all cached virtual memory.</span>
-<span class="n">Pagefaults</span> <span class="kn">from</span> <span class="nn">reading</span> <span class="n">pages</span> <span class="ow">not</span> <span class="n">yet</span> <span class="n">mapped</span> <span class="n">into</span> <span class="n">RAM</span> <span class="n">will</span> <span class="n">be</span> <span class="n">recorded</span><span class="o">.</span>
+<div class="section" id="que-diablos-acaba-de-pasar">
+<h3><a class="toc-backref" href="#id4">¿Qué diablos acaba de pasar?</a><a class="headerlink" href="#que-diablos-acaba-de-pasar" title="Enlazar permanentemente con este título"></a></h3>
+<p>Primero, aunque redirigió stdout, verás algunos resultados en la consola (desde stderr):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mlockall</span> <span class="n">falló</span><span class="p">:</span> <span class="n">no</span> <span class="n">se</span> <span class="n">puede</span> <span class="n">asignar</span> <span class="n">memoria</span>
+<span class="n">No</span> <span class="n">se</span> <span class="n">pudo</span> <span class="n">bloquear</span> <span class="n">toda</span> <span class="n">la</span> <span class="n">memoria</span> <span class="n">virtual</span> <span class="n">almacenada</span> <span class="n">en</span> <span class="n">caché</span><span class="o">.</span>
+<span class="n">Se</span> <span class="n">registrarán</span> <span class="n">los</span> <span class="n">fallos</span> <span class="n">de</span> <span class="n">página</span> <span class="n">de</span> <span class="n">la</span> <span class="n">lectura</span> <span class="n">de</span> <span class="n">páginas</span> <span class="n">que</span> <span class="n">aún</span> <span class="n">no</span> <span class="n">se</span> <span class="n">han</span> <span class="n">asignado</span> <span class="n">a</span> <span class="n">la</span> <span class="n">RAM</span><span class="o">.</span>
 </pre></div>
 </div>
-<p>After the initialization stage of the demo program, it will attempt to lock all cached memory into RAM and prevent future dynamic memory allocations using <code class="docutils literal notranslate"><span class="pre">mlockall</span></code>.
-This is to prevent pagefaults from loading lots of new memory into RAM.
-(See <a class="reference external" href="https://design.ros2.org/articles/realtime_background.html#memory-management">the realtime design article</a> for more information.)</p>
-<p>The demo will continue on as usual when this occurs.
-At the bottom of the output.txt file generated by the demo, you’ll see the number of pagefaults encountered during execution:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rttest</span> <span class="n">statistics</span><span class="p">:</span>
-  <span class="o">-</span> <span class="n">Minor</span> <span class="n">pagefaults</span><span class="p">:</span> <span class="mi">20</span>
-  <span class="o">-</span> <span class="n">Major</span> <span class="n">pagefaults</span><span class="p">:</span> <span class="mi">0</span>
+<p>Después de la etapa de inicialización del programa demo, intentará bloquear toda la memoria caché en la RAM y evitar futuras asignaciones de memoria dinámica utilizando <code class="docutils literal notranslate"><span class="pre">mlockall</span></code>.
+Esto es para evitar que los fallos de página carguen mucha memoria nueva en la RAM.
+(Consulte <a class="reference external" href="https://design.ros2.org/articles/realtime_background.html#memory-management">el artículo de diseño en tiempo real</a> para obtener más información).</p>
+<p>La demo continuará como de costumbre cuando esto ocurra.
+En la parte inferior del archivo output.txt generado por la demo, verás la cantidad de fallas de página encontradas durante la ejecución:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Estadísticas</span> <span class="n">de</span> <span class="n">prueba</span><span class="p">:</span>
+   <span class="o">-</span> <span class="n">Faltas</span> <span class="n">de</span> <span class="n">página</span> <span class="n">menores</span><span class="p">:</span> <span class="mi">20</span>
+   <span class="o">-</span> <span class="n">Principales</span> <span class="n">fallos</span> <span class="n">de</span> <span class="n">página</span><span class="p">:</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<p>If we want those pagefaults to go away, we’ll have to…</p>
+<p>Si queremos que esos fallos de página desaparezcan, tendremos que…</p>
 </div>
-<div class="section" id="adjust-permissions-for-memory-locking">
-<h3><a class="toc-backref" href="#id5">Adjust permissions for memory locking</a><a class="headerlink" href="#adjust-permissions-for-memory-locking" title="Enlazar permanentemente con este título"></a></h3>
-<p>Add to <code class="docutils literal notranslate"><span class="pre">/etc/security/limits.conf</span></code> (as sudo):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">your</span> <span class="n">username</span><span class="o">&gt;</span>    <span class="o">-</span>   <span class="n">memlock</span>   <span class="o">&lt;</span><span class="n">limit</span> <span class="ow">in</span> <span class="n">kB</span><span class="o">&gt;</span>
+<div class="section" id="ajustar-permisos-para-bloqueo-de-memoria">
+<h3><a class="toc-backref" href="#id5">Ajustar permisos para bloqueo de memoria</a><a class="headerlink" href="#ajustar-permisos-para-bloqueo-de-memoria" title="Enlazar permanentemente con este título"></a></h3>
+<p>Agregue a <code class="docutils literal notranslate"><span class="pre">/etc/security/limits.conf</span></code> (como sudo):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">tu</span> <span class="n">usuario</span><span class="o">&gt;</span>    <span class="o">-</span>   <span class="n">memlock</span>   <span class="o">&lt;</span><span class="n">limite</span> <span class="n">en</span> <span class="n">kB</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>A limit of <code class="docutils literal notranslate"><span class="pre">-1</span></code> is unlimited.
-If you choose this, you may need to accompany it with <code class="docutils literal notranslate"><span class="pre">ulimit</span> <span class="pre">-l</span> <span class="pre">unlimited</span></code> after editing the file.</p>
-<p>After saving the file, log out and log back in.
-Then rerun the <code class="docutils literal notranslate"><span class="pre">pendulum_demo</span></code> invocation.</p>
-<p>You’ll either see zero pagefaults in your output file, or an error saying that a bad_alloc exception was caught.
-If this happened, you didn’t have enough free memory available to lock the memory allocated for the process into RAM.
-You’ll need to install more RAM in your computer to see zero pagefaults!</p>
+<p>Un límite de <code class="docutils literal notranslate"><span class="pre">-1</span></code> es ilimitado.
+Si eliges esto, es posible que debas acompañarlo con <code class="docutils literal notranslate"><span class="pre">ulimit</span> <span class="pre">-l</span> <span class="pre">unlimited</span></code> después de editar el archivo.</p>
+<p>Después de guardar el archivo, cierra la sesión y vuelveiniciarla.
+Luego vuelve a ejecutar la invocación <code class="docutils literal notranslate"><span class="pre">pendulum_demo</span></code>.</p>
+<p>Verás cero errores de página en tu archivo de salida o un error que indica que se detectó una excepción bad_alloc.
+Si esto sucediera, no tenía suficiente memoria libre disponible para bloquear la memoria asignada para el proceso en la RAM.
+¡Tendrás que instalar más RAM en su ordenador para ver cero fallas de página!</p>
 </div>
-<div class="section" id="output-overview">
-<h3><a class="toc-backref" href="#id6">Output overview</a><a class="headerlink" href="#output-overview" title="Enlazar permanentemente con este título"></a></h3>
-<p>To see more output, we have to run the <code class="docutils literal notranslate"><span class="pre">pendulum_logger</span></code> node.</p>
-<p>In one shell with your <code class="docutils literal notranslate"><span class="pre">install/setup.bash</span></code> sourced, invoke:</p>
+<div class="section" id="resumen-de-salida">
+<h3><a class="toc-backref" href="#id6">Resumen de salida</a><a class="headerlink" href="#resumen-de-salida" title="Enlazar permanentemente con este título"></a></h3>
+<p>Para ver más resultados, tenemos que ejecutar el nodo <code class="docutils literal notranslate"><span class="pre">pendulum_logger</span></code>.</p>
+<p>En un shell con su fuente <code class="docutils literal notranslate"><span class="pre">install/setup.bash</span></code>, ejecuta:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pendulum_logger
 </pre></div>
 </div>
-<p>You should see the output message:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Logger</span> <span class="n">node</span> <span class="n">initialized</span><span class="o">.</span>
+<p>Deberías ver el mensaje de salida:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Nodo</span> <span class="n">registrador</span> <span class="n">inicializado</span><span class="o">.</span>
 </pre></div>
 </div>
-<p>In another shell with setup.bash sourced, invoke <code class="docutils literal notranslate"><span class="pre">pendulum_demo</span></code> again.</p>
-<p>As soon as this executable starts, you should see the other shell constantly printing output:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Commanded</span> <span class="n">motor</span> <span class="n">angle</span><span class="p">:</span> <span class="mf">1.570796</span>
-<span class="n">Actual</span> <span class="n">motor</span> <span class="n">angle</span><span class="p">:</span> <span class="mf">1.570796</span>
-<span class="n">Mean</span> <span class="n">latency</span><span class="p">:</span> <span class="mf">210144.000000</span> <span class="n">ns</span>
-<span class="n">Min</span> <span class="n">latency</span><span class="p">:</span> <span class="mi">4805</span> <span class="n">ns</span>
-<span class="n">Max</span> <span class="n">latency</span><span class="p">:</span> <span class="mi">578137</span> <span class="n">ns</span>
-<span class="n">Minor</span> <span class="n">pagefaults</span> <span class="n">during</span> <span class="n">execution</span><span class="p">:</span> <span class="mi">0</span>
-<span class="n">Major</span> <span class="n">pagefaults</span> <span class="n">during</span> <span class="n">execution</span><span class="p">:</span> <span class="mi">0</span>
+<p>En otro shell con setup.bash de origen, ejecuta <code class="docutils literal notranslate"><span class="pre">pendulum_demo</span></code> de nuevo.</p>
+<p>Tan pronto como se inicie este ejecutable, deberías ver el otro shell imprimiendo constantemente la salida:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ángulo</span> <span class="n">motor</span> <span class="n">comandado</span><span class="p">:</span> <span class="mf">1.570796</span>
+<span class="n">Ángulo</span> <span class="n">real</span> <span class="k">del</span> <span class="n">motor</span><span class="p">:</span> <span class="mf">1.570796</span>
+<span class="n">Latencia</span> <span class="n">media</span><span class="p">:</span> <span class="mf">210144.000000</span> <span class="n">ns</span>
+<span class="n">Latencia</span> <span class="n">mínima</span><span class="p">:</span> <span class="mi">4805</span> <span class="n">ns</span>
+<span class="n">Latencia</span> <span class="n">máxima</span><span class="p">:</span> <span class="mi">578137</span> <span class="n">ns</span>
+<span class="n">Errores</span> <span class="n">de</span> <span class="n">página</span> <span class="n">menores</span> <span class="n">durante</span> <span class="n">la</span> <span class="n">ejecución</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">Principales</span> <span class="n">fallas</span> <span class="n">de</span> <span class="n">página</span> <span class="n">durante</span> <span class="n">la</span> <span class="n">ejecución</span><span class="p">:</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<p>The demo is controlling a very simple inverted pendulum simulation.
-The pendulum simulation calculates its position in its own thread.
-A ROS node simulates a motor encoder sensor for the pendulum and publishes its position.
-Another ROS node acts as a simple PID controller and calculates the next command message.</p>
-<p>The logger node periodically prints out the pendulum’s state and the runtime performance statistics of the demo during its execution phase.</p>
-<p>After the <code class="docutils literal notranslate"><span class="pre">pendulum_demo</span></code> is finished, you’ll have to CTRL-C out of the logger node to exit.</p>
+<p>La demostración controla una simulación de péndulo invertido muy simple.
+La simulación del péndulo calcula su posición en su propio hilo.
+Un nodo ROS simula un sensor codificador de motor para el péndulo y publica su posición.
+Otro nodo ROS actúa como un controlador PID simple y calcula el siguiente mensaje de comando.</p>
+<p>El nodo registrador imprime periódicamente el estado del péndulo y las estadísticas de rendimiento del tiempo de ejecución de la demostración durante su fase de ejecución.</p>
+<p>Después de que finalice <code class="docutils literal notranslate"><span class="pre">pendulum_demo</span></code>, tendrás que pulsar CTRL-C para salir del nodo del registrador.</p>
 </div>
-<div class="section" id="latency">
-<h3><a class="toc-backref" href="#id7">Latency</a><a class="headerlink" href="#latency" title="Enlazar permanentemente con este título"></a></h3>
-<p>At the <code class="docutils literal notranslate"><span class="pre">pendulum_demo</span></code> execution, you’ll see the final statistics collected for the demo:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rttest</span> <span class="n">statistics</span><span class="p">:</span>
-  <span class="o">-</span> <span class="n">Minor</span> <span class="n">pagefaults</span><span class="p">:</span> <span class="mi">0</span>
-  <span class="o">-</span> <span class="n">Major</span> <span class="n">pagefaults</span><span class="p">:</span> <span class="mi">0</span>
-  <span class="n">Latency</span> <span class="p">(</span><span class="n">time</span> <span class="n">after</span> <span class="n">deadline</span> <span class="n">was</span> <span class="n">missed</span><span class="p">):</span>
-    <span class="o">-</span> <span class="n">Min</span><span class="p">:</span> <span class="mi">3354</span> <span class="n">ns</span>
-    <span class="o">-</span> <span class="n">Max</span><span class="p">:</span> <span class="mi">2752187</span> <span class="n">ns</span>
-    <span class="o">-</span> <span class="n">Mean</span><span class="p">:</span> <span class="mf">19871.8</span> <span class="n">ns</span>
-    <span class="o">-</span> <span class="n">Standard</span> <span class="n">deviation</span><span class="p">:</span> <span class="mf">1.35819e+08</span>
+<div class="section" id="latencia">
+<h3><a class="toc-backref" href="#id7">Latencia</a><a class="headerlink" href="#latencia" title="Enlazar permanentemente con este título"></a></h3>
+<p>En la ejecución de <code class="docutils literal notranslate"><span class="pre">pendulum_demo</span></code>, verás las estadísticas finales recopiladas para la demostración:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Estadísticas</span> <span class="n">de</span> <span class="n">prueba</span><span class="p">:</span>
+   <span class="o">-</span> <span class="n">Faltas</span> <span class="n">de</span> <span class="n">página</span> <span class="n">menores</span><span class="p">:</span> <span class="mi">0</span>
+   <span class="o">-</span> <span class="n">Principales</span> <span class="n">fallos</span> <span class="n">de</span> <span class="n">página</span><span class="p">:</span> <span class="mi">0</span>
+   <span class="n">Latencia</span> <span class="p">(</span><span class="n">tiempo</span> <span class="n">después</span> <span class="n">de</span> <span class="n">que</span> <span class="n">se</span> <span class="n">perdió</span> <span class="n">la</span> <span class="n">fecha</span> <span class="n">límite</span><span class="p">):</span>
+     <span class="o">-</span> <span class="n">Min</span><span class="p">:</span> <span class="mi">3354</span> <span class="n">ns</span>
+     <span class="o">-</span> <span class="n">Máx</span><span class="p">:</span> <span class="mi">2752187</span> <span class="n">ns</span>
+     <span class="o">-</span> <span class="n">Media</span><span class="p">:</span> <span class="mf">19871.8</span> <span class="n">ns</span>
+     <span class="o">-</span> <span class="n">Desviación</span> <span class="n">estándar</span><span class="p">:</span> <span class="mf">1.35819e+08</span>
 
-<span class="n">PendulumMotor</span> <span class="n">received</span> <span class="mi">985</span> <span class="n">messages</span>
-<span class="n">PendulumController</span> <span class="n">received</span> <span class="mi">987</span> <span class="n">messages</span>
+ <span class="n">PendulumMotor</span> <span class="n">recibió</span> <span class="mi">985</span> <span class="n">mensajes</span>
+ <span class="n">PendulumController</span> <span class="n">recibió</span> <span class="mi">987</span> <span class="n">mensajes</span>
 </pre></div>
 </div>
-<p>The latency fields show you the minimum, maximum, and average latency of the update loop in nanoseconds.
-Here, latency means the amount of time after the update was expected to occur.</p>
-<p>The requirements of a real-time system depend on the application, but let’s say in this demo we have a 1kHz (1 millisecond) update loop, and we’re aiming for a maximum allowable latency of 5% of our update period.</p>
-<p>So, our average latency was really good in this run, but the maximum latency was unacceptable because it actually exceeded our update loop! What happened?</p>
-<p>We may be suffering from a non-deterministic scheduler.
-If you’re running a vanilla Linux system and you don’t have the RT_PREEMPT kernel installed, you probably won’t be able to meet the real-time goal we set for ourselves, because the Linux scheduler won’t allow you to arbitrarily pre-empt threads at the user level.</p>
-<p>See the <a class="reference external" href="https://design.ros2.org/articles/realtime_background.html#multithreaded-programming-and-synchronization">realtime design article</a> for more information.</p>
-<p>The demo attempts to set the scheduler and thread priority of the demo to be suitable for real-time performance.
-If this operation failed, you’ll see an error message: «Couldn’t set scheduling priority and policy: Operation not permitted».
-You can get slightly better performance by following the instructions in the next section:</p>
+<p>Los campos de latencia te muestran la latencia mínima, máxima y promedio del bucle de actualización en nanosegundos.
+Aquí, latencia significa la cantidad de tiempo después de que se esperaba que ocurriera la actualización.</p>
+<p>Los requisitos de un sistema en tiempo real dependen de la aplicación, pero supongamos que en esta demostración tenemos un ciclo de actualización de 1 kHz (1 milisegundo) y nuestro objetivo es una latencia máxima permitida del 5 % de nuestro período de actualización.</p>
+<p>Entonces, nuestra latencia promedio fue realmente buena en esta ejecución, pero la latencia máxima fue inaceptable porque en realidad excedió nuestro ciclo de actualización. ¿Qué sucedió?</p>
+<p>Es posible que suframos de un planificador no determinista.
+Si estás ejecutando un sistema Vanilla Linux y no tienes instalado el kernel RT_PREEMPT, probablemente no podrás cumplir con el objetivo en tiempo real que nos fijamos, porque el programador de Linux no te permitirá arbitrariamente adelantarse a los subprocesos a nivel de usuario.</p>
+<p>Consulta el <a class="reference external" href="https://design.ros2.org/articles/realtime_background.html#multithreaded-programming-and-synchronization">artículo de diseño en tiempo real</a> para obtener más información.</p>
+<p>La demostración intenta establecer la prioridad del programador y del subproceso de la demostración para que sea adecuada para el rendimiento en tiempo real.
+Si esta operación falla, verás un mensaje de error: «No se pudo establecer la política y la prioridad de programación: operación no permitida».
+Puedes obtener un rendimiento ligeramente mejor siguiendo las instrucciones de la siguiente sección:</p>
 </div>
-<div class="section" id="setting-permissions-for-the-scheduler">
-<h3><a class="toc-backref" href="#id8">Setting permissions for the scheduler</a><a class="headerlink" href="#setting-permissions-for-the-scheduler" title="Enlazar permanentemente con este título"></a></h3>
-<p>Add to <code class="docutils literal notranslate"><span class="pre">/etc/security/limits.conf</span></code> (as sudo):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">your</span> <span class="n">username</span><span class="o">&gt;</span>    <span class="o">-</span>   <span class="n">rtprio</span>   <span class="mi">98</span>
+<div class="section" id="configuracion-de-permisos-para-el-programador">
+<h3><a class="toc-backref" href="#id8">Configuración de permisos para el programador</a><a class="headerlink" href="#configuracion-de-permisos-para-el-programador" title="Enlazar permanentemente con este título"></a></h3>
+<p>Agrega a <code class="docutils literal notranslate"><span class="pre">/etc/security/limits.conf</span></code> (como sudo):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">tu</span> <span class="n">usuario</span><span class="o">&gt;</span>    <span class="o">-</span>   <span class="n">rtprio</span>   <span class="mi">98</span>
 </pre></div>
 </div>
-<p>The range of the rtprio (real-time priority) field is 0-99.
-However, do NOT set the limit to 99 because then your processes could interfere with important system processes that run at the top priority (e.g. watchdog).
-This demo will attempt to run the control loop at priority 98.</p>
+<p>El rango del campo rtprio (prioridad en tiempo real) es 0-99.
+Sin embargo, NO establezcas el límite en 99 porque tus procesos podrían interferir con procesos importantes del sistema que se ejecutan con máxima prioridad (por ejemplo, vigilancia).
+Esta demo intentará ejecutar el lazo de control con prioridad 98.</p>
 </div>
-<div class="section" id="plotting-results">
-<h3><a class="toc-backref" href="#id9">Plotting results</a><a class="headerlink" href="#plotting-results" title="Enlazar permanentemente con este título"></a></h3>
-<p>You can plot the latency and pagefault statistics that are collected in this demo after the demo runs.</p>
-<p>Because the code has been instrumented with <a class="reference external" href="https://github.com/ros2/rttest">rttest</a>, there are useful command line arguments available:</p>
+<div class="section" id="resultados-graficos">
+<h3><a class="toc-backref" href="#id9">Resultados gráficos</a><a class="headerlink" href="#resultados-graficos" title="Enlazar permanentemente con este título"></a></h3>
+<p>Puedes graficar las estadísticas de latencia y fallo de página que se recopilan en esta demostración después de que se ejecuta la demostración.</p>
+<p>Debido a que el código ha sido instrumentado con <a class="reference external" href="https://github.com/ros2/rttest">rttest</a>, hay argumentos de línea de comando útiles disponibles:</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 74%" />
-<col style="width: 16%" />
+<col style="width: 8%" />
+<col style="width: 76%" />
+<col style="width: 17%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>Command</p></td>
-<td><p>Description</p></td>
-<td><p>Default value</p></td>
+<tr class="row-odd"><td><p>Comando</p></td>
+<td><p>Descripción</p></td>
+<td><p>Valor por defecto</p></td>
 </tr>
 <tr class="row-even"><td><p>-i</p></td>
-<td><p>Specify how many iterations to run the real-time loop</p></td>
+<td><p>Especifica cuántas iteraciones ejecutar el ciclo en tiempo real</p></td>
 <td><p>1000</p></td>
 </tr>
 <tr class="row-odd"><td><p>-u</p></td>
-<td><p>Specify the update period with the default unit being microseconds.</p>
-<p>Use the suffix «s» for seconds, «ms» for milliseconds,</p>
-<p>«us» for microseconds, and «ns» for nanoseconds.</p>
+<td><p>Especifica el período de actualización con la unidad predeterminada en microsegundos.</p>
+<p>Usa el sufijo «s» para segundos, «ms» para milisegundos,</p>
+<p>«us» para microsegundos, y «ns» para nanosegundos.</p>
 </td>
 <td><p>1ms</p></td>
 </tr>
 <tr class="row-even"><td><p>-f</p></td>
-<td><p>Specify the name of the file for writing the collected data.</p></td>
+<td><p>Especifica el nombre del archivo para escribir los datos recopilados.</p></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<p>Run the demo again with a filename to save results:</p>
+<p>Vuelve a ejecutar la demo con un nombre de archivo para guardar los resultados:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pendulum_demo -f pendulum_demo_results
 </pre></div>
 </div>
-<p>Then run the <code class="docutils literal notranslate"><span class="pre">rttest_plot</span></code> script on the resulting file:</p>
+<p>Luego ejecuta el script <code class="docutils literal notranslate"><span class="pre">rttest_plot</span></code> en el archivo resultante:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rttest_plot pendulum_demo_results
 </pre></div>
 </div>
-<p>This script will produce three files:</p>
+<p>Este script producirá tres archivos:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pendulum_demo_results_plot_latency</span><span class="o">.</span><span class="n">svg</span>
 <span class="n">pendulum_demo_results_plot_majflts</span><span class="o">.</span><span class="n">svg</span>
 <span class="n">pendulum_demo_results_plot_minflts</span><span class="o">.</span><span class="n">svg</span>
 </pre></div>
 </div>
-<p>You can view these plots in an image viewer of your choice.</p>
+<p>Puedes ver estos gráficos en un visor de imágenes de su elección.</p>
 </div>
 </div>
 </div>
@@ -568,8 +568,8 @@ This demo will attempt to run the control loop at priority 98.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
-        <a href="Rosbag-with-ROS1-Bridge.html" class="btn btn-neutral float-left" title="Recording and playing back data with rosbag using the ROS 1 bridge" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
-        <a href="dummy-robot-demo.html" class="btn btn-neutral float-right" title="Experimenting with a dummy robot" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Rosbag-with-ROS1-Bridge.html" class="btn btn-neutral float-left" title="Grabación y reproducción de datos con rosbag utilizando ROS 1 bridge" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="dummy-robot-demo.html" class="btn btn-neutral float-right" title="Experimentando con un robot ficticio" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

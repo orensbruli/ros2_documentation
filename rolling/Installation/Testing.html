@@ -206,14 +206,14 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Tutorials/Demos.html">Demos</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../Tutorials/Demos/Quality-of-Service.html">Using quality-of-service settings for lossy networks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Tutorials/Demos/Managed-Nodes.html">Managing nodes with managed lifecycles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Tutorials/Demos/Intra-Process-Communication.html">Setting up efficient intra-process communication</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Tutorials/Demos/Rosbag-with-ROS1-Bridge.html">Recording and playing back data with <code class="docutils literal notranslate"><span class="pre">rosbag</span></code> using the ROS 1 bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/Demos/Quality-of-Service.html">Uso de configuraciones de calidad de servicio para redes con pérdidas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/Demos/Managed-Nodes.html">Gestión de lifecycle nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/Demos/Intra-Process-Communication.html">Establecer una comunicación intraproceso eficiente</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/Demos/Rosbag-with-ROS1-Bridge.html">Grabación y reproducción de datos con <code class="docutils literal notranslate"><span class="pre">rosbag</span></code> utilizando ROS 1 bridge</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Tutorials/Demos/Real-Time-Programming.html">Understanding real-time programming</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Tutorials/Demos/dummy-robot-demo.html">Experimenting with a dummy robot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Tutorials/Demos/Logging-and-logger-configuration.html">Logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Tutorials/Demos/Content-Filtering-Subscription.html">Creating a content filtering subscription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/Demos/dummy-robot-demo.html">Experimentando con un robot ficticio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/Demos/Logging-and-logger-configuration.html">Registro de mensajes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/Demos/Content-Filtering-Subscription.html">Creación de un suscriptor de filtrado de contenido</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Tutorials/Miscellaneous.html">Miscellaneous</a><ul>
@@ -379,7 +379,7 @@ A medida que se compilan los paquetes dependientes, un proceso automático sincr
 <p>Para los sistemas operativos basados en Debian, puedes instalar paquetes binarios desde el repositorio <strong>ros-testing</strong>.</p>
 <ol class="arabic">
 <li><p>Asegúrese de tener una instalación de ROS 2 en funcionamiento desde paquetes de Debian (consulte <a class="reference internal" href="../Installation.html"><span class="doc">Instalación</span></a>).</p></li>
-<li><p>Edita (con sudo) el archivo <code class="docutils literal notranslate"><span class="pre">/etc/apt/sources.list.d/ros2-latest.list</span></code> y cambia <code class="docutils literal notranslate"><span class="pre">ros2</span></code> por <code class="docutils literal notranslate"><span class="pre">ros2-testing</span></code>.
+<li><p>Edita (con sudo) el archivo <code class="docutils literal notranslate"><span class="pre">/etc/apt/sources.list.d/ros2.list</span></code> y cambia <code class="docutils literal notranslate"><span class="pre">ros2</span></code> por <code class="docutils literal notranslate"><span class="pre">ros2-testing</span></code>.
 Por ejemplo, en Ubuntu Jammy, el contenido debería tener el siguiente aspecto:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># deb http://packages.ros.org/ros2/ubuntu jammy main</span>
 deb http://packages.ros.org/ros2-testing/ubuntu jammy main
@@ -401,8 +401,14 @@ deb http://packages.ros.org/ros2-testing/ubuntu jammy main
 </pre></div>
 </div>
 </li>
-<li><p>Una vez que hayas terminado de probar, puedes volver al repositorio normal cambiando el contenido de <code class="docutils literal notranslate"><span class="pre">/etc/apt/sources.list.d/ros2-latest.list</span></code>:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>deb http://packages.ros.org/ros2/ubuntu jammy main
+</ol>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+6. Una vez que hayas terminado de probar, puedes volver al repositorio normal cambiando el contenido de <code class="docutils literal notranslate"><span class="pre">/etc/apt/sources.list.d/ros2-latest.list</span></code>:
+=======
+6. Once you are finished testing, you can switch back to the normal repository by changing back the contents of <code class="docutils literal notranslate"><span class="pre">/etc/apt/sources.list.d/ros2.list</span></code>:
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/rolling</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>deb http://packages.ros.org/ros2/ubuntu jammy main
 <span class="c1"># deb http://packages.ros.org/ros2-testing/ubuntu jammy main</span>
 </pre></div>
 </div>
@@ -411,8 +417,7 @@ deb http://packages.ros.org/ros2-testing/ubuntu jammy main
 sudo apt dist-upgrade
 </pre></div>
 </div>
-</li>
-</ol>
+</div></blockquote>
 </div>
 <div class="section" id="binarios-pesados-fat-binaries">
 <span id="prerelease-binaries"></span><h2>Binarios pesados (Fat binaries)<a class="headerlink" href="#binarios-pesados-fat-binaries" title="Enlazar permanentemente con este título"></a></h2>
