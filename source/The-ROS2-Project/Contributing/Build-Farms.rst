@@ -8,145 +8,129 @@
 ROS Build Farms
 ===============
 
-.. contents:: Table of Contents
+.. contents:: Tabla de contenidos
    :depth: 1
    :local:
 
-The ROS build farms are an important infrastructure to support the ROS ecosystem, provided and
-maintained by `Open Robotics`_.
-They provide building of source and binary packages, continuous integration, testing, and analysis for ROS 1 and ROS 2 packages.
-There are two hosted instance for open source packages:
+Las granjas de compilación de ROS son una infraestructura importante para apoyar el ecosistema de ROS, proporcionada y mantenida por `Open Robotics`_.
+Proporcionan la construcción de paquetes fuente y binarios, integración continua, pruebas y análisis para paquetes de ROS 1 y ROS 2.
+Hay dos instancias alojadas para paquetes de código abierto:
 
-#. https://build.ros.org/ for ROS 1 packages
-#. https://build.ros2.org/ for ROS 2 packages
+#. https://build.ros.org/ para paquetes de ROS 1
+#. https://build.ros2.org/ para paquetes de ROS 2
 
-If you are going to use any of the provided infrastructure please consider signing up for the
-`build farm discussion forum <http://discourse.ros.org/c/buildfarm>`__ in order to receive notifications,
-e.g., about any upcoming changes.
+Si va a utilizar cualquiera de las infraestructuras proporcionadas, considere registrarse en el
+`foro de discusión de la granja de compilación <http://discourse.ros.org/c/buildfarm>`__ para recibir notificaciones,
+por ejemplo, sobre cualquier cambio próximo.
 
-
-Jobs and Deployment
+Trabajos y despliegue
 -------------------
 
-The ROS build farms perform several different jobs.
-For each job type you will find a detailed description of what they do and how they work:
+Las granjas de compilación de ROS realizan varios trabajos diferentes.
+Para cada tipo de trabajo, encontrará una descripción detallada de lo que hacen y cómo funcionan:
 
-* `release jobs`_ generate binary packages, e.g., debian packages
-* `devel jobs`_ build and test ROS packages within a single repository on a polling basis
-* `pull_request jobs`_ build and test ROS packages within a single repository triggered by webhooks
-* `CI jobs`_ build and test ROS packages across repositories with the option of using artifacts
-  from other CI jobs to speed up the build
-* `doc jobs`_ generate the API documentation of packages and extract information from the manifests
-* `miscellaneous jobs`_ perform maintenance tasks and generate informational data to visualize the
-  status of the build farm and its generated artifacts
+* `trabajos de liberación`_ generan paquetes binarios, por ejemplo, paquetes debian
+* `trabajos de desarrollo`_ construyen y prueban paquetes de ROS dentro de un solo repositorio sobre una base de encuesta
+* `trabajos de solicitudes de extracción`_ construyen y prueban paquetes de ROS dentro de un solo repositorio desencadenado por webhooks
+* `trabajos de integración continua`_ construyen y prueban paquetes de ROS en repositorios con la opción de usar artefactos
+  de otros trabajos de integración continua para acelerar la construcción
+* `trabajos de documentación`_ generan la documentación de la API de los paquetes y extraen información de los manifiestos
+* `trabajos varios`_ realizan tareas de mantenimiento y generan datos informativos para visualizar el
+  estado de la granja de compilación y sus artefactos generados
 
-Creation and Deployment
+Creación y despliegue
 .......................
 
-The above jobs are created and deployed when packages are bloomed_, i.e. released for ROS
-1 or ROS 2.
-Once blooming is successful and a package is incorporated in one of the ROS
-distributions (via pull request to rosdistro_), the according jobs will be spawned.
-The names of the jobs encode their type and purpose: [1]_
+Los trabajos anteriores se crean y se despliegan cuando se crean paquetes, es decir, liberados para ROS
+1 o ROS 2.
+Una vez que la floración es exitosa y un paquete se incorpora en una de las ROS
+distribuciones (a través de una solicitud de extracción a rosdistro_), se generarán los trabajos correspondientes.
+Los nombres de los trabajos codifican su tipo y propósito: [1]_
 
-* release jobs:
+* trabajos de liberación:
 
-   * ``{distro}src_{platf}__{package}__{platform}__source`` build source packages of releases
-   * ``{distro}bin_{platf}__{package}__{platform}__binary`` build binary packages of releases
+   * ``{distro}src_{platf}__{package}__{platform}__source`` construir paquetes fuente de las liberaciones
+   * ``{distro}bin_{platf}__{package}__{platform}__binary`` construir paquetes binarios de las liberaciones
 
-   For instance, the binary packaging job of rclcpp on ROS 2 Humble (running on Ubuntu Jammy amd64) is named ``Hbin_uJ64__rclcpp__ubuntu_focal_amd64__binary``.
+   Por ejemplo, el trabajo de empaquetado binario de rclcpp en ROS 2 Humble (ejecutándose en Ubuntu Jammy amd64) se llama ``Hbin_uJ64__rclcpp__ubuntu_focal_amd64__binary``.
 
-* devel jobs:
+* trabajos de desarrollo:
 
-   * ``{distro}dev__{package}__{platform}`` perform a CI build for the releasing branch
+   * ``{distro}dev__{package}__{platform}`` realiza una compilación CI para la rama de liberación.
 
-* pull_request jobs
+* trabajos de solicitud de extracción
 
-   * ``{distro}pr__{package}__{platform}`` perform a CI build for a pull request
+   * ``{distro}pr__{package}__{platform}`` realiza una compilación CI para una solicitud de extracción.
 
-   For instance, the PR job for rclcpp on ROS 2 Humble (running on Ubuntu Jammy amd64) is named ``Hpr__rclcpp__ubuntu_jammy_amd64``.
+   Por ejemplo, el trabajo de PR para rclcpp en ROS 2 Humble (ejecutándose en Ubuntu Jammy amd64) se llama ``Hpr__rclcpp__ubuntu_jammy_amd64``.
 
-Execution
+Ejecución
 .........
 
-Execution of the jobs depends on the type of the job:
+La ejecución de los trabajos depende del tipo de trabajo:
 
-* `devel jobs`_ will be triggered every time a commit is done to the respective branch polling based on a configured frequency.
-* `pull_request jobs`_ will be triggered by webhooks from respective pull request of the upstream [2]_ repository
-* `release jobs`_ will be triggered once every time a new package version is released, i.e. a new
-  rosdistro_ pull request was accepted for this package. The source jobs are triggered by a version
-  change in the rosdistro distribution file, the binary jobs are triggered by their source counterpart.
+* Los trabajos de `desarrollo`_ se activarán cada vez que se realice un compromiso en la rama respectiva, en función de una frecuencia configurada.
+* Los trabajos de `solicitud de extracción`_ se activarán mediante webhooks de la solicitud de extracción respectiva del repositorio aguas arriba [2]_
+* Los trabajos de `lanzamiento`_ se activarán una vez cada vez que se publique una nueva versión del paquete, es decir, se aceptó una nueva solicitud de extracción de rosdistro_ para este paquete. Los trabajos de origen se activan mediante un cambio de versión en el archivo de distribución rosdistro, los trabajos binarios se activan mediante su homólogo de origen.
 
 
-Frequency Asked Questions (FAQ) and Troubleshooting
+Preguntas frecuentes (FAQ) y solución de problemas
 ---------------------------------------------------
 
-#. **I get Jenkins mails from failing build farm jobs. What do I do?**
+#. **Recibo correos electrónicos de Jenkins de trabajos fallidos en la granja de compilación. ¿Qué hago?**
 
-   Go to the job that raised the issue. You find the link on top of the Jenkins email.
-   Once you followed the link to the build job, click *Console Output* on the left, then click
-   *Full Log*. This will give you the full console output of the failing build. Try to find the
-   top-most error as it is usually the most important and other errors might be follow-ups.
+   Vaya al trabajo que provocó el problema. Encontrará el enlace en la parte superior del correo electrónico de Jenkins.
+   Una vez que haya seguido el enlace al trabajo de compilación, haga clic en *Salida de la consola* a la izquierda, y luego haga clic
+   *Registro completo*. Esto le dará la salida de consola completa de la compilación fallida. Trate de encontrar el
+   el error más importante, ya que suele ser el más importante y otros errores pueden ser secuelas.
 
-   The bottom of the email might read ``'apt-src build [...]' failed. This is usually because of
-   an error building the package.`` This usually hints at missing dependencies, see 2.
+   La parte inferior del correo electrónico puede leer ``'apt-src build [...]' failed. Esto suele ser debido a
+   un error al construir el paquete.`` Esto suele indicar la falta de dependencias, consulte 2.
 
-#. **I seem to be missing a dependency, how do I find out which one?**
+#. **Parece que me falta una dependencia, ¿cómo descubro cuál es?**
 
-   You basically have two options, a. is easier but may take several iterations, b. is more
-   elaborate and gives you the full insight as well as local debugging.
+   Básicamente, tiene dos opciones, a. es más fácil pero puede requerir varias iteraciones, b. es más
+   elaborado y le brinda una visión completa y también depuración local.
 
-   a) Inspect the release job that raised the issue (see 1.) and localize the cmake dependency
-      issue. To do so, browse to the cmake section, e.g., navigate to the *build binarydeb*
-      section through the menu on the left in case of a ubuntu/debian build job. The *CMake Error*
-      will typically hint at a dependency required by the cmake configuration but missing in the
-      `package manifest`_. Once you have fixed the dependency in the manifest, do a new release
-      of your package and wait for feedback from the build farms or...
-   b) To get the full insight and faster, local debugging, you can `run the release jobs locally`_.
-      This allows to iterate the manifest locally until all dependencies are fixed.
+   a) Inspeccione el trabajo de lanzamiento que provocó el problema (consulte 1.) y localice la dependencia de cmake
+      problema de dependencia. Para hacerlo, navegue hasta la sección cmake, por ejemplo, navegue hasta la sección *construir binarydeb*
+      sección a través del menú de la izquierda en caso de un trabajo de compilación ubuntu / debian. El *Error de CMake*
+      típicamente indicará una dependencia requerida por la configuración de CMake pero que falta en el
+      `manifiesto del paquete`_. Una vez que haya solucionado la dependencia en el manifiesto, realice una nueva publicación
+      de su paquete y espere comentarios de las granjas o...
+   b) Para obtener una visión completa y una depuración local más rápida, se pueden `ejecutar los trabajos de lanzamiento localmente`_.
+      Esto permite iterar localmente el manifiesto hasta que se arreglen todas las dependencias.
 
-#. **Why do release jobs fail when devel jobs / my github actions / my local builds succeed?**
+#. **¿Por qué los trabajos de lanzamiento fallan cuando los trabajos de desarrollo / mis acciones de github / mis compilaciones locales tienen éxito?**
 
-   There are several potential reasons for this.
-   First, release jobs build against a minimal ROS installation to check if all dependencies are
-   properly declared in the `package manifest`_. Devel jobs / github actions / local builds may
-   be performed in an environment that has the dependencies already installed, therefore does not
-   notice dependency issues. Second, they might build different versions of the source code.
-   While devel jobs / github actions / local builds usually build the latest version from the
-   *upstream* [2]_ repository, `release jobs`_ build the source code of the latest release, i.e.
-   the source code in the respective *upstream* branches of the *release* repository [3]_.
+   Hay varias posibles razones para esto.
+   En primer lugar, los trabajos de lanzamiento se construyen con una instalación ROS mínima para comprobar si todas las dependencias están declaradas correctamente en el `manifiesto del paquete`_. Los trabajos de desarrollo / acciones de github / compilaciones locales se pueden realizar en un entorno en el que las dependencias ya están instaladas, por lo tanto, no se detectan problemas de dependencias. En segundo lugar, pueden construir diferentes versiones del código fuente. Mientras que los trabajos de desarrollo / acciones de github / compilaciones locales suelen construir la última versión del repositorio *upstream* [2]_, `los trabajos de lanzamiento`_ construyen el código fuente de la última versión de lanzamiento, es decir, el código fuente en las respectivas ramas *upstream* del repositorio de *lanzamiento* [3]_.
 
 
-Further Reading
----------------
+Lectura adicional
+-----------------
 
-The following links provide more details and insights into the build farms:
+Los siguientes enlaces proporcionan más detalles e información sobre las granjas de compilación:
 
-* https://github.com/ros-infrastructure/ros_buildfarm/blob/master/doc/index.rst - General
-  documentation of the build farm infrastructure and the generated build jobs
+* https://github.com/ros-infrastructure/ros_buildfarm/blob/master/doc/index.rst - Documentación general de la infraestructura de la granja de compilación y los trabajos de compilación generados.
 * http://wiki.ros.org/regression_tests#Setting_up_Your_Computer_for_Prerelease
-* http://wiki.ros.org/buildfarm - ROS wiki entry for the ROS 1 build farm (partially *outdated*)
-* https://github.com/ros-infrastructure/cookbook-ros-buildfarm - Installs and configures ROS build
-  farm machines
+* http://wiki.ros.org/buildfarm - Entrada del wiki de ROS para la granja de compilación ROS 1 (parcialmente *desactualizado*).
+* https://github.com/ros-infrastructure/cookbook-ros-buildfarm - Instala y configura máquinas de granja de compilación de ROS.
 
 
-.. [1] ``{distro}`` is the first letter of the ROS distribution, ``{platform}`` (``{platf}``)
-   names the platform the package is built for (and its short code), and ``{package}`` is the
-   name of the ROS package being built.
-.. [2] The *upstream* repository is the repository containing the original source code of the
-   respective ROS 1 / ROS 2 package.
-.. [3] The *release* repository is the repository that ROS 2 infrastructure uses for releasing
-   packages, see https://github.com/ros2-gbp/.
+.. [1] ``{distro}`` es la primera letra de la distribución de ROS, ``{platform}`` (``{platf}``) nombra la plataforma para la que se construye el paquete (y su código corto), y ``{package}`` es el nombre del paquete ROS que se está construyendo.
+.. [2] El repositorio *upstream* es el repositorio que contiene el código fuente original del paquete ROS 1 / ROS 2 correspondiente.
+.. [3] El repositorio de *lanzamiento* es el repositorio que utiliza la infraestructura de ROS 2 para lanzar paquetes, consulte https://github.com/ros2-gbp/.
 
-.. _`release jobs`:
+.. _`los trabajos de lanzamiento`:
    https://github.com/ros-infrastructure/ros_buildfarm/blob/master/doc/jobs/release_jobs.rst
-.. _`devel jobs`:
+.. _`los trabajos de desarrollo`:
    https://github.com/ros-infrastructure/ros_buildfarm/blob/master/doc/jobs/devel_jobs.rst
-.. _`pull_request jobs`:
+.. _`trabajos de solicitud de extracción`:
    https://github.com/ros-infrastructure/ros_buildfarm/blob/master/doc/jobs/devel_jobs.rst
-.. _`CI jobs`:
+.. _`trabajos de CI`:
    https://github.com/ros-infrastructure/ros_buildfarm/blob/master/doc/jobs/ci_jobs.rst
-.. _`doc jobs`:
+.. _`trabajos de documentación`:
    https://github.com/ros-infrastructure/ros_buildfarm/blob/master/doc/jobs/doc_jobs.rst
 .. _`miscellaneous jobs`:
    https://github.com/ros-infrastructure/ros_buildfarm/blob/master/doc/jobs/miscellaneous_jobs.rst
